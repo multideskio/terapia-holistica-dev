@@ -34,28 +34,28 @@
                 <li class="menu-title">
                     <span data-key="t-menu">Menu</span>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/home') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Home</span>
+                        <i class="bi bi-speedometer"></i> <span>Home</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/anamnese') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Anamnese</span>
+                        <i class="bi bi-pencil-square"></i> <span>Anamnese</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/analytics') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Relatórios</span>
+                        <i class="bi bi-pie-chart"></i> <span>Relatórios</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/finance') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Financeiro</span>
+                        <i class="bi bi-cash-coin"></i> <span>Financeiro</span>
                     </a>
                 </li>
 
@@ -65,19 +65,19 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/contacts') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Contato</span>
+                    <i class="bi bi-people"></i> <span>Contato</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/file-manager') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Arquivos</span>
+                    <i class="bi bi-archive"></i> <span>Arquivos</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/tasks') ?>">
-                        <i class="ri-dashboard-2-line"></i> <span>Tarefas</span>
+                    <i class="bi bi-list-task"></i> <span>Tarefas</span>
                     </a>
                 </li>
 
