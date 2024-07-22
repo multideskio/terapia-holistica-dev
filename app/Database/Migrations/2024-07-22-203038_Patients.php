@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Users extends Migration
+class Patients extends Migration
 {
     public function up()
     {
@@ -13,24 +13,21 @@ class Users extends Migration
         $db->disableForeignKeyChecks();
 
         $this->forge->addField([
-
+            
             'id' => [
                 'type' => 'BIGINT',
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-
-            'platformId' => [
-                'type' => 'int',
+            'idUser' => [
+                'type' => 'BIGINT',
                 'unsigned' => true
             ],
-
             'name' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
                 'null' => true
             ],
-
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
@@ -41,34 +38,18 @@ class Users extends Migration
                 'constraint' => '20',
                 'null' => true
             ],
-            'password' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
+            'birthDate' => [
+                'type' => 'date',
                 'null' => true
             ],
-
-            'token' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true
-            ],
-
-            'checked' => [
-                'type' => 'BOOLEAN',
-                'null' => false,
-                'DEFAULT' => false
-            ],
-
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-
             'updated_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-
             'deleted_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
@@ -77,14 +58,16 @@ class Users extends Migration
 
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('platformId', 'platform', 'id', 'NO ACTION', 'NO ACTION');
-        $this->forge->createTable('users', true);
+        $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
+
+        $this->forge->createTable('patients', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('users', true);
+        $this->forge->dropTable('patients', true);
+
     }
 }
