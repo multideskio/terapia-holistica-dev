@@ -50,7 +50,7 @@ class Subscriptions extends Migration
         $db->enableForeignKeyChecks();
 
         $seeder = \Config\Database::seeder();
-        $seeder->call('userSeeder');
+        $seeder->call('UserSeeder');
     }
 
     public function down()
