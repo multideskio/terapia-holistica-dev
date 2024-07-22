@@ -22,6 +22,10 @@ $routes->group('dashboard', static function ($routes) {
 
 
 
-$routes->group('api/v1', static function ($routes) {
-    
+$routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static function ($routes) {
+    $routes->group('webhook', ['filter'], static function ($routes){
+        $routes->get('', 'Webhook::index', ['filter' => 'cors']);
+        $routes->post('', 'Webhook::index', ['filter' => 'cors']);
+    });
+    //$routes->resource('webhook', ['filter' => 'cors']);
 });

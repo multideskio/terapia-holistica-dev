@@ -20,7 +20,7 @@ class WebhookLogs extends Migration
                 'auto_increment' => true,
             ],
 
-            'planId' => [
+            'platformId' => [
                 'type' => 'int',
                 'unsigned' => true
             ],
@@ -65,7 +65,7 @@ class WebhookLogs extends Migration
 
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('planId', 'plans', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('platformId', 'platform', 'id', 'NO ACTION', 'NO ACTION');
         $this->forge->createTable('webhookLogs', true);
         $db->enableForeignKeyChecks();
     }
