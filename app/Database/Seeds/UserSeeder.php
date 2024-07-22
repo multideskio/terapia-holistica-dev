@@ -8,10 +8,11 @@ use App\Models\SubscriptionsModel;
 use App\Models\UsersModel;
 use CodeIgniter\Database\Seeder;
 
-class Init extends Seeder
+class UserSeeder extends Seeder
 {
     public function run()
     {
+        //
         //
         $modelPlatform = new PlatformModel();
         $idPlatform = $modelPlatform->insert([
