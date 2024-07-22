@@ -66,13 +66,13 @@ class WebhookLogs extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('platformId', 'platform', 'id', 'NO ACTION', 'NO ACTION');
-        $this->forge->createTable('webhookLogs', true);
+        $this->forge->createTable('logs_webhook', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('webhookLogs', true);
+        $this->forge->dropTable('logs_webhook', true);
     }
 }

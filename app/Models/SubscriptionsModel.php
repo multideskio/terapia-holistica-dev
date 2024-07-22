@@ -12,7 +12,7 @@ class SubscriptionsModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['idPlan', 'idUser'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

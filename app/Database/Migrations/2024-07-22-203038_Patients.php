@@ -28,6 +28,13 @@ class Patients extends Migration
                 'constraint' => '255',
                 'null' => true
             ],
+            
+            'photo' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true
+            ],
+
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',

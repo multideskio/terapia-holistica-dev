@@ -43,16 +43,19 @@ class Subscriptions extends Migration
 
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('idPlan', 'plan', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('idPlan', 'plans', 'id', 'NO ACTION', 'NO ACTION');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
 
-        $this->forge->createTable('subscritions', true);
+        $this->forge->createTable('subscriptions', true);
         $db->enableForeignKeyChecks();
+
+        $seeder = \Config\Database::seeder();
+        $seeder->call('init');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('subscritions', true);
+        $this->forge->dropTable('subscriptions', true);
     }
 }
