@@ -19,7 +19,7 @@
                     <?php echo view('partials/page-title', array('pagetitle' => NAME_SYSTEN, 'title' => $titlePage)); ?>
                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                         <div class="flex-grow-1">
-                            <h4 class="fs-16 mb-1"><?= saudacao(session('data')['name']) ?></h4>
+                            <h4 class="fs-1 mb-1"><?= saudacao(session('data')['name']) ?></h4>
                         </div>
                     </div>
                     <?= $this->renderSection('page') ?>

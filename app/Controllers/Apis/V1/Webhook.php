@@ -2,9 +2,12 @@
 
 namespace App\Controllers\Apis\V1;
 
+use App\Models\PlansModel;
+use App\Models\UsersModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
+use Exception;
 
 class Webhook extends ResourceController
 {
@@ -14,6 +17,12 @@ class Webhook extends ResourceController
      *
      * @return ResponseInterface
      */
+    protected $request;
+    public function __construct()
+    {
+        helper('auxiliar');
+        $this->request = service('request');
+    }
     public function index()
     {
         //
@@ -86,5 +95,57 @@ class Webhook extends ResourceController
     public function delete($id = null)
     {
         //
+    }
+
+    public function createUser($product = null)
+    {
+        try {
+
+            //Verifica a key enviada no header
+            if ($this->request->getHeaderLine('Key') != 'key') {
+                throw new Exception('Sem permissão para executar');
+            }
+
+            if (!$product) {
+                throw new Exception('Sem permissão para executar');
+            }
+
+            $modelPlan = new PlansModel();
+            $rowPlan   = $modelPlan->where('idPlan', $product)->first();
+
+            //Plano não encontrado
+            if (!$rowPlan) {
+                throw new Exception('Entrega não encontrada');
+            }
+
+            //Verifica se já existe usuário com esse e-mail
+            $email = $this->request->getJsonVar('email');
+            $modelUser = new UsersModel();
+            $rowUser = $modelUser->where('email', $email)->first();
+
+            $data = [
+                'name'     => $this->request->getJsonVar('name'),
+                'email'    => $email,
+                'password' => 'mudar@123',
+                'token'    => gera_token()
+            ];
+
+            $sanitize = esc($data);
+
+            if ($rowUser) {
+                //Usuário já existe
+                //Cancela a assinatura anterior e cria uma nova
+
+            } else {
+                //Usuário não existe
+                //Cria um novo usuário e relaciona a um plano
+
+            }
+
+            return $this->respondCreated($sanitize);
+        } catch (\Exception $e) {
+
+            return $this->failForbidden($e->getMessage());
+        }
     }
 }

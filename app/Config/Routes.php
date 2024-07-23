@@ -10,7 +10,14 @@ $routes->get('/', 'Login::index');
 $routes->post('/auth', 'Login::auth');
 $routes->get('/logout', 'Login::logout');
 
-$routes->addRedirect('dashboard', 'dashboard/ts');
+
+//URL ABERTA PARA CRIAR A CONTA ATRAVÉS DO GATEWAY DE PAGAMENTO
+// TIPO POST
+// PASSA O ID DO PRODUTO NO ULTIMO PARAMETRO
+$routes->post('init/webhook/(:any)', '\App\Controllers\Apis\V1\Webhook::createUser/$1');
+
+
+$routes->addRedirect('dashboard', 'dashboard/ts/home');
 
 $routes->group('dashboard/ts', ['filter' => ['ts', 'auth']], static function ($routes) {
     $routes->get('/', 'Home::index');

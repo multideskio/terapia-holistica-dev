@@ -6,8 +6,12 @@
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);"><?= ($pagetitle) ? $pagetitle : '' ?></a></li>
-                    <li class="breadcrumb-item active"><?= ($title) ? $title : '' ?></li>
+                    <li class="breadcrumb-item">
+                        <a href="javascript: void(0);"><?= ($pagetitle) ? $pagetitle : '' ?></a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <?= ($title) ? $title : '' ?>
+                    </li>
                 </ol>
             </div>
 
