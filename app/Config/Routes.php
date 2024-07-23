@@ -10,6 +10,7 @@ $routes->get('/', 'Login::index');
 $routes->post('/auth', 'Login::auth');
 $routes->get('/logout', 'Login::logout');
 
+$routes->addRedirect('dashboard', 'dashboard/ts');
 
 $routes->group('dashboard/ts', ['filter' => ['ts', 'auth']], static function ($routes) {
     $routes->get('/', 'Home::index');
