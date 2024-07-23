@@ -18,27 +18,59 @@ class UserSeeder extends Seeder
         $idPlatform = $modelPlatform->insert([
             'company' => 'Plataforma'
         ]);
+
         $modePlan = new PlansModel();
-        $idPlan = $modePlan->insert([
+        $dataPlan[1] = [
             'platformId' => $idPlatform,
-            'namePlan'   => 'Default',
-            'idPlan'     => 123456,
-            'permissionUser' => 3,
+            'namePlan'   => 'TP',
+            'idPlan'     => 'sz2x8n53rpuherq6hx3ow3fcsc57dd',
+            'permissionUser' => 1,
             'timeSubscription' => 0
-        ]);
-        $modelUser = new UsersModel();
-        $idUser = $modelUser->insert([
+        ];
+        $dataPlan[2] = [
             'platformId' => $idPlatform,
-            'name' => 'Administrador',
-            'email' => 'igrsysten@gmail.com',
-            'password' => 123456,
+            'namePlan'   => 'TS',
+            'idPlan'     => 'daoq4ookxf98xz2y6yq6vnj083yfs6',
+            'permissionUser' => 2,
+            'timeSubscription' => 0
+        ];
+        $idPlan = $modePlan->insertBatch($dataPlan);
+
+        $modelUser = new UsersModel();
+
+        $dataUser[1] = [
+            'platformId' => $idPlatform,
+            'name' => 'Demo TP',
+            'email' => 'tp@conect.app',
+            'password' => password_hash('123456', PASSWORD_BCRYPT),
             'phone' => '+55 (62) 9 8115-4120',
-            'checked' => 1
-        ]);
+            'checked' => 1,
+            'photo' => '/assets/images/users/user-dummy-img.jpg',
+            'token' => time()
+        ];
+
+        $dataUser[2] = [
+            'platformId' => $idPlatform,
+            'name' => 'Demo TS',
+            'email' => 'ts@conect.app',
+            'password' => password_hash('123456', PASSWORD_BCRYPT),
+            'phone' => '+55 (62) 9 8115-4120',
+            'checked' => 1,
+            'photo' => '/assets/images/users/user-dummy-img.jpg',
+            'token' => time()*10
+        ];
+        $idUser = $modelUser->insertBatch($dataUser);
+        
         $modelSubscription = new SubscriptionsModel();
-        $idSubscription = $modelSubscription->insert([
+        $dataSub[1] = [
             'idPlan' => 1,
             'idUser' => 1
-        ]);
+        ];
+
+        $dataSub[2] = [
+            'idPlan' => 2,
+            'idUser' => 2
+        ];
+        $idSubscription = $modelSubscription->insertBatch($dataSub);
     }
 }

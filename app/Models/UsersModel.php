@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Exception;
 
 class UsersModel extends Model
 {
@@ -44,7 +45,8 @@ class UsersModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    protected function beforeIn(array $data){
+    protected function beforeIn(array $data)
+    {
         //Busca functions auxiliar
         helper("auxiliar");
 
@@ -60,6 +62,73 @@ class UsersModel extends Model
             $data["data"]["photo"] = '/assets/images/users/user-dummy-img.jpg';
         }
 
-        return $data ;
+        return $data;
+    }
+
+
+    public function auth(array $input)
+    {
+
+
+        try {
+
+            $pass  = $input['pass'];
+            $email = $input['email'];
+            
+            $rowLogin = $this->where('email', $email)->first();
+
+            if (!$rowLogin) {
+                throw new Exception('E-mail não encontrado');
+            }
+
+            if (!password_verify($pass, $rowLogin['password'])) {
+                throw new Exception('Senha invalída');
+            };
+
+            $modelSubscription = new SubscriptionsModel();
+            $rowSubscription   = $modelSubscription->where('idUser', $rowLogin['id'])->first();
+
+            if (!$rowSubscription) {
+                throw new Exception('Você não tem uma inscrição ativo.');
+            };
+
+            $modelPlan = new PlansModel();
+            $rowPlan   = $modelPlan->where('id', $rowSubscription['idPlan'])->first();
+
+            if(!$rowPlan){
+                throw new Exception('Você não tem um plano ativo.');
+            }
+            
+
+            $data = [
+                'id'           => $rowLogin['id'],
+                'name'         => $rowLogin['name'],
+                'email'        => $rowLogin['email'],
+                'plan'         => $rowPlan['namePlan'],
+                'planId'       => $rowPlan['id'],
+                'subscription' => $rowPlan['id'],
+                'photo'        => $rowLogin['photo'],
+                'phone'        => $rowLogin['phone'],
+                'permission'   => $rowPlan['permissionUser'],
+                'isConnected'     => true
+            ];
+
+            session()->set(
+                [
+                    'data' => $data
+                ]
+            );
+
+            
+            if($rowPlan['permissionUser'] === 1){
+                return redirect()->to(site_url('dashboard/tp'));
+            }else{
+                return redirect()->to(site_url('dashboard/ts'));
+            }
+
+        } catch (\Exception $e) {
+            log_message('info', "Erro ao tentar fazer o login: {$e->getMessage()}");
+            return $e->getMessage();
+        }
     }
 }
