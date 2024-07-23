@@ -1,6 +1,6 @@
 
 <?php
-echo $this->include('partials/topbar');
+echo $this->include('dashboard/topbar');
 if (session('data')['permission'] == 1) {
     echo $this->include('dashboard/tp/sidebar');
 } elseif (session('data')['permission'] == 2) {

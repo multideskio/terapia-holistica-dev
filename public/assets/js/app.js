@@ -15,7 +15,7 @@ File: Main Js File
 	 */
 	var navbarMenuHTML = document.querySelector(".navbar-menu").innerHTML;
 	var horizontalMenuSplit = 7; // after this number all horizontal menus will be moved in More menu options
-	var default_lang = "en"; // set Default Language
+	var default_lang = "br"; // set Default Language
 	var language = localStorage.getItem("language");
 
 	function initLanguage() {
@@ -31,7 +31,9 @@ File: Main Js File
 
 	function setLanguage(lang) {
 		if (document.getElementById("header-lang-img")) {
-			if (lang == "en") {
+			if(lang == 'br'){
+				document.getElementById("header-lang-img").src = "/assets/images/flags/br.svg";
+			}else if (lang == "en") {
 				document.getElementById("header-lang-img").src = "/assets/images/flags/us.svg";
 			} else if (lang == "sp") {
 				document.getElementById("header-lang-img").src = "/assets/images/flags/spain.svg";
