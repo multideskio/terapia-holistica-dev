@@ -77,7 +77,7 @@ class TimeLinesModel extends Model
         if (!$cache->get($nameCache)) {
 
             $rows = $this
-                ->join('patients', 'patients.id = timelines.idPatient', 'left')
+                ->join('timelines', 'timelines.idPatient = patients.id', 'left')
                 ->orderBy('timelines.id', 'DESC')
                 ->where('idPatient', session('data')['patient'])
                 ->findAll();
