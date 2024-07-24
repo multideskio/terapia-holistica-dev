@@ -77,16 +77,15 @@ class TimeLinesModel extends Model
         if (!$cache->get($nameCache)) {
 
             $rows = $this
-                ->join('patients', 'patients.id = timelines.idPatient')
+                ->join('patients', 'patients.id = timelines.idPatient', 'left')
                 ->orderBy('timelines.id', 'DESC')
                 ->where('idPatient', session('data')['patient'])
                 ->findAll();
 
             foreach ($rows as $row) {
-                
+                $time = Time::parse($row['created_at']);
 
                 if ($row['type'] == 'create_patient') {
-                    $time = Time::parse($row['created_at']);
                     $data[] = [
                         'id'      => $row['id'],
                         'type'    => $row['type'],
@@ -100,7 +99,6 @@ class TimeLinesModel extends Model
                         'email'   => $row['email']
                     ];
                 } else {
-                    $time = Time::parse($row['created_at']);
                     $data[] = [
                         'id'      => $row['id'],
                         'type'    => $row['type'],
