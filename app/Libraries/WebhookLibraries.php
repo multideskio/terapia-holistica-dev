@@ -24,13 +24,12 @@ class WebhookLibraries
     public function execute($request)
     {
 
+
         $currentStatus = $request->getJsonVar('currentStatus');
 
 
         if ($currentStatus == 'paid') {
-            
             return $this->dataUser($request);
-
             $this->paid($request);
         }
 

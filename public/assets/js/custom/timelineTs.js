@@ -13,7 +13,7 @@ function timeLine() {
                                             <img src="/assets/images/users/user-dummy-img.jpg" alt="" class="avatar-sm rounded">
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <h5 class="fs-15">${item.desc} <small class="text-muted fs-13 fw-normal"> - ${item.timeAgo} </small></h5>
+                                            <h5 class="fs-15">${item.desc} <small class="text-muted fs-13 fw-normal"> - <span class="badge bg-info">${item.timeAgo}</span> </small></h5>
                                             <p class="ts-3 text-muted mb-2">${item.obs}</p>
                                             <div class="hstack gap-2">
                                                 <button class="btn btn-sm btn-primary" onclick="edit('${item.id}')">Editar</button>

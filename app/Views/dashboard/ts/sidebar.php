@@ -48,7 +48,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <!--                <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/ts/analytics') ?>">
                         <i class="bi bi-pie-chart"></i> <span>Relatórios</span>
                     </a>
@@ -58,12 +58,12 @@
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/ts/finance') ?>">
                         <i class="bi bi-cash-coin"></i> <span>Financeiro</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="menu-title">
                     <span data-key="t-menu">Menu</span>
                 </li>
-
+                <!--
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/ts/contacts') ?>">
                     <i class="bi bi-people"></i> <span>Contato</span>
@@ -75,10 +75,10 @@
                     <i class="bi bi-archive"></i> <span>Arquivos</span>
                     </a>
                 </li>
-
+-->
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/ts/tasks') ?>">
-                    <i class="bi bi-list-task"></i> <span>Tarefas</span>
+                        <i class="bi bi-list-task"></i> <span>Tarefas</span>
                     </a>
                 </li>
 

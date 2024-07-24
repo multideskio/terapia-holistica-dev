@@ -24,13 +24,13 @@ $routes->group('dashboard/ts', ['filter' => ['ts', 'auth']], static function ($r
     $routes->addRedirect('/', 'dashboard/ts/home');
 
     $routes->get('home', 'Ts::timeLine');
-    $routes->get('anamnese', 'Home::index');
-    $routes->get('analytics', 'Home::index');
+    $routes->get('anamnese', 'Ts::anamnese');
+    /*$routes->get('analytics', 'Home::index');
     $routes->get('finance', 'Home::index');
     $routes->get('contacts', 'Home::index');
     $routes->get('file-manager', 'Home::index');
     $routes->get('tasks', 'Home::index');
-    $routes->get('history', 'Home::index');
+    $routes->get('history', 'Home::index');*/
 });
 
 $routes->group('dashboard/tp', ['filter' => ['tp', 'auth']], static function ($routes) {

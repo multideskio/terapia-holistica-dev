@@ -20,4 +20,9 @@ class Ts extends BaseController
         $data['titlePage'] = $this->lastSegment;;
         return view('dashboard/ts/pages/timeline', $data);
     }
+
+    public function anamnese(){
+        $data['titlePage'] = $this->lastSegment;;
+        return view('dashboard/ts/pages/anamnese', $data);
+    }
 }

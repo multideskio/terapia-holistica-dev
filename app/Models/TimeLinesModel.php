@@ -75,17 +75,14 @@ class TimeLinesModel extends Model
         $cache = service('cache');
 
         if (!$cache->get($nameCache)) {
-
             $rows = $this
                 ->select('timelines.*, patients.name as name, patients.email as email')
                 ->join('patients', 'patients.id = timelines.idPatient')
                 ->orderBy('timelines.created_at', 'DESC')
                 ->where('timelines.idPatient', session('data')['patient'])
                 ->findAll();
-
             foreach ($rows as $row) {
                 $time = Time::parse($row['created_at']);
-
                 if ($row['type'] == 'create_patient') {
                     $data[] = [
                         'id'      => $row['id'],
@@ -114,8 +111,7 @@ class TimeLinesModel extends Model
                     ];
                 }
             }
-
-            //$cache->save($nameCache, $data, getCacheExpirationTimeInSeconds(30));
+            $cache->save($nameCache, $data, getCacheExpirationTimeInSeconds(30));
         } else {
             $data = $cache->get($nameCache);
         }
