@@ -79,7 +79,7 @@ class TimeLinesModel extends Model
             $rows = $this
                 ->select('timelines.*, patients.name as name, patients.email as email')
                 ->join('patients', 'patients.id = timelines.idPatient')
-                ->orderBy('timelines.id', 'DESC')
+                ->orderBy('timelines.created_at', 'DESC')
                 ->where('timelines.idPatient', session('data')['patient'])
                 ->findAll();
 
