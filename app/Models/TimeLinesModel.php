@@ -78,6 +78,7 @@ class TimeLinesModel extends Model
 
             $rows = $this
                 ->join('patients', 'patients.id = timelines.idPatient')
+                ->orderBy('timelines.id', 'DESC')
                 ->where('idPatient', session('data')['patient'])
                 ->findAll();
 
