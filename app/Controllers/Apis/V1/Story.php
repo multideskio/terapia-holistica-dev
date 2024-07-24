@@ -2,15 +2,12 @@
 
 namespace App\Controllers\Apis\V1;
 
-use App\Libraries\WebhookLibraries;
-use App\Models\PlansModel;
-use App\Models\UsersModel;
+use App\Models\StoriesModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
-use Exception;
 
-class Webhook extends ResourceController
+class Story extends ResourceController
 {
     use ResponseTrait;
     /**
@@ -18,18 +15,21 @@ class Webhook extends ResourceController
      *
      * @return ResponseInterface
      */
-    protected $request;
-    protected $webhookLibraries;
+    protected $modelStories;
     public function __construct()
     {
-        helper('auxiliar');
-        $this->request = service('request');
-        $this->webhookLibraries = new WebhookLibraries;
+        $this->modelStories = new StoriesModel();
     }
     public function index()
     {
         //
-        return $this->respond(['start']);
+        return $this->respond($this->modelStories->getTimelineData());
+    }
+
+    public function tsGet()
+    {
+        //
+        return $this->respond($this->modelStories->getTimelineDataTs());
     }
 
     /**
@@ -98,45 +98,5 @@ class Webhook extends ResourceController
     public function delete($id = null)
     {
         //
-    }
-
-    public function createUser($product = null)
-    {
-        try {
-
-            //Verifica a key enviada no header
-            if ($this->request->getHeaderLine('Key') != 'key') {
-                throw new Exception('Sem permissão para executar');
-            }
-
-            //Verifica o id do webhook interno
-            if (!$product) {
-                throw new Exception('Sem permissão para executar');
-            }
-
-
-
-            
-
-            //Verifica se existe plano com o id enviado pelo webhook
-            $modelPlan = new PlansModel();
-            $idProduto = $this->request->getJsonVar('product.id') == 0 ? "" : $this->request->getJsonVar('product.id') ;
-            $rowPlan   = $modelPlan->where('idPlan', $idProduto)->first();
-            
-            //Plano não encontrado
-            if (!$rowPlan) {
-                //return $this->respond($rowPlan);
-                throw new Exception('Plano não encontrado');
-            }
-
-            //Ações class webhookLibraries
-            $webhook = $this->webhookLibraries->execute($this->request, $rowPlan['id']);
-
-            return $this->respondCreated($webhook);
-
-        } catch (\Exception $e) {
-
-            return $this->failForbidden($e->getMessage());
-        }
     }
 }

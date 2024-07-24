@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Patients extends Migration
+class Historico extends Migration
 {
     public function up()
     {
@@ -22,58 +22,50 @@ class Patients extends Migration
                 'type' => 'BIGINT',
                 'unsigned' => true
             ],
-            'name' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true
+            'idPatient' => [
+                'type' => 'BIGINT',
+                'unsigned' => true
             ],
-            
-            'photo' => [
+            'type' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true
+                'constraint' => 30
             ],
-
-            'email' => [
+            'description' => [
+                'type' => 'TEXT'
+            ],
+            'url' => [
                 'type' => 'VARCHAR',
-                'constraint' => '100',
-                'null' => true
+                'constraint' => 120
             ],
-            'phone' => [
-                'type' => 'VARCHAR',
-                'constraint' => '20',
-                'null' => true
-            ],
-            'birthDate' => [
-                'type' => 'date',
+            'observation' => [
+                'type' => 'TEXT',
                 'null' => true
             ],
             'created_at' => [
                 'type' => 'DATETIME',
-                'null' => true,
+                'null' => true
             ],
             'updated_at' => [
                 'type' => 'DATETIME',
-                'null' => true,
+                'null' => true
             ],
             'deleted_at' => [
                 'type' => 'DATETIME',
-                'null' => true,
+                'null' => true
             ]
         ]);
 
-
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('idPatient', 'patients', 'id', 'NO ACTION', 'NO ACTION');
 
-        $this->forge->createTable('patients', true);
+        $this->forge->createTable('stories', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('patients', true);
-
+        $this->forge->dropTable('stories', true);
     }
 }

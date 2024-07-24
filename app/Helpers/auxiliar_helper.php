@@ -1,4 +1,12 @@
 <?php
+
+if (!function_exists('getCacheExpirationTimeInSeconds')) {
+    function getCacheExpirationTimeInSeconds(int $days): string
+    {
+        return $days * 24 * 60 * 60;
+    }
+}
+
 if (!function_exists('gera_token')) {
     function gera_token($text = false): string
     {

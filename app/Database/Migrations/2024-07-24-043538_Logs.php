@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Patients extends Migration
+class Logs extends Migration
 {
     public function up()
     {
@@ -13,40 +13,27 @@ class Patients extends Migration
         $db->disableForeignKeyChecks();
 
         $this->forge->addField([
+            
             'id' => [
                 'type' => 'BIGINT',
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+            'platformId' => [
+                'type' => 'int',
+                'unsigned' => true
+            ],
             'idUser' => [
                 'type' => 'BIGINT',
                 'unsigned' => true
             ],
-            'name' => [
+            'type' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true
+                'constraint' => 30
             ],
-            
-            'photo' => [
+            'description' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true
-            ],
-
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-                'null' => true
-            ],
-            'phone' => [
-                'type' => 'VARCHAR',
-                'constraint' => '20',
-                'null' => true
-            ],
-            'birthDate' => [
-                'type' => 'date',
-                'null' => true
+                'constraint' => 255
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -64,16 +51,16 @@ class Patients extends Migration
 
 
         $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('platformId', 'platform', 'id', 'NO ACTION', 'NO ACTION');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
 
-        $this->forge->createTable('patients', true);
+        $this->forge->createTable('logs', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('patients', true);
-
+        $this->forge->dropTable('logs', true);
     }
 }

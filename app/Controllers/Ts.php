@@ -2,7 +2,10 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use App\Controllers\BaseController;
+use CodeIgniter\HTTP\ResponseInterface;
+
+class Ts extends BaseController
 {
     protected $lastSegment ;
     public function __construct()
@@ -13,10 +16,8 @@ class Home extends BaseController
         $this->lastSegment = ucfirst($uri->getSegment($totalSegments)); // Obtém o último segmento
     }
 
-
-    public function index(): string
-    {
+    public function timeLine(){
         $data['titlePage'] = $this->lastSegment;;
-        return view('dashboard/pages/home', $data);
+        return view('dashboard/ts/pages/timeline', $data);
     }
 }

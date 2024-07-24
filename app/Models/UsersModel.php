@@ -119,13 +119,16 @@ class UsersModel extends Model
                 ]
             );
 
-            
-            if($rowPlan['permissionUser'] === 1){
-                return redirect()->to(site_url('dashboard/tp'));
-            }else{
-                return redirect()->to(site_url('dashboard/ts'));
-            }
+            $modelLogs = new LogsModel();
+            $modelLogs->insert([
+                'platformId' => $rowLogin['platformId'],
+                'idUser' => $rowLogin['id'],
+                'type' => 'login',
+                'description' => 'Fez o login na plataforma.'
+            ]);
 
+            return redirect()->to(site_url('dashboard'));
+            
         } catch (\Exception $e) {
             log_message('info', "Erro ao tentar fazer o login: {$e->getMessage()}");
             return $e->getMessage();

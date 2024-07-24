@@ -25,7 +25,20 @@ class Tp implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        // Carregue o helper de URL
+        helper('url');
+        
+        // Verifique se o usuário está conectado
+        $loggedSession = session('data');
+        if (!empty($loggedSession['permission'])) {
+            if ($loggedSession['permission'] == 1) {
+            } elseif ($loggedSession['permission'] == 2) {
+                return redirect()->redirect(site_url('dashboard/ts/home'));
+            } else {
+                session_destroy();
+                return redirect()->to(site_url());
+            }
+        }
     }
 
     /**

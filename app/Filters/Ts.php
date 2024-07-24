@@ -31,18 +31,15 @@ class Ts implements FilterInterface
         // Verifique se o usuário está conectado
         $loggedSession = session('data');
 
+
         if (!empty($loggedSession['permission'])) {
-            if ($loggedSession['permission'] != 2) {
-                return redirect()->redirect(site_url('dashboard/tp'));
-            }
-            /*if ($loggedSession['permission'] != 1) {
-                return redirect()->redirect(site_url('dashboard/tp'));
-            }else{
+            if ($loggedSession['permission'] == 1) {
+                return redirect()->redirect(site_url('dashboard/tp/home'));
+            } elseif ($loggedSession['permission'] == 2) {
+            } else {
                 session_destroy();
                 return redirect()->to(site_url());
-            }*/
-        } else {
-            return redirect()->redirect('/');
+            }
         }
     }
 

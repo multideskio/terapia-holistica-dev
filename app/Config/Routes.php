@@ -20,8 +20,10 @@ $routes->post('init/webhook/(:any)', '\App\Controllers\Apis\V1\Webhook::createUs
 $routes->addRedirect('dashboard', 'dashboard/ts/home');
 
 $routes->group('dashboard/ts', ['filter' => ['ts', 'auth']], static function ($routes) {
-    $routes->get('/', 'Home::index');
-    $routes->get('home', 'Home::index');
+    
+    $routes->addRedirect('/', 'dashboard/ts/home');
+
+    $routes->get('home', 'Ts::timeLine');
     $routes->get('anamnese', 'Home::index');
     $routes->get('analytics', 'Home::index');
     $routes->get('finance', 'Home::index');
@@ -46,9 +48,13 @@ $routes->group('dashboard/tp', ['filter' => ['tp', 'auth']], static function ($r
 
 
 $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static function ($routes) {
-    $routes->group('webhook', ['filter'], static function ($routes){
+    $routes->group('webhook', ['filter' => ''], static function ($routes){
         $routes->get('', 'Webhook::index', ['filter' => 'cors']);
         $routes->post('', 'Webhook::index', ['filter' => 'cors']);
+    });
+
+    $routes->group('storie', ['filter' => 'auth'], static function ($routes){
+        $routes->get('ts', 'Story::tsGet');
     });
     //$routes->resource('webhook', ['filter' => 'cors']);
 });
