@@ -33,7 +33,7 @@
             <ul class="navbar-nav" id="navbar-nav">
 
                 <li class="menu-title">
-                    <span>Terapeuta de SI</span>
+                    <span>MENU TS</span>
                 </li>
 
                 <li class="nav-item">
