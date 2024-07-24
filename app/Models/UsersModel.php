@@ -74,7 +74,7 @@ class UsersModel extends Model
 
             $pass  = $input['pass'];
             $email = $input['email'];
-            
+
             $rowLogin = $this->where('email', $email)->first();
 
             if (!$rowLogin) {
@@ -95,13 +95,42 @@ class UsersModel extends Model
             $modelPlan = new PlansModel();
             $rowPlan   = $modelPlan->where('id', $rowSubscription['idPlan'])->first();
 
-            if(!$rowPlan){
+            if (!$rowPlan) {
                 throw new Exception('Você não tem um plano ativo.');
             }
-            
+
+
+            $modelPatients = new PatientsModel();
+            $rowPatient = $modelPatients->where(['idUser' => $rowLogin['id'], 'email' => $rowLogin['email']])->first();
+            if ($rowPatient){
+                $idPatient = $rowPatient['id'];
+            }else{
+                $dataPatient = [
+                    'idUser' => $rowLogin['id'],
+                    'name'   => $rowLogin['name'],
+                    'email'  => $rowLogin['email'],
+                    'photo'  => $rowLogin['photo'],
+                    'phone'  => $rowLogin['phone'],
+                ];
+
+                $idPatient = $modelPatients->insert($dataPatient);
+
+                session()->set(['data' => ['patient' => $idPatient]]);
+
+                $modelTime = new TimeLinesModel();
+                $modelTime->insert(
+                    [
+                        'idUser' => $rowLogin['id'],
+                        'idPatient' => $idPatient,
+                        'type' => 'create_patient'
+                    ]
+                );
+            }
+
 
             $data = [
                 'id'           => $rowLogin['id'],
+                'patient'      => $idPatient,
                 'name'         => $rowLogin['name'],
                 'email'        => $rowLogin['email'],
                 'plan'         => $rowPlan['namePlan'],
@@ -110,7 +139,7 @@ class UsersModel extends Model
                 'photo'        => $rowLogin['photo'],
                 'phone'        => $rowLogin['phone'],
                 'permission'   => $rowPlan['permissionUser'],
-                'isConnected'     => true
+                'isConnected'  => true
             ];
 
             session()->set(
@@ -127,8 +156,9 @@ class UsersModel extends Model
                 'description' => 'Fez o login na plataforma.'
             ]);
 
-            return redirect()->to(site_url('dashboard'));
             
+
+            return redirect()->to(site_url('dashboard'));
         } catch (\Exception $e) {
             log_message('info', "Erro ao tentar fazer o login: {$e->getMessage()}");
             return $e->getMessage();

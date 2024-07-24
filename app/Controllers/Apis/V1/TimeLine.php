@@ -2,12 +2,12 @@
 
 namespace App\Controllers\Apis\V1;
 
-use App\Models\StoriesModel;
+use App\Models\TimeLinesModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class Story extends ResourceController
+class TimeLine extends ResourceController
 {
     use ResponseTrait;
     /**
@@ -15,21 +15,20 @@ class Story extends ResourceController
      *
      * @return ResponseInterface
      */
-    protected $modelStories;
+    protected $modelLines;
     public function __construct()
     {
-        $this->modelStories = new StoriesModel();
+        $this->modelLines = new TimeLinesModel();
     }
     public function index()
     {
         //
-        return $this->respond($this->modelStories->getTimelineData());
     }
 
     public function tsGet()
     {
         //
-        return $this->respond($this->modelStories->getTimelineDataTs());
+        return $this->respond($this->modelLines->getTimelineDataTs());
     }
 
     /**

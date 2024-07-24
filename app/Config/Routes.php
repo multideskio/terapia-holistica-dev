@@ -53,8 +53,8 @@ $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static fun
         $routes->post('', 'Webhook::index', ['filter' => 'cors']);
     });
 
-    $routes->group('storie', ['filter' => 'auth'], static function ($routes){
-        $routes->get('ts', 'Story::tsGet');
+    $routes->group('timeline', ['filter' => 'auth'], static function ($routes){
+        $routes->get('ts', 'TimeLine::tsGet');
     });
     //$routes->resource('webhook', ['filter' => 'cors']);
 });

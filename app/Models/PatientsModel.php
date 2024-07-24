@@ -12,7 +12,9 @@ class PatientsModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'idUser', 'name', 'photo', 'email', 'phone', 'birthDate'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +45,6 @@ class PatientsModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    
 }

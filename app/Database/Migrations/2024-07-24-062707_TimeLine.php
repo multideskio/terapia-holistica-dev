@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Historico extends Migration
+class TimeLine extends Migration
 {
     public function up()
     {
@@ -37,9 +37,14 @@ class Historico extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 120
             ],
+            'ico' => [
+                'type' => 'VARCHAR',
+                'constraint' => 60
+            ],
             'observation' => [
                 'type' => 'TEXT',
-                'null' => true
+                'null' => true,
+                'COMMENT' => 'Se necessário, suba o html template para essa coluna'
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -59,13 +64,14 @@ class Historico extends Migration
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
         $this->forge->addForeignKey('idPatient', 'patients', 'id', 'NO ACTION', 'NO ACTION');
 
-        $this->forge->createTable('stories', true);
+        $this->forge->createTable('timeLines', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('stories', true);
+        $this->forge->dropTable('timeLines', true);
+
     }
 }
