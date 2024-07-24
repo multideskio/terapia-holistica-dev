@@ -1,5 +1,8 @@
 <?= $this->extend('dashboard/template') ?>
 <?php $this->section('css') ?>
+<!-- nouisliderribute css -->
+<link rel="stylesheet" href="/assets/libs/nouislider/nouislider.min.css">
+
 <style>
     .accordion-button:not(.collapsed) {
         background-color: #6c63ff;
@@ -94,8 +97,14 @@
                                 <input class="form-check-input" type="radio" name="emocionalDesequilibrio" id="emocionalNao" value="não" required>
                                 <label class="form-check-label" for="emocionalNao">Não</label>
                             </div>
+
                             <label for="emocionalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                            <input type="range" class="form-range" id="emocionalPercentual" min="0" max="100" value="50">
+                            <br>
+                            <span id="emocionalPercentualReturn">50</span>%
+                            <input type="range"  class="form-range" id="emocionalPercentual" min="0" max="100" value="50">
+                            
+                            <div data-rangeslider data-slider-color="primary" data-slider-size="sm" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
+
                             <div class="invalid-feedback">Este campo é obrigatório.</div>
                         </div>
 
@@ -209,6 +218,22 @@
 
 <?php $this->endSection(); ?>
 <?php $this->section('js'); ?>
+<!-- nouisliderribute js -->
+<script src="/assets/libs/nouislider/nouislider.min.js"></script>
+<script>
+    var sliderColorScheme = document.querySelectorAll('[data-rangeslider]');
+
+    sliderColorScheme.forEach(function(slider) {
+        noUiSlider.create(slider, {
+            start: 50,
+            connect: 'lower',
+            range: {
+                'min': 0,
+                'max': 100
+            },
+        });
+    });
+</script>
 <script>
     (function() {
         'use strict'
@@ -244,6 +269,12 @@
         $('.prev-btn').click(function() {
             var prevId = $(this).data('prev');
             $(prevId).collapse('show');
+        });
+
+
+        $('#emocionalPercentual').on('input', function() {
+            var rangeValue = $(this).val();
+            $('#emocionalPercentualReturn').text(rangeValue);
         });
     });
 </script>
