@@ -77,10 +77,10 @@ class TimeLinesModel extends Model
         if (!$cache->get($nameCache)) {
 
             $rows = $this
-                ->select('patients.name as name, patients.email as email')
+                ->select('timelines.*, patients.name as name, patients.email as email')
                 ->join('patients', 'patients.id = timelines.idPatient')
                 ->orderBy('timelines.id', 'DESC')
-                ->where('idPatient', session('data')['patient'])
+                ->where('timelines.idPatient', session('data')['patient'])
                 ->findAll();
 
             foreach ($rows as $row) {
