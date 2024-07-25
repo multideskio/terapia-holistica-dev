@@ -130,6 +130,7 @@ class UsersModel extends Model
 
             $data = [
                 'id'           => $rowLogin['id'],
+                'platform'     => $rowLogin['platformId'],
                 'patient'      => $idPatient,
                 'name'         => $rowLogin['name'],
                 'email'        => $rowLogin['email'],
@@ -149,16 +150,15 @@ class UsersModel extends Model
             );
 
             $modelLogs = new LogsModel();
-            $modelLogs->insert([
-                'platformId' => $rowLogin['platformId'],
-                'idUser' => $rowLogin['id'],
-                'type' => 'login',
-                'description' => 'Fez o login na plataforma.'
-            ]);
+            $modelLogs->createLog('login', 'Fez o login na plataforma');
+            
+            if(isset($input['recover'])){
+                return redirect()->to($input['recover']);
+            }else{
+                return redirect()->to(site_url('dashboard'));
+            }
 
             
-
-            return redirect()->to(site_url('dashboard'));
         } catch (\Exception $e) {
             log_message('info', "Erro ao tentar fazer o login: {$e->getMessage()}");
             return $e->getMessage();

@@ -16,6 +16,7 @@ class Home extends BaseController
 
     public function index(): string
     {
+        
         $data['titlePage'] = $this->lastSegment;;
         return view('dashboard/pages/home', $data);
     }

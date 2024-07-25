@@ -17,12 +17,13 @@ class Ts extends BaseController
     }
 
     public function timeLine(){
-        $data['titlePage'] = $this->lastSegment;;
+        $data['titlePage'] = 'Time Line';
         return view('dashboard/ts/pages/timeline', $data);
     }
 
-    public function anamnese(){
-        $data['titlePage'] = $this->lastSegment;;
+    public function anamnese($id = null){
+        $data['idPatientControl'] = session('data')['patient'];
+        $data['titlePage'] = 'ANAMNESE';
         return view('dashboard/ts/pages/anamnese', $data);
     }
 }

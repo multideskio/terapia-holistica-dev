@@ -1,4 +1,5 @@
 <?= $this->include('partials/main') ?>
+
 <head>
     <?php echo view('partials/title-meta', array('title' => 'Title')); ?>
     <?= $this->include('partials/head-css') ?>
@@ -6,6 +7,7 @@
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <?= $this->renderSection('css') ?>
 </head>
+
 <body>
     <!-- Begin page -->
     <div id="layout-wrapper">
@@ -17,12 +19,16 @@
             <div class="page-content">
                 <div class="container-fluid">
                     <?php echo view('partials/page-title', array('pagetitle' => NAME_SYSTEN, 'title' => $titlePage)); ?>
-                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-1"><?= saudacao(session('data')['name']) ?></h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                <div class="flex-grow-1">
+                                    <h4 class="mb-1"><?= saudacao(session('data')['name']) ?></h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <hr>
+
                     <?= $this->renderSection('page') ?>
                 </div>
                 <!-- container-fluid -->
@@ -38,7 +44,7 @@
     <!-- App js -->
     <script src="/assets/js/app.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+
     <!-- Plugin adicionais -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -55,4 +61,5 @@
         }
     </script>
 </body>
+
 </html>

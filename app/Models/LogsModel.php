@@ -43,4 +43,13 @@ class LogsModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function createLog(string $type, string $description){
+        $this->insert([
+            'platformId' => session('data')['platform'],
+            'idUser' => session('data')['id'],
+            'type' => $type,
+            'description' => $description
+        ]);
+    }
 }

@@ -64,6 +64,8 @@
                                             <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
                                             <label class="form-check-label" for="auth-remember-check">Remember me</label>
                                         </div>-->
+
+                                    <input type="hidden" name="redirect" value="<?= $redirect ?>">
                                     <div class="mt-4">
                                         <button class="btn btn-success w-100" type="submit">Entrar</button>
                                     </div>

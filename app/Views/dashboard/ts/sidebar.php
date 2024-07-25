@@ -43,7 +43,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="<?= site_url('dashboard/ts/anamnese') ?>">
+                    <a class="nav-link menu-link" href="<?= site_url("dashboard/ts/anamnese/".session('data')['id']) ?>">
                         <i class="bi bi-pencil-square"></i> <span>Anamnese</span>
                     </a>
                 </li>

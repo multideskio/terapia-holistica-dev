@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Exception;
 
 class PatientsModel extends Model
 {
@@ -46,5 +47,11 @@ class PatientsModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    
+    public function searchPatient(int $id): array {
+        $data = $this->where('idUser', session('data')['id'])->find($id);
+        if(!isset($data)){
+            throw new Exception('Paciente não encontrado');
+        }
+        return $data;
+    }
 }

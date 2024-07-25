@@ -23,20 +23,23 @@ class WebhookLibraries
 
     public function execute($request)
     {
-
-
+        //status da transação
         $currentStatus = $request->getJsonVar('currentStatus');
 
-
+        //ações de transação paga
         if ($currentStatus == 'paid') {
             return $this->dataUser($request);
             $this->paid($request);
         }
 
+        //ações de transação reembolsada
+        //apaga inscrição
         if ($currentStatus == 'refunded') {
             $this->paid($request);
         }
 
+        //ações de transação devolvida
+        
         if ($currentStatus == 'chargedback') {
             $this->paid($request);
         }

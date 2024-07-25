@@ -25,6 +25,8 @@ $routes->group('dashboard/ts', ['filter' => ['ts', 'auth']], static function ($r
 
     $routes->get('home', 'Ts::timeLine');
     $routes->get('anamnese', 'Ts::anamnese');
+    $routes->get('anamnese/(:num)', 'Ts::anamnese/$1');
+    $routes->get('history', 'Ts::timeLine');
     /*$routes->get('analytics', 'Home::index');
     $routes->get('finance', 'Home::index');
     $routes->get('contacts', 'Home::index');
@@ -52,6 +54,16 @@ $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static fun
         $routes->get('', 'Webhook::index', ['filter' => 'cors']);
         $routes->post('', 'Webhook::index', ['filter' => 'cors']);
     });
+
+
+
+    $routes->group('patient', ['filter' => 'auth'], static function ($routes){
+        $routes->get('search/(:num)',  'Patient::searchPatient/$1', ['filter' => 'cors']);
+    });
+    
+    
+    
+    //$routes->resource('patient', ['filter' => 'cors']);
 
     $routes->group('timeline', ['filter' => 'auth'], static function ($routes){
         $routes->get('ts', 'TimeLine::tsGet');

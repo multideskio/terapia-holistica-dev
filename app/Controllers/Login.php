@@ -11,7 +11,8 @@ class Login extends BaseController
     public function index():string
     {
         //
-        return view('login/login');
+        $data['redirect'] = $this->request->getGet('redirect');
+        return view('login/login', $data);
     }
 
     public function auth(){
