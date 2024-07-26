@@ -13,7 +13,7 @@ class PlatformModel extends Model
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'company', 'logo', 'senderEmail', 'senderName', 'smtpHost', 'smtpUser', 'smtpPass', 'smtpPort', 'smtpCrypt'
+        'company', 'logo', 'senderEmail', 'senderName', 'smtpHost', 'smtpUser', 'smtpPass', 'smtpPort', 'smtpCrypto'
     ];
 
     protected bool $allowEmptyInserts = false;

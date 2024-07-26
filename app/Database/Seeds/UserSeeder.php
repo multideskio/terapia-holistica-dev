@@ -14,9 +14,15 @@ class UserSeeder extends Seeder
     {
         //
         //
+        //$encrypter = service('encrypter');
         $modelPlatform = new PlatformModel();
         $idPlatform = $modelPlatform->insert([
-            'company' => 'Plataforma'
+            'company' => 'Plataforma',
+            'senderEmail' => 'multidesk.io@gmail.com',
+            'senderName' => 'Terapeuta Teste',
+            'smtpHost' => 'smtp.gmail.com',
+            'smtpUser' => 'multidesk.io@gmail.com',
+            'smtpPort' => '587'
         ]);
 
         $modePlan = new PlansModel();

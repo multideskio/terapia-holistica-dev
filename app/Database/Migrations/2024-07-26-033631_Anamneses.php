@@ -137,8 +137,6 @@ class Anamneses extends Migration
                 'constraint' => ['sim', 'não'],
                 'default' => 'não',
             ],
-
-
             'chakra_cadiaco_desequilibrio' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
@@ -228,70 +226,43 @@ class Anamneses extends Migration
 
 
 
-            'campo_aurico_aberto' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
-            ],
-
-            'campo_aurico_media' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
-            ],
-
-            'campo_aurico_fechado' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
+            'campo_aurico' => [
+                'type' => 'ENUM',
+                'constraint' => ['aberto', 'média', 'fechado'],
+                'default' => NULL,
             ],
 
             'campo_aurico_comentarios' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
+                'type' => 'TEXT',
+                'null' => true
             ],
 
-
-            'campo_aurico2_expandido' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
-            ],
-
-            'campo_aurico2_media' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
-            ],
-
-            'campo_aurico2_encolhido' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
+            'campo_aurico2' => [
+                'type' => 'ENUM',
+                'constraint' => ['expandido', 'média', 'encolhido'],
+                'default' => NULL,
             ],
 
             'campo_aurico2_comentarios' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
+                'type' => 'TEXT',
+                'null' => true
             ],
 
             'cor_falta' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '30',
                 'null' => true,
             ],
 
             'cor_excesso' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '30',
                 'null' => true,
             ],
 
             'energia_saude' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
+                'type' => 'INT',
+                'constraint' => '5',
                 'null' => true,
             ],
 
