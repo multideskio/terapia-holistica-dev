@@ -63,7 +63,6 @@ class TimeLine extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
         $this->forge->addForeignKey('idPatient', 'patients', 'id', 'NO ACTION', 'NO ACTION');
-
         $this->forge->createTable('timelines', true);
         $db->enableForeignKeyChecks();
     }
@@ -72,6 +71,5 @@ class TimeLine extends Migration
     {
         //
         $this->forge->dropTable('timelines', true);
-
     }
 }

@@ -1,4 +1,5 @@
 function timeLine() {
+    $("#loadTimeLine").show();
     let timelineContainer = $('#timelineContainer');
     $.getJSON(`${_baseUrl}api/v1/timeline/ts`,
         function (data, textStatus, jqXHR) {
@@ -27,6 +28,8 @@ function timeLine() {
 
                 timelineContainer.append(timelineItem);
             })
+
+            $("#loadTimeLine").hide();
         }
     );
 }

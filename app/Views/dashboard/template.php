@@ -6,6 +6,24 @@
     <!-- Sweet Alert css-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <?= $this->renderSection('css') ?>
+
+    <style>
+        #loadTimeLine {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            /* Ajuste a margem conforme necessário */
+            z-index: 9999;
+            /* Certifique-se de que a div fica acima de outros elementos */
+        }
+
+        #loadTimeLine div {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +46,11 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="text-center" id="loadTimeLine">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="sr-only fs-1">Loading...</span>
+                        </div>
+                    </div>
                     <?= $this->renderSection('page') ?>
                 </div>
                 <!-- container-fluid -->
