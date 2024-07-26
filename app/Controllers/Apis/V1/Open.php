@@ -63,6 +63,26 @@ class Open extends ResourceController
         return $this->failNotFound();
     }
 
+    public function newpass(){
+        /*if (!$this->request->isAJAX()) {
+            return $this->failUnauthorized();
+        }*/
+
+        $input   = $this->request->getPost();
+        
+        //VERIFICA SE EXISTE CADASTRO DO USUÁRIO
+        $build   = $this->modelUser->where('token', $input['token'])->first();
+
+        if ($build) {
+            $data = [
+                'password' => $input['senha']
+            ];
+            $update = $this->modelUser->update($build['id'], $data);
+            return $this->respondUpdated($update);
+        }
+
+        return $this->failNotFound();
+    }
     /**
      * Return the properties of a resource object.
      *

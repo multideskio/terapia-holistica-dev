@@ -81,4 +81,5 @@ $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static fun
 
 $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static function ($routes) {
     $routes->post('recover', 'Open::recoverPass');
+    $routes->post('password', 'Open::newpass');
 });

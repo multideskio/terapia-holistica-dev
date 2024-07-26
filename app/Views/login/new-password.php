@@ -60,7 +60,7 @@
                                         </div>
                                     <?php endif; ?>
 
-                                    <?= form_open('api/v1/public/newpass', 'class="formSend"') ?>
+                                    <?= form_open('api/v1/password', 'class="formSend"') ?>
                                     <label class="form-label" for="password-input">Digite sua nova senha</label>
                                     <div class="position-relative mb-3" id="auth-pass-inputgroup">
                                         <input type="password" class="form-control pe-5" placeholder="Digite sua nova senha" name="senha" id="password-input" required autocomplete="off">
