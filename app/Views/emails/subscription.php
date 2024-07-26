@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta Criada com Sucesso</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #333333; color: #FFFFFF; margin: 0; padding-top: 30px; padding-bottom: 30px;">
+<body style="font-family: Arial, sans-serif; background-color: #fff; color: #FFFFFF; margin: 0; padding-top: 30px; padding-bottom: 30px;">
     <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background-color: #444444; border-radius: 8px; padding: 20px;">
         <tr>
             <td style="text-align: center; padding-bottom: 20px; padding-top: 30px;">
