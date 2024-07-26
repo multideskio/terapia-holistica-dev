@@ -76,7 +76,7 @@
                         </div>
                         <!-- end card -->
                         <div class="mt-2 text-center">
-                            <p class="mb-0">Ainda não tem uma conta ? <a href="#" onclick="alert('Função não disponivel')" class="fw-semibold text-primary text-decoration-underline"> Criar conta </a> </p>
+                            <p class="mb-0">Ainda não tem uma conta ? <a href="#" onclick="alert('Função não disponivel')" class="fw-semibold text-primary text-decoration-underline">Assinar um plano</a> </p>
                         </div>
                     </div>
                 </div>
