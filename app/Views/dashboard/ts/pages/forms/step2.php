@@ -10,7 +10,7 @@
             <p class="text-info fw-bold">* Todos os campos devem ser respondidos</p>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="mb-3 p-2 border border-1">
+                    <div class="mb-3 p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Mental</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -22,11 +22,16 @@
                                 <label class="form-check-label" for="mentalNao">Não</label>
                             </div>
                         </div>
-                        <label for="mentalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                        <input type="range" class="form-range required-field" id="mentalPercentual" min="0" max="100" value="50" required>
-                        <div class="invalid-feedback">Este campo é obrigatório.</div>
+                        <div class="range-container hidden">
+                            <label for="mentalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
+                            <div>
+                                <input type="range" id="mentalPercentual" min="0" max="100" value="50" name="mentalPercentual">
+                                <div class="range-label" id="value-mentalPercentual">50%</div>
+                                <div class="invalid-feedback">Este campo é obrigatório.</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3 p-2 border border-1">
+                    <div class="mb-3 p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Emocional</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -38,13 +43,21 @@
                                 <label class="form-check-label" for="emocionalNao">Não</label>
                             </div>
                         </div>
-                        <label for="emocionalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                        <input type="range" class="form-range required-field" id="emocionalPercentual" min="0" max="100" value="50" required>
-                        <div class="invalid-feedback">Este campo é obrigatório.</div>
+
+                        <div class="range-container hidden">
+                            <label for="emocionalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
+                            <div>
+                                <input type="range" id="emocionalPercentual" min="0" max="100" value="50" name="emocionalPercentual">
+                                <div class="range-label" id="value-emocionalPercentual">50%</div>
+                                <div class="invalid-feedback">Este campo é obrigatório.</div>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
                 <div class="col-md-6">
-                    <div class="mb-3 p-2 border border-1">
+                    <div class="mb-3 p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Espiritual</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -56,11 +69,17 @@
                                 <label class="form-check-label" for="espiritualNao">Não</label>
                             </div>
                         </div>
-                        <label for="espiritualPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                        <input type="range" class="form-range required-field" id="espiritualPercentual" min="0" max="100" value="50" required>
-                        <div class="invalid-feedback">Este campo é obrigatório.</div>
+                        <div class="range-container hidden">
+                            <label for="espiritualPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
+                            <div>
+                                <input type="range" id="espiritualPercentual" min="0" max="100" value="50" name="espiritualPercentual">
+                                <div class="range-label" id="value-espiritualPercentual">50%</div>
+                                <div class="invalid-feedback">Este campo é obrigatório.</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3 p-2 border border-1">
+
+                    <div class="mb-3 p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Físico</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -72,14 +91,21 @@
                                 <label class="form-check-label" for="fisicoNao">Não</label>
                             </div>
                         </div>
-                        <label for="fisicoPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                        <input type="range" class="form-range required-field" id="fisicoPercentual" min="0" max="100" value="50" required>
-                        <div class="invalid-feedback">Este campo é obrigatório.</div>
+                        <div class="range-container hidden">
+                            <label for="fisicoPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
+                            <div>
+                                <input type="range" id="fisicoPercentual" min="0" max="100" value="50" name="fisicoPercentual">
+                                <div class="range-label" id="value-fisicoPercentual">50%</div>
+                                <div class="invalid-feedback">Este campo é obrigatório.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseOne">Anterior</button>
-            <button type="button" class="btn btn-primary next-btn" data-next="#collapseThree">Próximo</button>
+            <div class="text-end">
+                <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseOne">Anterior</button>
+                <button type="button" class="btn btn-primary next-btn" data-next="#collapseThree">Próximo</button>
+            </div>
         </div>
     </div>
 </div>

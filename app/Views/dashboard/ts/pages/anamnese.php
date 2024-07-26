@@ -2,59 +2,32 @@
 <?php $this->section('css') ?>
 <!-- nouisliderribute css -->
 <link rel="stylesheet" href="/assets/libs/nouislider/nouislider.min.css">
-
-<style>
-    .required-field:invalid {
-        border-color: red;
-    }
-
-    .accordion-button:not(.collapsed) {
-        background-color: #6c63ff;
-        color: white;
-    }
-
-    .accordion-button {
-        display: flex;
-        align-items: center;
-    }
-
-    .accordion-button .number {
-        background: #6c63ff;
-        color: white;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 10px;
-    }
-
-    .accordion-button.completed .number {
-        background: #28a745;
-    }
-</style>
+<link rel="stylesheet" href="/assets/css/custom/anamnese.css?v=<?= time() ?>">
 <?php $this->endSection(); ?>
 <?php $this->section('page') ?>
-<div class="card">
-    <div class="card-body">
-        <h2 class="mb-5 mt-3">Crie uma anamnese</h2>
-        <form id="wizard-form" class="needs-validation" novalidate>
-            <div class="accordion" id="wizardAccordion">
-                <!-- Step 1 -->
-                <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
-                <!-- Step 2 -->
-                <?= $this->include('dashboard/ts/pages/forms/step2.php'); ?>
-                <!-- Step 3 -->
-                <?= $this->include('dashboard/ts/pages/forms/step3.php'); ?>
-                <!-- Step 4 -->
-                <?= $this->include('dashboard/ts/pages/forms/step4.php'); ?>
-                <!-- Step 5 -->
-                <?= $this->include('dashboard/ts/pages/forms/step5.php'); ?>
-                <!-- Step 6 -->
-                <?= $this->include('dashboard/ts/pages/forms/step6.php'); ?>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="mb-5 mt-3">Crie uma anamnese</h2>
+                <form id="wizard-form" class="needs-validation" novalidate>
+                    <div class="accordion" id="wizardAccordion">
+                        <!-- Step 1 -->
+                        <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
+                        <!-- Step 2 -->
+                        <?= $this->include('dashboard/ts/pages/forms/step2.php'); ?>
+                        <!-- Step 3 -->
+                        <?= $this->include('dashboard/ts/pages/forms/step3.php'); ?>
+                        <!-- Step 4 -->
+                        <?= $this->include('dashboard/ts/pages/forms/step4.php'); ?>
+                        <!-- Step 5 -->
+                        <?= $this->include('dashboard/ts/pages/forms/step5.php'); ?>
+                        <!-- Step 6 -->
+                        <?= $this->include('dashboard/ts/pages/forms/step6.php'); ?>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 <?php $this->endSection(); ?>
@@ -62,19 +35,50 @@
 <!-- nouisliderribute js -->
 <script src="/assets/libs/nouislider/nouislider.min.js"></script>
 <script>
-    var sliderColorScheme = document.querySelectorAll('[data-rangeslider]');
+    $(document).ready(function() {
 
-    sliderColorScheme.forEach(function(slider) {
-        noUiSlider.create(slider, {
-            start: 50,
-            connect: 'lower',
-            range: {
-                'min': 0,
-                'max': 100
-            },
+        // Mostrar ou esconder o range-container baseado na seleção dos botões de rádio
+        $('input[type="radio"]').on('click', function() {
+            var $questionContainer = $(this).closest('.question-container');
+            if ($(this).val() === 'sim') {
+                $questionContainer.find('.range-container').removeClass('hidden').fadeIn(1000);
+            } else {
+                $questionContainer.find('.range-container').addClass('hidden');
+            }
         });
+
+        // Atualizar o fundo do range e a div correspondente com o valor
+        $('input[type="range"]').each(function() {
+            $(this).on('input', function() {
+                var value = $(this).val();
+                var min = $(this).attr('min') ? $(this).attr('min') : 0;
+                var max = $(this).attr('max') ? $(this).attr('max') : 100;
+                var percentage = (value - min) / (max - min) * 100;
+
+                $(this).css('background', 'linear-gradient(to right, #6c63ff ' + percentage + '%, #cacaca ' + percentage + '%)');
+
+                // Atualiza o valor na div correspondente
+                var $valueLabel = $(this).siblings('.range-label');
+                $valueLabel.text(value + '%');
+            });
+        });
+
     });
 
+
+    /*function verifyPatient() {
+        if (!_idPatient) {
+            Swal.fire({
+                title: 'Você precisa definir um paciente antes de começar a anamnese',
+                type: 'error'
+            });
+        }
+    }*/
+
+    $(document).ready(function() {
+        searchPatient(_idPatient)
+        //verifyPatient();
+    });
 
     function searchPatient(_idPatient) {
         $("#loadTimeLine").show();
@@ -93,20 +97,6 @@
         });
 
     }
-
-    /*function verifyPatient() {
-        if (!_idPatient) {
-            Swal.fire({
-                title: 'Você precisa definir um paciente antes de começar a anamnese',
-                type: 'error'
-            });
-        }
-    }*/
-
-    $(document).ready(function() {
-        searchPatient(_idPatient)
-        //verifyPatient();
-    });
 </script>
 
 

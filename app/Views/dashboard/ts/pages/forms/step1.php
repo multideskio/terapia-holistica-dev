@@ -6,7 +6,7 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#wizardAccordion">
         <div class="accordion-body">
-        <p>Informações do paciente.</p>
+            <p>Informações do paciente.</p>
             <div class="mb-3">
                 <label for="name" class="form-label">Nome Completo:</label>
                 <input type="text" class="form-control required-field" id="name" name="name" required disabled>
@@ -18,7 +18,9 @@
                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                 <input type="hidden" name="idPatient" id="idPatient">
             </div>
-            <button type="button" class="btn btn-primary next-btn" data-next="#collapseTwo">Próximo</button>
+            <div class="text-end">
+                <button type="button" class="btn btn-primary next-btn" data-next="#collapseTwo">Próximo</button>
+            </div>
         </div>
     </div>
 </div>

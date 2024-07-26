@@ -8,5 +8,5 @@
 <script>
     let _baseUrl    = "<?= site_url() ?>";
     let _idUser <?= (!empty(session('data')['id'])) ? "= ". session('data')['id'] : null ?>; 
-    let _idPatient <?= (!empty($idPatientControl))     ? "= {$idPatientControl}"     : null ?>; 
+    let _idPatient <?= (!empty($idPatientControl))     ? "= {$idPatientControl}"  : null ?>; 
 </script>

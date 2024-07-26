@@ -1,0 +1,175 @@
+// Variables
+$primary-color: #6c63ff;
+$secondary-color: #28a745;
+$range-start-color: #6c63ff;
+$range-end-color: #cacaca;
+$range-thumb-color: #ffffff;
+$range-thumb-border-color: #000000;
+$invalid-border-color: red;
+$accordion-number-size: 30px;
+$range-track-height: 8px;
+$range-thumb-size: 20px;
+
+// Styles
+.required-field:invalid {
+    border-color: $invalid-border-color;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: $primary-color;
+    color: white;
+}
+
+.accordion-button {
+    display: flex;
+    align-items: center;
+
+    .number {
+        background: $primary-color;
+        color: white;
+        border-radius: 50%;
+        width: $accordion-number-size;
+        height: $accordion-number-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+    &.completed .number {
+        background: $secondary-color;
+    }
+}
+
+.hidden{
+    display: none !important;
+}
+
+.range-container {
+    display: block;
+    align-items: center;
+}
+
+.range-label {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none; // For WebKit browsers
+    -moz-appearance: none; // For Mozilla browsers
+    width: 300px;
+    height: $range-track-height;
+    background: linear-gradient(to right, $range-start-color, $range-end-color);
+    outline: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        width: $range-thumb-size;
+        height: $range-thumb-size;
+        background: $range-thumb-color;
+        border: 2px solid $range-thumb-border-color;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+        width: $range-thumb-size;
+        height: $range-thumb-size;
+        background: $range-thumb-color;
+        border: 2px solid $range-thumb-border-color;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
+// Media Queries
+@media (max-width: 1200px) {
+    $accordion-number-size: 25px;
+    $range-thumb-size: 18px;
+    $range-track-height: 7px;
+
+    .accordion-button .number {
+        width: $accordion-number-size;
+        height: $accordion-number-size;
+    }
+
+    input[type="range"] {
+        height: $range-track-height;
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+            width: $range-thumb-size;
+            height: $range-thumb-size;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    $accordion-number-size: 20px;
+    $range-thumb-size: 16px;
+    $range-track-height: 6px;
+
+    .accordion-button .number {
+        width: $accordion-number-size;
+        height: $accordion-number-size;
+    }
+
+    input[type="range"] {
+        height: $range-track-height;
+        width: 100%;
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+            width: $range-thumb-size;
+            height: $range-thumb-size;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion-button {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .number {
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+    }
+
+    .range-label {
+        margin: 5px 0;
+    }
+
+    .range-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    $accordion-number-size: 18px;
+    $range-thumb-size: 14px;
+    $range-track-height: 5px;
+
+    .accordion-button .number {
+        width: $accordion-number-size;
+        height: $accordion-number-size;
+    }
+
+    input[type="range"] {
+        height: $range-track-height;
+        width: 100%;
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+            width: $range-thumb-size;
+            height: $range-thumb-size;
+        }
+    }
+}

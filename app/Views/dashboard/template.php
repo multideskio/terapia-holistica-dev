@@ -37,13 +37,9 @@
             <div class="page-content">
                 <div class="container-fluid">
                     <?php echo view('partials/page-title', array('pagetitle' => NAME_SYSTEN, 'title' => $titlePage)); ?>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                <div class="flex-grow-1">
-                                    <h4 class="mb-1"><?= saudacao(session('data')['name']) ?></h4>
-                                </div>
-                            </div>
+                    <div class="d-flex align-items-lg-center flex-lg-row flex-column mb-3">
+                        <div class="flex-grow-1">
+                            <h4 class="mb-1"><?= saudacao(session('data')['name']) ?></h4>
                         </div>
                     </div>
                     <div class="text-center" id="loadTimeLine">
