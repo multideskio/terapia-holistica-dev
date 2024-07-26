@@ -18,10 +18,9 @@
                 <p style="margin: 0 0 10px;">Parabéns! Sua conta foi criada com sucesso.</p>
                 <p style="margin: 0 0 10px;">Estamos empolgados em tê-lo a bordo. Abaixo estão os detalhes da sua nova conta:</p>
                 <p style="margin: 0 0 10px;"><strong>Nome de Usuário:</strong> <?= $email ?></p>
-                <p style="margin: 0 0 10px;"><strong>Sua senha:</strong> mudar@123 (Caso já tenha alterado sua senha, desconsidere.)</p>
-                <p style="margin: 0 0 10px;">Você pode acessar sua conta a qualquer momento clicando no botão abaixo:</p>
+                <p style="margin: 0 0 10px;"><strong>Link da plataforma:</strong> <?= site_url() ?></p>
                 <p style="margin: 0;">
-                    <a href="<?= site_url('auth/createpass/'.$token) ?>" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #FFFFFF; background-color: #1E90FF; text-decoration: none; border-radius: 5px; text-align: center;">Acessar Minha Conta</a>
+                    <a href="<?= site_url('auth/createpass/'.$token) ?>" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #FFFFFF; background-color: #1E90FF; text-decoration: none; border-radius: 5px; text-align: center;">CRIAR UMA SENHA</a>
                 </p>
                 <p style="margin: 20px 0 10px;">Caso tenha qualquer dúvida ou precise de ajuda, nossa equipe de suporte está sempre disponível para assisti-lo. Basta responder a este e-mail ou visitar nossa <a href="[URL da Central de Ajuda]" style="color: #1E90FF; text-decoration: none;">Central de Ajuda</a>.</p>
                 <p style="margin: 0;">Agradecemos por se juntar a nós!</p>
