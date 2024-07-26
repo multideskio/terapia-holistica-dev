@@ -21,6 +21,15 @@ class Login extends BaseController
         return view('login/recover', $data);
     }
 
+
+    public function password(){
+        $data['titlePage'] = "";
+        $data['redirect'] = $this->request->getGet('redirect');
+        return view('login/new-password', $data);
+    }
+
+
+
     public function auth(){
         try{
             $modelUser = new UsersModel();

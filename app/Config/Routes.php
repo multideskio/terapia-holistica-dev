@@ -14,7 +14,7 @@ $routes->get('logout', 'Login::logout');
 
 $routes->get('login/recover', 'Login::recover');
 
-$routes->get('auth/createpass/(:any)', 'Login::index/$1');
+$routes->get('auth/createpass/(:any)', 'Login::password/$1');
 
 
 
