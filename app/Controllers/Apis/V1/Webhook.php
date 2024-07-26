@@ -103,34 +103,18 @@ class Webhook extends ResourceController
     public function createUser($product = null)
     {
         try {
-
             //Verifica a key enviada no header
-            if ($this->request->getHeaderLine('Key') != 'key') {
+            /*if ($this->request->getHeaderLine('Key') != 'key') {
                 throw new Exception('Sem permissão para executar');
-            }
+            }*/
 
             //Verifica o id do webhook interno
             if (!$product) {
                 throw new Exception('Sem permissão para executar');
             }
 
-
-
-            
-
-            //Verifica se existe plano com o id enviado pelo webhook
-            $modelPlan = new PlansModel();
-            $idProduto = $this->request->getJsonVar('product.id') == 0 ? "" : $this->request->getJsonVar('product.id') ;
-            $rowPlan   = $modelPlan->where('idPlan', $idProduto)->first();
-            
-            //Plano não encontrado
-            if (!$rowPlan) {
-                //return $this->respond($rowPlan);
-                throw new Exception('Plano não encontrado');
-            }
-
             //Ações class webhookLibraries
-            $webhook = $this->webhookLibraries->execute($this->request, $rowPlan['id']);
+            $webhook = $this->webhookLibraries->processTransaction($this->request);
 
             return $this->respondCreated($webhook);
 

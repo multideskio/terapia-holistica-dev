@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Libraries\EmailsLibraries;
+
 class Home extends BaseController
 {
     protected $lastSegment ;
@@ -19,5 +21,10 @@ class Home extends BaseController
         
         $data['titlePage'] = $this->lastSegment;;
         return view('dashboard/pages/home', $data);
+    }
+    public function teste(){
+        $email = new EmailsLibraries;
+
+        return $email->testarEnvioEmail('igrsysten@gmail.com', 'Assunto teste', 'Isso é um teste');
     }
 }

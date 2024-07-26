@@ -60,10 +60,14 @@ class Platform extends Migration
                 'constraint' => '5',
                 'null' => true
             ],
-            'smtpCrypt' => [
+            'smtpCrypto' => [
                 'type' => 'VARCHAR',
                 'constraint' => '5',
                 'default' => 'tls'
+            ],
+            'activeSmtp' => [
+                'type' => 'BOOL',
+                'default' => TRUE
             ],
             'created_at' => [
                 'type' => 'DATETIME',

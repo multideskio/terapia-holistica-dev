@@ -66,102 +66,178 @@ class UsersModel extends Model
     }
 
 
+    /**
+     * Método de autenticação do usuário.
+     *
+     * @param array $input Dados de entrada contendo e-mail e senha.
+     * @return mixed Redireciona o usuário após a autenticação ou retorna mensagem de erro.
+     */
     public function auth(array $input)
     {
-
-
         try {
+            // Verifica o login (e-mail e senha)
+            $rowLogin = $this->verifyLogin($input['email'], $input['pass']);
 
-            $pass  = $input['pass'];
-            $email = $input['email'];
+            // Verifica se o usuário possui uma inscrição ativa
+            $this->verifySubscription($rowLogin['id']);
 
-            $rowLogin = $this->where('email', $email)->first();
+            // Verifica se o usuário possui um plano ativo
+            $rowPlan = $this->verifyPlan($rowLogin['id']);
 
-            if (!$rowLogin) {
-                throw new Exception('E-mail não encontrado');
-            }
+            // Gerencia os dados do paciente (criação ou verificação)
+            $idPatient = $this->managePatient($rowLogin);
 
-            if (!password_verify($pass, $rowLogin['password'])) {
-                throw new Exception('Senha invalída');
-            };
+            // Configura os dados da sessão do usuário
+            $this->setSessionData($rowLogin, $rowPlan, $idPatient);
 
-            $modelSubscription = new SubscriptionsModel();
-            $rowSubscription   = $modelSubscription->where('idUser', $rowLogin['id'])->first();
+            // Cria um log de login
+            $this->createLoginLog();
 
-            if (!$rowSubscription) {
-                throw new Exception('Você não tem uma inscrição ativo.');
-            };
-
-            $modelPlan = new PlansModel();
-            $rowPlan   = $modelPlan->where('id', $rowSubscription['idPlan'])->first();
-
-            if (!$rowPlan) {
-                throw new Exception('Você não tem um plano ativo.');
-            }
-
-
-            $modelPatients = new PatientsModel();
-            $rowPatient = $modelPatients->where(['idUser' => $rowLogin['id'], 'email' => $rowLogin['email']])->first();
-            if ($rowPatient){
-                $idPatient = $rowPatient['id'];
-            }else{
-                $dataPatient = [
-                    'idUser' => $rowLogin['id'],
-                    'name'   => $rowLogin['name'],
-                    'email'  => $rowLogin['email'],
-                    'photo'  => $rowLogin['photo'],
-                    'phone'  => $rowLogin['phone'],
-                ];
-
-                $idPatient = $modelPatients->insert($dataPatient);
-
-                session()->set(['data' => ['patient' => $idPatient]]);
-
-                $modelTime = new TimeLinesModel();
-                $modelTime->insert(
-                    [
-                        'idUser' => $rowLogin['id'],
-                        'idPatient' => $idPatient,
-                        'type' => 'create_patient'
-                    ]
-                );
-            }
-
-
-            $data = [
-                'id'           => $rowLogin['id'],
-                'platform'     => $rowLogin['platformId'],
-                'patient'      => $idPatient,
-                'name'         => $rowLogin['name'],
-                'email'        => $rowLogin['email'],
-                'plan'         => $rowPlan['namePlan'],
-                'planId'       => $rowPlan['id'],
-                'subscription' => $rowPlan['id'],
-                'photo'        => $rowLogin['photo'],
-                'phone'        => $rowLogin['phone'],
-                'permission'   => $rowPlan['permissionUser'],
-                'isConnected'  => true
-            ];
-
-            session()->set(
-                [
-                    'data' => $data
-                ]
-            );
-
-            $modelLogs = new LogsModel();
-            $modelLogs->createLog('login', 'Fez o login na plataforma');
-            
-            if(isset($input['recover'])){
-                return redirect()->to($input['recover']);
-            }else{
-                return redirect()->to(site_url('dashboard'));
-            }
-
-            
+            // Redireciona o usuário para a página apropriada
+            return $this->redirectUser($input);
         } catch (\Exception $e) {
+            // Loga a mensagem de erro e retorna a mensagem
             log_message('info', "Erro ao tentar fazer o login: {$e->getMessage()}");
             return $e->getMessage();
+        }
+    }
+
+    /**
+     * Verifica o login do usuário.
+     *
+     * @param string $email E-mail do usuário.
+     * @param string $pass Senha do usuário.
+     * @return array Dados do usuário.
+     * @throws Exception Se o e-mail ou a senha forem inválidos.
+     */
+    private function verifyLogin($email, $pass)
+    {
+        $rowLogin = $this->where('email', $email)->first();
+        if (!$rowLogin) {
+            throw new Exception('E-mail não encontrado');
+        }
+        if (!password_verify($pass, $rowLogin['password'])) {
+            throw new Exception('Senha inválida');
+        }
+        return $rowLogin;
+    }
+
+    /**
+     * Verifica se o usuário possui uma inscrição ativa.
+     *
+     * @param int $userId ID do usuário.
+     * @throws Exception Se o usuário não tiver uma inscrição ativa.
+     */
+    private function verifySubscription($userId)
+    {
+        $modelSubscription = new SubscriptionsModel();
+        $rowSubscription = $modelSubscription->where('idUser', $userId)->first();
+        if (!$rowSubscription) {
+            throw new Exception('Você não tem uma inscrição ativa.');
+        }
+    }
+
+    /**
+     * Verifica se o usuário possui um plano ativo.
+     *
+     * @param int $userId ID do usuário.
+     * @return array Dados do plano.
+     * @throws Exception Se o usuário não tiver um plano ativo.
+     */
+    private function verifyPlan($userId)
+    {
+        $modelSubscription = new SubscriptionsModel();
+        $rowSubscription = $modelSubscription->where('idUser', $userId)->first();
+        $modelPlan = new PlansModel();
+        $rowPlan = $modelPlan->where('id', $rowSubscription['idPlan'])->first();
+        if (!$rowPlan) {
+            throw new Exception('Você não tem um plano ativo.');
+        }
+        return $rowPlan;
+    }
+
+    /**
+     * Gerencia os dados do paciente.
+     *
+     * @param array $rowLogin Dados do login do usuário.
+     * @return int ID do paciente.
+     */
+    private function managePatient($rowLogin)
+    {
+        $modelPatients = new PatientsModel();
+        $rowPatient = $modelPatients->where(['idUser' => $rowLogin['id'], 'email' => $rowLogin['email']])->first();
+        if ($rowPatient) {
+            return $rowPatient['id'];
+        } else {
+            $dataPatient = [
+                'idUser' => $rowLogin['id'],
+                'name'   => $rowLogin['name'],
+                'email'  => $rowLogin['email'],
+                'photo'  => $rowLogin['photo'],
+                'phone'  => $rowLogin['phone'],
+            ];
+            $idPatient = $modelPatients->insert($dataPatient);
+            session()->set(['data' => ['patient' => $idPatient]]);
+
+            $modelTime = new TimeLinesModel();
+            $modelTime->insert(
+                [
+                    'idUser' => $rowLogin['id'],
+                    'idPatient' => $idPatient,
+                    'type' => 'create_patient'
+                ]
+            );
+            return $idPatient;
+        }
+    }
+
+    /**
+     * Configura os dados da sessão do usuário.
+     *
+     * @param array $rowLogin Dados do login do usuário.
+     * @param array $rowPlan Dados do plano do usuário.
+     * @param int $idPatient ID do paciente.
+     */
+    private function setSessionData($rowLogin, $rowPlan, $idPatient)
+    {
+        $data = [
+            'id'           => $rowLogin['id'],
+            'platform'     => $rowLogin['platformId'],
+            'patient'      => $idPatient,
+            'name'         => $rowLogin['name'],
+            'email'        => $rowLogin['email'],
+            'plan'         => $rowPlan['namePlan'],
+            'planId'       => $rowPlan['id'],
+            'subscription' => $rowPlan['id'],
+            'photo'        => $rowLogin['photo'],
+            'phone'        => $rowLogin['phone'],
+            'permission'   => $rowPlan['permissionUser'],
+            'isConnected'  => true
+        ];
+        session()->set(['data' => $data]);
+    }
+
+    /**
+     * Cria um log de login.
+     */
+    private function createLoginLog()
+    {
+        $modelLogs = new LogsModel();
+        $modelLogs->createLog('login', 'Fez o login na plataforma');
+    }
+
+    /**
+     * Redireciona o usuário para a página apropriada.
+     *
+     * @param array $input Dados de entrada contendo URL de recuperação (opcional).
+     * @return \CodeIgniter\HTTP\RedirectResponse Redireciona para a URL de recuperação ou para o dashboard.
+     */
+    private function redirectUser($input)
+    {
+        if (isset($input['recover'])) {
+            return redirect()->to($input['recover']);
+        } else {
+            return redirect()->to(site_url('dashboard'));
         }
     }
 }
