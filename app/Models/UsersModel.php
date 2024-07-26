@@ -223,7 +223,7 @@ class UsersModel extends Model
     private function createLoginLog()
     {
         $modelLogs = new LogsModel();
-        $modelLogs->createLog('login', 'Fez o login na plataforma');
+        $modelLogs->createLog('user_login', 'Fez o login na plataforma');
     }
 
     /**

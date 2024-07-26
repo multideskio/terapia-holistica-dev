@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <div class="float-end">
-                                            <a href="auth-pass-reset-basic" class="text-muted">Perdeu a senha?</a>
+                                            <a href="<?= site_url('login/recover') ?>" class="text-muted">Perdeu a senha?</a>
                                         </div>
                                         <label class="form-label" for="password-input">Senha</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
@@ -75,8 +75,8 @@
                             <!-- end card body -->
                         </div>
                         <!-- end card -->
-                        <div class="mt-4 text-center">
-                            <p class="mb-0">Ainda não tem uma conta ? <a href="auth-signup-basic" class="fw-semibold text-primary text-decoration-underline"> Criar conta </a> </p>
+                        <div class="mt-2 text-center">
+                            <p class="mb-0">Ainda não tem uma conta ? <a href="#" onclick="alert('Função não disponivel')" class="fw-semibold text-primary text-decoration-underline"> Criar conta </a> </p>
                         </div>
                     </div>
                 </div>
@@ -86,23 +86,7 @@
         </div>
         <!-- end auth page content -->
         <!-- footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="mb-0 text-muted">&copy;
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> Multidesk. Crafted with <i class="mdi mdi-heart text-danger"></i>
-                                <br>
-                                <a href="https://wakatime.com/badge/user/d4bcc2ba-885d-4896-ab8c-4edfac2362f7/project/114f4571-90c7-47e0-9ccb-0ea7e0aa7ee4"><img src="https://wakatime.com/badge/user/d4bcc2ba-885d-4896-ab8c-4edfac2362f7/project/114f4571-90c7-47e0-9ccb-0ea7e0aa7ee4.svg" alt="wakatime"></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?= $this->include('login/includes/footer.php') ?>
         <!-- end Footer -->
     </div>
     <!-- end auth-page-wrapper -->
@@ -113,6 +97,7 @@
     <script src="/assets/js/pages/particles.app.js"></script>
     <!-- password-addon init -->
     <script src="/assets/js/pages/password-addon.init.js"></script>
+
 </body>
 
 </html>

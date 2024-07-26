@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conta Criada com Sucesso</title>
+    <title>Recuperação de conta</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #333333; color: #FFFFFF; margin: 0; padding-top: 30px; padding-bottom: 30px;">
+<body style="font-family: Arial, sans-serif; background-color: #fff; color: #FFFFFF; margin: 0; padding-top: 30px; padding-bottom: 30px;">
     <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background-color: #444444; border-radius: 8px; padding: 20px;">
         <tr>
             <td style="text-align: center; padding-bottom: 20px; padding-top: 30px;">
-                <h1 style="margin: 0; color: #FFFFFF;">Conta Criada com Sucesso!</h1>
+                <h1 style="margin: 0; color: #FFFFFF; font-size: 22px; font-weight: 900;">Recuperação de conta!</h1>
             </td>
         </tr>
         <tr>
-            <td style="padding: 20px;">
+            <td style="padding: 20px; font-size: 14px;">
                 <p style="margin: 0 0 10px;">Olá <?= $name ?>,</p>
-                <p style="margin: 0 0 10px;">Parabéns! Sua conta foi criada com sucesso.</p>
-                <p style="margin: 0 0 10px;">Estamos empolgados em tê-lo a bordo. Abaixo estão os detalhes da sua nova conta:</p>
-                <p style="margin: 0 0 10px;"><strong>Nome de Usuário:</strong> <?= $email ?></p>
-                <p style="margin: 0 0 10px;"><strong>Sua senha:</strong> mudar@123 (Caso já tenha alterado sua senha, desconsidere.)</p>
-                <p style="margin: 0 0 10px;">Você pode acessar sua conta a qualquer momento clicando no botão abaixo:</p>
+                <p style="margin: 0 0 10px;">Para alterar sua senha, clique no botão a baixo, caso você não tenha solicitado, desconsidere esse e-mail.</p>
                 <p style="margin: 0;">
-                    <a href="<?= site_url('auth/createpass/'.$token) ?>" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #FFFFFF; background-color: #1E90FF; text-decoration: none; border-radius: 5px; text-align: center;">Acessar Minha Conta</a>
+                    <a href="<?= site_url('auth/createpass/'.$token) ?>" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #FFFFFF; background-color: #1E90FF; text-decoration: none; border-radius: 5px; text-align: center;">Criar senha</a>
                 </p>
+                <a href="<?= site_url('auth/createpass/'.$token) ?>" style="color: #888888 !important; font-size: 12px;">
+                    <?= site_url('auth/createpass/'.$token) ?>
+                </a>
                 <p style="margin: 20px 0 10px;">Caso tenha qualquer dúvida ou precise de ajuda, nossa equipe de suporte está sempre disponível para assisti-lo. Basta responder a este e-mail ou visitar nossa <a href="[URL da Central de Ajuda]" style="color: #1E90FF; text-decoration: none;">Central de Ajuda</a>.</p>
                 <p style="margin: 0;">Agradecemos por se juntar a nós!</p>
                 <p style="margin: 20px 0 0;">Atenciosamente, <br>Equipe [Nome da Empresa]</p>

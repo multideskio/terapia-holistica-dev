@@ -9,8 +9,13 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Login::index');
 $routes->get('teste', 'Home::teste');
 
-$routes->post('/auth', 'Login::auth');
-$routes->get('/logout', 'Login::logout');
+$routes->post('auth', 'Login::auth');
+$routes->get('logout', 'Login::logout');
+
+$routes->get('login/recover', 'Login::recover');
+
+$routes->get('auth/createpass/(:any)', 'Login::index/$1');
+
 
 
 //URL ABERTA PARA CRIAR A CONTA ATRAVÉS DO GATEWAY DE PAGAMENTO
@@ -71,4 +76,9 @@ $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static fun
         $routes->get('ts', 'TimeLine::tsGet');
     });
     //$routes->resource('webhook', ['filter' => 'cors']);
+});
+
+
+$routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static function ($routes) {
+    $routes->post('recover', 'Open::recoverPass');
 });
