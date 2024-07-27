@@ -18,10 +18,10 @@
                                 <label class="form-label">Tem desequilíbrio?</label>
                                 <div>
                                     <div class="btn-group">
-                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraCoronarioDesiquilobrio" id="chakraCoronarioDesiquilobrioSim" value="sim">
-                                        <label class="btn btn-outline-primary form-check-label" for="chakraCoronarioDesiquilobrioSim">Sim</label>
-                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraCoronarioDesiquilobrio" id="chakraCoronarioDesiquilobrioNao" value="não">
-                                        <label class="btn btn-outline-danger form-check-label" for="chakraCoronarioDesiquilobrioNao">Não</label>
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraCoronarioDesiquilibrio" id="chakraCoronarioDesiquilibrioSim" value="sim">
+                                        <label class="btn btn-outline-primary form-check-label" for="chakraCoronarioDesiquilibrioSim">Sim</label>
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraCoronarioDesiquilibrio" id="chakraCoronarioDesiquilibrioNao" value="não">
+                                        <label class="btn btn-outline-danger form-check-label" for="chakraCoronarioDesiquilibrioNao">Não</label>
                                     </div>
                                 </div>
                             </div>
