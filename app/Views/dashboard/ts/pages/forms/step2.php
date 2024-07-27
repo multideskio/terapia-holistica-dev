@@ -9,17 +9,18 @@
             <p>Trata-se do acesso aos campos eletromagnéticos, possibilitando a medição energética dos campos mental, emocional, espiritual e físico.</p>
             <p class="text-info fw-bold">* Todos os campos devem ser respondidos</p>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="p-2 border border-1 question-container">
+                <div class="col-md-6 p-2 border border-1">
+                    <div class="question-container mb-3">
                         <label class="form-label">Campo/Corpo Mental</label>
-                        <div>
+                        <p>Tem desequilíbrio?</p>
+                        <div class="mb-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalSim" value="sim" required>
-                                <label class="form-check-label" for="mentalSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalSim" value="sim">
+                                <label class="btn btn-outline-info form-check-label" for="mentalSim">Sim</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalNao" value="não" required>
-                                <label class="form-check-label" for="mentalNao">Não</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="mentalNao">Não</label>
                             </div>
                         </div>
                         <div class="range-container hidden">
@@ -31,16 +32,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3 p-2 border border-1 question-container">
+                    <div class="question-container">
                         <label class="form-label">Campo/Corpo Emocional</label>
-                        <div>
+                        <p>Tem desequilíbrio?</p>
+                        <div class="mb-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalSim" value="sim" required>
-                                <label class="form-check-label" for="emocionalSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalSim" value="sim">
+                                <label class="btn btn-outline-info form-check-label" for="emocionalSim">Sim</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalNao" value="não" required>
-                                <label class="form-check-label" for="emocionalNao">Não</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="emocionalNao">Não</label>
                             </div>
                         </div>
 
@@ -59,13 +61,14 @@
                 <div class="col-md-6">
                     <div class="mb-3 p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Espiritual</label>
+                        <p>Tem desequilíbrio?</p>
                         <div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualSim" value="sim" required>
+                                <input class="form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualSim" value="sim">
                                 <label class="form-check-label" for="espiritualSim">Sim</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualNao" value="não" required>
+                                <input class="form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualNao" value="não">
                                 <label class="form-check-label" for="espiritualNao">Não</label>
                             </div>
                         </div>
@@ -81,13 +84,14 @@
 
                     <div class="p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Físico</label>
+                        <p>Tem desequilíbrio?</p>
                         <div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoSim" value="sim" required>
+                                <input class="form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoSim" value="sim">
                                 <label class="form-check-label" for="fisicoSim">Sim</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoNao" value="não" required>
+                                <input class="form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoNao" value="não">
                                 <label class="form-check-label" for="fisicoNao">Não</label>
                             </div>
                         </div>

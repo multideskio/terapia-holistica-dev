@@ -9,12 +9,12 @@
             <p>Informações do paciente.</p>
             <div class="mb-3">
                 <label for="name" class="form-label">Nome Completo:</label>
-                <input type="text" class="form-control required-field" id="name" name="name" required disabled>
+                <input type="text" class="form-control required-field" id="name" name="name" disabled>
                 <div class="invalid-feedback">Este campo é obrigatório.</div>
             </div>
             <div class="mb-3">
                 <label for="birthDate" class="form-label">Data de nascimento:</label>
-                <input type="date" class="form-control required-field" id="birthDate" name="birthDate" required disabled>
+                <input type="date" class="form-control required-field" id="birthDate" name="birthDate" disabled>
                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                 <input type="hidden" name="idPatient" id="idPatient">
             </div>

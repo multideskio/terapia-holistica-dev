@@ -18,11 +18,11 @@
                                 <label class="form-label">Tem desequilíbrio?</label>
                                 <div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input required-field" type="radio" name="chakraCoronarioDesiquilobrio" id="chakraCoronarioDesiquilobrioSim" value="sim" required>
+                                        <input class="form-check-input required-field" type="radio" name="chakraCoronarioDesiquilobrio" id="chakraCoronarioDesiquilobrioSim" value="sim">
                                         <label class="form-check-label" for="chakraCoronarioDesiquilobrioSim">Sim</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input required-field" type="radio" name="chakraCoronarioDesiquilobrio" id="chakraCoronarioDesiquilobrioNao" value="não" required>
+                                        <input class="form-check-input required-field" type="radio" name="chakraCoronarioDesiquilobrio" id="chakraCoronarioDesiquilobrioNao" value="não">
                                         <label class="form-check-label" for="chakraCoronarioDesiquilobrioNao">Não</label>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                             <div class="mb-2 range-container hidden">
                                 <label for="chakraCoronarioPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
                                 <div>
-                                    <input type="range" id="chakraCoronarioPercentual" min="0" max="100" value="50" name="chakraCoronarioPercentual" required>
+                                    <input type="range" id="chakraCoronarioPercentual" min="0" max="100" value="50" name="chakraCoronarioPercentual">
                                     <div class="range-label" id="value-chakraCoronarioPercentual">50%</div>
                                     <div class="invalid-feedback">Este campo é obrigatório.</div>
                                 </div>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="mb-2">
                                 <label for="chakraCoronarioAtividade">Qual a atividade do chakra?</label>
-                                <input type="text" class="form-control required-field" id="chakraCoronarioAtividade" name="chakraCoronarioAtividade" required>
+                                <input type="text" class="form-control required-field" id="chakraCoronarioAtividade" name="chakraCoronarioAtividade">
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                         </div>
@@ -47,11 +47,11 @@
                             <label class="form-label">Afeta glândula/órgão correspondente?</label>
                             <div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required-field" type="radio" name="chakraCoronarioOrgao" id="chakraCoronarioOrgaoSim" value="sim" required>
+                                    <input class="form-check-input required-field" type="radio" name="chakraCoronarioOrgao" id="chakraCoronarioOrgaoSim" value="sim">
                                     <label class="form-check-label" for="chakraCoronarioOrgaoSim">Sim</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required-field" type="radio" name="chakraCoronarioOrgao" id="chakraCoronarioOrgaoNao" value="não" required>
+                                    <input class="form-check-input required-field" type="radio" name="chakraCoronarioOrgao" id="chakraCoronarioOrgaoNao" value="não">
                                     <label class="form-check-label" for="chakraCoronarioOrgaoNao">Não</label>
                                 </div>
                             </div>
@@ -67,11 +67,11 @@
                                 <label class="form-label">Tem desequilíbrio?</label>
                                 <div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioSim" value="sim" required>
+                                        <input class="form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioSim" value="sim">
                                         <label class="form-check-label" for="chakraFrontalDesiquilibrioSim">Sim</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioNao" value="não" required>
+                                        <input class="form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioNao" value="não">
                                         <label class="form-check-label" for="chakraFrontalDesiquilibrioNao">Não</label>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                             <div class="mb-2 range-container hidden">
                                 <label for="chakraFrontalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
                                 <div>
-                                    <input type="range" id="chakraFrontalPercentual" min="0" max="100" value="50" name="chakraFrontalPercentual" required>
+                                    <input type="range" id="chakraFrontalPercentual" min="0" max="100" value="50" name="chakraFrontalPercentual">
                                     <div class="range-label" id="value-chakraFrontalPercentual">50%</div>
                                     <div class="invalid-feedback">Este campo é obrigatório.</div>
                                 </div>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="mb-2">
                                 <label for="chakraFrontalAtividade">Qual a atividade do chakra?</label>
-                                <input type="text" class="form-control required-field" id="chakraFrontalAtividade" name="chakraFrontalAtividade" required>
+                                <input type="text" class="form-control required-field" id="chakraFrontalAtividade" name="chakraFrontalAtividade">
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                         </div>
@@ -95,11 +95,11 @@
                             <label class="form-label">Afeta glândula/órgão correspondente?</label>
                             <div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required-field" type="radio" name="chakraFrontalOrgao" id="chakraFrontalOrgaoSim" value="sim" required>
+                                    <input class="form-check-input required-field" type="radio" name="chakraFrontalOrgao" id="chakraFrontalOrgaoSim" value="sim">
                                     <label class="form-check-label" for="chakraFrontalOrgaoSim">Sim</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required-field" type="radio" name="chakraFrontalOrgao" id="chakraFrontalOrgaoNao" value="não" required>
+                                    <input class="form-check-input required-field" type="radio" name="chakraFrontalOrgao" id="chakraFrontalOrgaoNao" value="não">
                                     <label class="form-check-label" for="chakraFrontalOrgaoNao">Não</label>
                                 </div>
                             </div>
