@@ -11,35 +11,22 @@
             <div class="row">
                 <div class="col-md-6 p-3 border border-1">
                     <h5>Campo Áurico</h5>
-                    <div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input required-field" type="radio" name="campoAurico" id="campoAuricoAberto" value="aberto">
-                            <label class="form-check-label" for="campoAuricoAberto">Aberto</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input required-field" type="radio" name="campoAurico" id="campoAuricoMedia" value="media">
-                            <label class="form-check-label" for="campoAuricoMedia">Média</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input required-field" type="radio" name="campoAurico" id="campoAuricoFechado" value="fechado">
-                            <label class="form-check-label" for="campoAuricoFechado">Fechado</label>
-                        </div>
+                    <div class="btn-group">
+                        <input class="btn-check form-check-input required-field" type="radio" name="campoAurico" id="campoAuricoAberto" value="aberto">
+                        <label class="btn btn-outline-primary form-check-label" for="campoAuricoAberto">Aberto</label>
+                        <input class="btn-check form-check-input required-field" type="radio" name="campoAurico" id="campoAuricoMedia" value="media">
+                        <label class="btn btn-outline-primary form-check-label" for="campoAuricoMedia">Média</label>
+                        <input class="btn-check form-check-input required-field" type="radio" name="campoAurico" id="campoAuricoFechado" value="fechado">
+                        <label class="btn btn-outline-primary form-check-label" for="campoAuricoFechado">Fechado</label>
                     </div>
-
                     <h5 class="mt-3">Campo Áurico</h5>
-                    <div class="mt-2">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input required-field" type="radio" name="campoAurico2" id="campoAurico2Expandido" value="expandido">
-                            <label class="form-check-label" for="campoAurico2Expandido">Expandido</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input required-field" type="radio" name="campoAurico2" id="campoAurico2Media" value="media">
-                            <label class="form-check-label" for="campoAurico2Media">Média</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input required-field" type="radio" name="campoAurico2" id="campoAuricoEncolhido" value="encolhido">
-                            <label class="form-check-label" for="campoAuricoEncolhido">Encolhido</label>
-                        </div>
+                    <div class="mt-2 btn-group">
+                        <input class="btn-check form-check-input required-field" type="radio" name="campoAurico2" id="campoAurico2Expandido" value="expandido">
+                        <label class="btn btn-outline-primary form-check-label" for="campoAurico2Expandido">Expandido</label>
+                        <input class="btn-check form-check-input required-field" type="radio" name="campoAurico2" id="campoAurico2Media" value="media">
+                        <label class="btn btn-outline-primary form-check-label" for="campoAurico2Media">Média</label>
+                        <input class="btn-check form-check-input required-field" type="radio" name="campoAurico2" id="campoAuricoEncolhido" value="encolhido">
+                        <label class="btn btn-outline-primary form-check-label" for="campoAuricoEncolhido">Encolhido</label>
                     </div>
                     <label class="form-label mt-3" for="campoAurico2Comments">Comentários</label>
                     <textarea name="campoAurico2Comments" id="campoAurico2Comments" class="form-control" name="" id="" rows="6"></textarea>
