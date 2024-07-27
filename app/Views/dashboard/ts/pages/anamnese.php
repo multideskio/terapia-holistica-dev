@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="mb-5 mt-3">Crie uma anamnese</h2>
-                <form id="wizard-form" class="needs-validation" novalidate>
+                <?= form_open('api/v1/anamnese', 'id="wizard-form" class="needs-validation" novalidate') ?>
                     <div class="accordion" id="wizardAccordion">
                         <!-- Step 1 -->
                         <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
@@ -145,13 +145,13 @@
             }
         });
 
-        $('#wizard-form').on('submit', function(event) {
+        /*$('#wizard-form').on('submit', function(event) {
             event.preventDefault();
             if (!this.checkValidity()) {
                 event.stopPropagation();
             }
             this.classList.add('was-validated');
-        });
+        });*/
     });
 </script>
 <?php $this->endSection(); ?>

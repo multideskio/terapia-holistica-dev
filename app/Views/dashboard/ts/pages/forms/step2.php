@@ -10,7 +10,7 @@
             <p class="text-info fw-bold">* Todos os campos devem ser respondidos</p>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="mb-3 p-2 border border-1 question-container">
+                    <div class="p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Mental</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3 p-2 border border-1 question-container">
+                    <div class="p-2 border border-1 question-container">
                         <label class="form-label">Campo/Corpo Físico</label>
                         <div>
                             <div class="form-check form-check-inline">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-end">
+            <div class="text-end mt-3">
                 <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseOne">Anterior</button>
                 <button type="button" class="btn btn-primary next-btn" data-next="#collapseThree">Próximo</button>
             </div>

@@ -7,8 +7,11 @@
     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#wizardAccordion">
         <div class="accordion-body">
             <!-- Conteúdo específico desta etapa -->
-            <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseFive">Anterior</button>
-            <button type="submit" class="btn btn-success">Enviar</button>
+
+            <div class="text-end mt-3">
+                <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseFive">Anterior</button>
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
         </div>
     </div>
 </div>

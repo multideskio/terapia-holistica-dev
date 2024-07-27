@@ -7,8 +7,12 @@
     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#wizardAccordion">
         <div class="accordion-body">
             <!-- Conteúdo específico desta etapa -->
-            <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseFour">Anterior</button>
-            <button type="button" class="btn btn-primary next-btn" data-next="#collapseSix">Próximo</button>
+
+
+            <div class="text-end mt-3">
+                <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseFour">Anterior</button>
+                <button type="button" class="btn btn-primary next-btn" data-next="#collapseSix">Próximo</button>
+            </div>
         </div>
     </div>
 </div>

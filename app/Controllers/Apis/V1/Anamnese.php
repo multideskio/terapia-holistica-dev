@@ -2,19 +2,32 @@
 
 namespace App\Controllers\Apis\V1;
 
+use App\Models\AnamnesesModel;
+use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
 class Anamnese extends ResourceController
 {
+    use ResponseTrait;
     /**
      * Return an array of resource objects, themselves in array format.
      *
      * @return ResponseInterface
      */
+    protected $modelAnamnese ;
+    protected $request;
+
+    public function __construct()
+    {
+        $this->request = service('request');
+
+        $this->modelAnamnese = new AnamnesesModel();
+    }
     public function index()
     {
         //
+        return $this->respond([]);
     }
 
     /**
@@ -47,6 +60,9 @@ class Anamnese extends ResourceController
     public function create()
     {
         //
+        $input = $this->request->getPost();
+
+        return $this->respond($input);
     }
 
     /**

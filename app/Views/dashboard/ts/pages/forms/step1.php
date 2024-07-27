@@ -18,7 +18,7 @@
                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                 <input type="hidden" name="idPatient" id="idPatient">
             </div>
-            <div class="text-end">
+            <div class="text-end mt-3">
                 <button type="button" class="btn btn-primary next-btn" data-next="#collapseTwo">Próximo</button>
             </div>
         </div>
