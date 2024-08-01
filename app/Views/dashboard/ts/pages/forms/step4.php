@@ -10,7 +10,7 @@
             <p>Trata-se da medição energética de cada um dos 7 principais chakras e glândulas correspondentes.</p>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="p-3 border border-1">
                         <div class="question-container">
                             <h5>Chakra Plexo Solar</h5>
@@ -37,7 +37,14 @@
                             </div>
                             <div class="mb-2">
                                 <label for="chakraPlexoSolarAtividade">Qual a atividade do chakra?</label>
-                                <input type="text" class="form-control required-field" id="chakraPlexoSolarAtividade" name="chakraPlexoSolarAtividade">
+                                <div>
+                                    <div class="btn-group">
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraPlexoSolarAtividade" id="chakraPlexoSolarAtividadeHipo" value="HIPO">
+                                        <label class="btn btn-outline-dark form-check-label" for="chakraPlexoSolarAtividadeHipo">HIPO</label>
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraPlexoSolarAtividade" id="chakraPlexoSolarAtividadeHiper" value="HIPER">
+                                        <label class="btn btn-outline-dark form-check-label" for="chakraPlexoSolarAtividadeHiper">HIPER</label>
+                                    </div>
+                                </div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                         </div>
@@ -56,8 +63,60 @@
                     </div>
                 </div>
 
+                <div class="col-md-6 mb-3">
+                    <div class="p-3 border border-1">
+                        <div class="question-container">
+                            <h5>Chakra Sacro</h5>
+                            <div class="mb-2">
+                                <label class="form-label">Tem desequilíbrio?</label>
+                                <div>
+                                    <div class="btn-group">
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroDesiquilobrio" id="chakraSacroDesiquilobrioSim" value="sim">
+                                        <label class="btn btn-outline-primary form-check-label" for="chakraSacroDesiquilobrioSim">Sim</label>
 
-                <div class="col-md-6">
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroDesiquilobrio" id="chakraSacroDesiquilobrioNao" value="não">
+                                        <label class="btn btn-outline-danger form-check-label" for="chakraSacroDesiquilobrioNao">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-2 range-container hidden">
+                                <label for="chakraSacroPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
+                                <div>
+                                    <input type="range" id="chakraSacroPercentual" min="0" max="100" value="50" name="chakraSacroPercentual">
+                                    <div class="range-label" id="value-chakraSacroPercentual">50%</div>
+                                    <div class="invalid-feedback">Este campo é obrigatório.</div>
+                                </div>
+                                <div class="invalid-feedback">Este campo é obrigatório.</div>
+                            </div>
+                            <div class="mb-2">
+                                <label for="chakraSacroAtividade">Qual a atividade do chakra?</label>
+                                <div>
+                                    <div class="btn-group">
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroAtividade" id="chakraSacroAtividadeHipo" value="HIPO">
+                                        <label class="btn btn-outline-dark form-check-label" for="chakraSacroAtividadeHipo">HIPO</label>
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroAtividade" id="chakraSacroAtividadeHiper" value="HIPER">
+                                        <label class="btn btn-outline-dark form-check-label" for="chakraSacroAtividadeHiper">HIPER</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label">Afeta glândula/órgão correspondente?</label>
+                            <div>
+                                <div class="btn-group">
+                                    <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroOrgao" id="chakraSacroOrgaoSim" value="sim">
+                                    <label class="btn btn-outline-primary form-check-label" for="chakraSacroOrgaoSim">Sim</label>
+                                    <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroOrgao" id="chakraSacroOrgaoNao" value="não">
+                                    <label class="btn btn-outline-danger form-check-label" for="chakraSacroOrgaoNao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 mb-3">
                     <div class="p-3 border border-1">
                         <div class="question-container">
                             <h5>Chakra Básico</h5>
@@ -84,7 +143,14 @@
                             </div>
                             <div class="mb-2">
                                 <label for="chakraBasicoAtividade">Qual a atividade do chakra?</label>
-                                <input type="text" class="form-control required-field" id="chakraBasicoAtividade" name="chakraBasicoAtividade">
+                                <div>
+                                    <div class="btn-group">
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraBasicoAtividade" id="chakraBasicoAtividadeHipo" value="HIPO">
+                                        <label class="btn btn-outline-dark form-check-label" for="chakraBasicoAtividadeHipo">HIPO</label>
+                                        <input class="btn-check form-check-input required-field" type="radio" name="chakraBasicoAtividade" id="chakraBasicoAtividadeHiper" value="HIPER">
+                                        <label class="btn btn-outline-dark form-check-label" for="chakraBasicoAtividadeHiper">HIPER</label>
+                                    </div>
+                                </div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                         </div>
