@@ -15,7 +15,7 @@
                         <div class="question-container">
                             <h5>Chakra Coronário</h5>
                             <div class="mb-2">
-                                <label class="form-label">Tem desequilíbrio?</label>
+                                <p class="w-900">Tem desequilíbrio?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraCoronarioDesiquilibrio" id="chakraCoronarioDesiquilibrioSim" value="sim">
@@ -35,7 +35,7 @@
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                             <div class="mb-2">
-                                <label for="chakraCoronarioAtividade">Qual a atividade do chakra?</label>
+                                <p class="w-900">Qual a atividade do chakra?</p>
 
                                 <div>
                                     <div class="btn-group">
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Afeta o corpo físico?</label>
+                            <p class="w-900">Afeta o corpo físico?</p>
                             <div>
                                 <div class="btn-group">
                                     <input class="btn-check form-check-input required-field" type="radio" name="chakraCoronarioOrgao" id="chakraCoronarioOrgaoSim" value="sim">
@@ -67,7 +67,7 @@
                         <div class="question-container">
                             <h5>Chakra Frontal</h5>
                             <div class="mb-2">
-                                <label class="form-label">Tem desequilíbrio?</label>
+                                <p class="w-900">Tem desequilíbrio?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioSim" value="sim">
@@ -87,7 +87,7 @@
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                             <div class="mb-2">
-                                <label for="chakraFrontalAtividade">Qual a atividade do chakra?</label>
+                                <p class="w-900">Qual a atividade do chakra?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalAtividade" id="chakraFrontalAtividadeHipo" value="HIPO">
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Afeta glândula/órgão correspondente?</label>
+                            <p class="w-900">Afeta glândula/órgão correspondente?</p>
                             <div>
                                 <div class="btn-group">
                                     <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalOrgao" id="chakraFrontalOrgaoSim" value="sim">
@@ -119,7 +119,7 @@
                         <div class="question-container">
                             <h5>Chakra Laríngeo</h5>
                             <div class="mb-2">
-                                <label class="form-label">Tem desequilíbrio?</label>
+                                <p class="w-900">Tem desequilíbrio?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoDesiquilobrio" id="chakraLaringeoDesiquilobrioSim" value="sim">
@@ -139,7 +139,7 @@
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                             <div class="mb-2">
-                                <label for="chakraLaringeoAtividade">Qual a atividade do chakra?</label>
+                                <p class="w-900">Qual a atividade do chakra?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoAtividade" id="chakraLaringeoAtividadeHipo" value="HIPO">
@@ -152,7 +152,7 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Afeta glândula/órgão correspondente?</label>
+                            <p class="w-900">Afeta glândula/órgão correspondente?</p>
                             <div>
                                 <div class="btn-group">
                                     <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoOrgao" id="chakraLaringeoOrgaoSim" value="sim">
@@ -169,7 +169,7 @@
                         <div class="question-container">
                             <h5>Chakra Cardíaco</h5>
                             <div class="mb-2">
-                                <label class="form-label">Tem desequilíbrio?</label>
+                                <p class="w-900">Tem desequilíbrio?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoDesiquilobrio" id="chakraCardiacoDesiquilibrioSim" value="sim">
@@ -189,7 +189,7 @@
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                             <div class="mb-2">
-                                <label for="chakraCardiacoAtividade">Qual a atividade do chakra?</label>
+                                <p class="w-900">Qual a atividade do chakra?</p>
                                 <div>
                                     <div class="btn-group">
                                         <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoAtividade" id="chakraCardiacoAtividadeHipo" value="HIPO">
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Afeta glândula/órgão correspondente?</label>
+                            <p class="w-900">Afeta glândula/órgão correspondente?</p>
                             <div>
                                 <div class="btn-group">
                                     <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoOrgao" id="chakraCardiacoOrgaoSim" value="sim">

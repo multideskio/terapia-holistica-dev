@@ -59,7 +59,7 @@ input[type="range"] {
     appearance: none;
     -webkit-appearance: none; // For WebKit browsers
     -moz-appearance: none; // For Mozilla browsers
-    width: 300px;
+    width: 100%;
     height: $range-track-height;
     background: linear-gradient(to right, $range-start-color, $range-end-color);
     outline: none;

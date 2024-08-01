@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-6 p-2">
                     <div class="question-container mb-3">
-                        <label class="form-label">Campo/Corpo Mental</label>
+                        <p class="w-900">Campo/Corpo Mental</p>
                         <p>Tem desequilíbrio?</p>
                         <div class="mb-3 btn-group">
                             <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalSim" value="sim">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="question-container">
-                        <label class="form-label">Campo/Corpo Emocional</label>
+                        <p class="w-900">Campo/Corpo Emocional</p>
                         <p>Tem desequilíbrio?</p>
                         <div class="mb-3 btn-group">
                             <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalSim" value="sim">
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-6 p-2">
                     <div class="question-container mb-3">
-                        <label class="form-label">Campo/Corpo Espiritual</label>
+                        <p class="w-900">Campo/Corpo Espiritual</p>
                         <p>Tem desequilíbrio?</p>
                         <div class="mb-3 btn-group">
                             <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualSim" value="sim">
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="question-container">
-                        <label class="form-label">Campo/Corpo Físico</label>
+                        <p class="w-900">Campo/Corpo Físico</p>
                         <p>Tem desequilíbrio?</p>
                         <div class="mb-3 btn-group">
                             <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoSim" value="sim">

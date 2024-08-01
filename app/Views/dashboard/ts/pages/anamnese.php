@@ -1,12 +1,11 @@
 <?= $this->extend('dashboard/template') ?>
 <?php $this->section('css') ?>
-<!-- nouisliderribute css -->
-<link rel="stylesheet" href="/assets/libs/nouislider/nouislider.min.css">
 <link rel="stylesheet" href="/assets/css/custom/anamnese.css?v=<?= time() ?>">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <?php $this->endSection(); ?>
 <?php $this->section('page') ?>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-lg-8">
         <div class="card">
             <div class="card-body">
                 <h2 class="mb-5 mt-3">Crie uma anamnese</h2>
@@ -32,8 +31,9 @@
 </div>
 <?php $this->endSection(); ?>
 <?php $this->section('js'); ?>
-<!-- nouisliderribute js -->
-<script src="/assets/libs/nouislider/nouislider.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     $(document).ready(function() {
 
