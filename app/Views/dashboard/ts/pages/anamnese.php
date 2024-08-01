@@ -1,8 +1,10 @@
 <?= $this->extend('dashboard/template') ?>
 <?php $this->section('css') ?>
+
 <link rel="stylesheet" href="/assets/css/custom/anamnese.css?v=<?= time() ?>">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 <?php $this->endSection(); ?>
+
 <?php $this->section('page') ?>
 <div class="row">
     <div class="col-lg-8">
@@ -33,8 +35,9 @@
 <?php $this->section('js'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+<script src="/assets/js/pages/select2.init.js"></script>
 <script>
+
     $(document).ready(function() {
 
         // Mostrar ou esconder o range-container baseado na seleção dos botões de rádio
@@ -63,6 +66,13 @@
             });
         });
 
+
+        const rangeInput = document.getElementById('energia');
+        const rangeValue = document.getElementById('value-energia');
+
+        rangeInput.addEventListener('input', function() {
+            rangeValue.textContent = `${this.value} A`;
+        });
     });
 
 

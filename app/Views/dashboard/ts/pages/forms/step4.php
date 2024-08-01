@@ -170,8 +170,10 @@
             </div>
 
             <div class="text-end mt-3">
-                <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseThree">Anterior</button>
-                <button type="button" class="btn btn-primary next-btn" data-next="#collapseFive">Próximo</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseThree">Anterior</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="#collapseFive">Próximo</button>
+                </div>
             </div>
         </div>
     </div>
