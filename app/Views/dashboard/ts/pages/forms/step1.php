@@ -6,6 +6,7 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#wizardAccordion">
         <div class="accordion-body">
+            
             <p>Informações do paciente.</p>
             <div class="mb-3">
                 <label for="name" class="form-label">Nome Completo:</label>
