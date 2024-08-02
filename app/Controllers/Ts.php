@@ -22,7 +22,7 @@ class Ts extends BaseController
     }
 
     public function anamnese($id = null){
-        $data['idPatientControl'] = session('data')['patient'];
+        $data['idPatientControl'] = session('data')['custumer'];
         $data['titlePage'] = 'ANAMNESE';
         return view('dashboard/ts/pages/anamnese', $data);
     }

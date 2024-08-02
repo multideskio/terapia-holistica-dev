@@ -4,14 +4,14 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Patients extends Migration
+class Custumers extends Migration
 {
     public function up()
     {
-        //
         $db = db_connect();
         $db->disableForeignKeyChecks();
 
+        //
         $this->forge->addField([
             'id' => [
                 'type' => 'BIGINT',
@@ -62,18 +62,16 @@ class Patients extends Migration
             ]
         ]);
 
-
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
 
-        $this->forge->createTable('patients', true);
+        $this->forge->createTable('custumers', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('patients', true);
-
+        $this->forge->dropTable('custumers', true);
     }
 }

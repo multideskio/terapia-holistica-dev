@@ -66,11 +66,11 @@ $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static fun
         $routes->post('', 'Webhook::index', ['filter' => 'cors']);
     });
     //$routes->resource('webhook', ['filter' => 'cors']);
-    
-    $routes->group('patient', ['filter' => 'auth'], static function ($routes){
-        $routes->get('search/(:num)',  'Patient::searchPatient/$1', ['filter' => 'cors']);
+
+    $routes->group('custumer', ['filter' => 'auth'], static function ($routes){
+        $routes->get('search/(:num)',  'Custumer::searchCustumer/$1', ['filter' => 'cors']);
     });
-    //$routes->resource('patient', ['filter' => 'cors']);
+    //$routes->resource('custumer', ['filter' => 'cors']);
 
     $routes->group('timeline', ['filter' => 'auth'], static function ($routes){
         $routes->get('ts', 'TimeLine::tsGet');

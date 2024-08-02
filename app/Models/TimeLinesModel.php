@@ -13,7 +13,7 @@ class TimeLinesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['idUser', 'idPatient', 'type', 'description', 'url', 'ico', 'observation'];
+    protected $allowedFields    = ['idUser', 'idCustumer', 'type', 'description', 'url', 'ico', 'observation'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -48,7 +48,7 @@ class TimeLinesModel extends Model
     protected function updateCache()
     {
         $cache     = service('cache');
-        $nameCache = session('data')['patient'] . '_story';
+        $nameCache = session('data')['custumer'] . '_story';
         if (!$cache->get($nameCache)) {
             $cache->delete($nameCache);
         }
@@ -56,11 +56,11 @@ class TimeLinesModel extends Model
 
     protected function create(array $data)
     {
-        if ($data["data"]["type"] == 'create_patient') {
-            $data["data"]["description"] = "Paciente criado";
+        if ($data["data"]["type"] == 'create_custumer') {
+            $data["data"]["description"] = "Cliente criado";
             $data["data"]["url"]         = site_url();
             $data["data"]["ico"]         = "ri-user-smile-line";
-            $data["data"]["observation"] = "Novo paciente criado:";
+            $data["data"]["observation"] = "Novo cliente criado:";
         }
 
         return $data;
@@ -71,19 +71,19 @@ class TimeLinesModel extends Model
     {
         helper('auxiliar');
         $data = array();
-        $nameCache = session('data')['patient'] . '_story';
+        $nameCache = session('data')['custumer'] . '_story';
         $cache = service('cache');
 
         if (!$cache->get($nameCache)) {
             $rows = $this
-                ->select('timelines.*, patients.name as name, patients.email as email')
-                ->join('patients', 'patients.id = timelines.idPatient')
+                ->select('timelines.*, custumers.name as name, custumers.email as email')
+                ->join('custumers', 'custumers.id = timelines.idCustumer')
                 ->orderBy('timelines.created_at', 'DESC')
-                ->where('timelines.idPatient', session('data')['patient'])
+                ->where('timelines.idCustumer', session('data')['custumer'])
                 ->findAll();
             foreach ($rows as $row) {
                 $time = Time::parse($row['created_at']);
-                if ($row['type'] == 'create_patient') {
+                if ($row['type'] == 'create_custumer') {
                     $data[] = [
                         'id'      => $row['id'],
                         'type'    => $row['type'],

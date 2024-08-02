@@ -23,7 +23,7 @@ class Services extends Migration
                 'type' => 'BIGINT',
                 'unsigned' => true
             ],
-            'idPatient' => [
+            'id_custumer' => [
                 'type' => 'BIGINT',
                 'unsigned' => true
             ],
@@ -57,7 +57,7 @@ class Services extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
-        $this->forge->addForeignKey('idPatient', 'patients', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('id_custumer', 'custumers', 'id', 'NO ACTION', 'NO ACTION');
 
         $this->forge->createTable('services', true);
         $db->enableForeignKeyChecks();

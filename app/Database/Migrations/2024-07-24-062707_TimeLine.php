@@ -22,7 +22,7 @@ class TimeLine extends Migration
                 'type' => 'BIGINT',
                 'unsigned' => true
             ],
-            'idPatient' => [
+            'idCustumer' => [
                 'type' => 'BIGINT',
                 'unsigned' => true
             ],
@@ -62,7 +62,7 @@ class TimeLine extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
-        $this->forge->addForeignKey('idPatient', 'patients', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('idCustumer', 'custumers', 'id', 'NO ACTION', 'NO ACTION');
         $this->forge->createTable('timelines', true);
         $db->enableForeignKeyChecks();
     }

@@ -81,7 +81,7 @@
 
     function searchPatient(_idPatient) {
         $("#loadTimeLine").show();
-        $.getJSON(`${_baseUrl}api/v1/patient/search/${_idPatient}`,
+        $.getJSON(`${_baseUrl}api/v1/custumer/search/${_idPatient}`,
             function(data, textStatus, jqXHR) {
                 $("#idPatient").val(data.id)
                 $("#name").val(data.name)
