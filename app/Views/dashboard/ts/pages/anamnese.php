@@ -7,25 +7,25 @@
 
 <?php $this->section('page') ?>
 <div class="row">
-    <div class="col-lg-8 col-md-8">
+    <div class="col-lg-8 col-xxl-8">
         <div class="card">
             <div class="card-body">
                 <h3 class="mb-5 mt-3">Crie uma anamnese</h3>
                 <?= form_open('api/v1/anamnese', 'id="wizard-form" class="needs-validation" novalidate') ?>
-                    <div class="accordion" id="wizardAccordion">
-                        <!-- Step 1 -->
-                        <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
-                        <!-- Step 2 -->
-                        <?= $this->include('dashboard/ts/pages/forms/step2.php'); ?>
-                        <!-- Step 3 -->
-                        <?= $this->include('dashboard/ts/pages/forms/step3.php'); ?>
-                        <!-- Step 4 -->
-                        <?= $this->include('dashboard/ts/pages/forms/step4.php'); ?>
-                        <!-- Step 5 -->
-                        <?= $this->include('dashboard/ts/pages/forms/step5.php'); ?>
-                        <!-- Step 6 -->
-                        <?= $this->include('dashboard/ts/pages/forms/step6.php'); ?>
-                    </div>
+                <div class="accordion" id="wizardAccordion">
+                    <!-- Step 1 -->
+                    <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
+                    <!-- Step 2 -->
+                    <?= $this->include('dashboard/ts/pages/forms/step2.php'); ?>
+                    <!-- Step 3 -->
+                    <?= $this->include('dashboard/ts/pages/forms/step3.php'); ?>
+                    <!-- Step 4 -->
+                    <?= $this->include('dashboard/ts/pages/forms/step4.php'); ?>
+                    <!-- Step 5 -->
+                    <?= $this->include('dashboard/ts/pages/forms/step5.php'); ?>
+                    <!-- Step 6 -->
+                    <?= $this->include('dashboard/ts/pages/forms/step6.php'); ?>
+                </div>
                 </form>
             </div>
         </div>
@@ -37,7 +37,6 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="/assets/js/pages/select2.init.js"></script>
 <script>
-
     $(document).ready(function() {
 
         // Mostrar ou esconder o range-container baseado na seleção dos botões de rádio
@@ -144,13 +143,19 @@
             }
         });
 
-        /*$('#wizard-form').on('submit', function(event) {
-            event.preventDefault();
-            if (!this.checkValidity()) {
+        $('#wizard-form').on('submit', function(event) {
+            if (this.checkValidity()) {
+                // Se o formulário for válido, o envio será permitido
+                this.classList.add('was-validated');
+                // Não impede o envio do formulário
+            } else {
+                // Se o formulário não for válido, impede o envio e mostra a validação
+                event.preventDefault();
                 event.stopPropagation();
+                this.classList.add('was-validated');
             }
-            this.classList.add('was-validated');
-        });*/
+        });
+
     });
 </script>
 <?php $this->endSection(); ?>
