@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <p class="fw-bold text-dark">Missão de Missao</p>
+                            <p class="fw-bold text-dark">Missão de vida</p>
                             <div class="btn-group">
                                 <input class="btn-check form-check-input required-field" type="radio" name="areasMissao" id="areasMissaoPessimo" value="pessimo">
                                 <label class="btn btn-outline-primary form-check-label" for="areasMissaoPessimo">Pessimo</label>
