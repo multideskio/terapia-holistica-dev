@@ -314,7 +314,7 @@ class Anamneses extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('id_user',    'users',    'id', 'NO ACTION', 'NO ACTION');
-        $this->forge->addForeignKey('id_customer', 'custumer', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('id_customer', 'customers', 'id', 'NO ACTION', 'NO ACTION');
 
         $this->forge->createTable('anamneses', true);
         $db->enableForeignKeyChecks();

@@ -15,10 +15,10 @@
                         <div class="question-container">
                             <div class="mb-2">
                                 <p class="fw-bold text-dark mt-3 mb-1">Tem desequilíbrio?</p>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraPlexoSolarDesiquilobrio" id="chakraPlexoSolarDesiquilobrioSim" value="sim" required>
-                                <label class="btn btn-outline-primary form-check-label" for="chakraPlexoSolarDesiquilobrioSim">Sim</label>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraPlexoSolarDesiquilobrio" id="chakraPlexoSolarDesiquilobrioNao" value="não">
-                                <label class="btn btn-outline-danger form-check-label" for="chakraPlexoSolarDesiquilobrioNao">Não</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraPlexoSolarDesiquilibrio" id="chakraPlexoSolarDesiquilibrioSim" value="sim" required>
+                                <label class="btn btn-outline-primary form-check-label" for="chakraPlexoSolarDesiquilibrioSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraPlexoSolarDesiquilibrio" id="chakraPlexoSolarDesiquilibrioNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="chakraPlexoSolarDesiquilibrioNao">Não</label>
                                 <p class="invalid-feedback">Escolha obrigatória</p>
                             </div>
                             <div class="mb-2 range-container hidden">
@@ -53,10 +53,10 @@
                         <div class="question-container">
                             <div class="mb-2">
                                 <p class="fw-bold text-dark mt-3 mb-1">Tem desequilíbrio?</p>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroDesiquilobrio" id="chakraSacroDesiquilobrioSim" value="sim" required>
-                                <label class="btn btn-outline-primary form-check-label" for="chakraSacroDesiquilobrioSim">Sim</label>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroDesiquilobrio" id="chakraSacroDesiquilobrioNao" value="não">
-                                <label class="btn btn-outline-danger form-check-label" for="chakraSacroDesiquilobrioNao">Não</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroDesiquilibrio" id="chakraSacroDesiquilibrioSim" value="sim" required>
+                                <label class="btn btn-outline-primary form-check-label" for="chakraSacroDesiquilibrioSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraSacroDesiquilibrio" id="chakraSacroDesiquilibrioNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="chakraSacroDesiquilibrioNao">Não</label>
                                 <p class="invalid-feedback">Escolha obrigatória</p>
                             </div>
                             <div class="mb-2 range-container hidden">
@@ -94,9 +94,9 @@
                         <div class="question-container">
                             <div class="mb-2">
                                 <p class="fw-bold text-dark mt-3 mb-1">Tem desequilíbrio?</p>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraBasicoDesiquilobrio" id="chakraBasicoDesiquilibrioSim" value="sim" required>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraBasicoDesiquilibrio" id="chakraBasicoDesiquilibrioSim" value="sim" required>
                                 <label class="btn btn-outline-primary form-check-label" for="chakraBasicoDesiquilibrioSim">Sim</label>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraBasicoDesiquilobrio" id="chakraBasicoDesiquilibrioNao" value="não">
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraBasicoDesiquilibrio" id="chakraBasicoDesiquilibrioNao" value="não">
                                 <label class="btn btn-outline-danger form-check-label" for="chakraBasicoDesiquilibrioNao">Não</label>
                                 <p class="invalid-feedback">Escolha obrigatória</p>
                             </div>

@@ -52,9 +52,9 @@
                         <div class="question-container">
                             <div class="mb-2">
                                 <p class="fw-bold text-dark mt-3 mb-1">Tem desequilíbrio?</p>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioSim" value="sim" required>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalDesiquilibrio" id="chakraFrontalDesiquilibrioSim" value="sim" required>
                                 <label class="btn btn-outline-primary form-check-label" for="chakraFrontalDesiquilibrioSim">Sim</label>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalDesiquilobrio" id="chakraFrontalDesiquilibrioNao" value="não">
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraFrontalDesiquilibrio" id="chakraFrontalDesiquilibrioNao" value="não">
                                 <label class="btn btn-outline-danger form-check-label" for="chakraFrontalDesiquilibrioNao">Não</label>
                                 <p class="invalid-feedback">Escolha obrigatória</p>
                             </div>
@@ -93,10 +93,10 @@
                         <div class="question-container">
                             <div class="mb-2">
                                 <p class="fw-bold text-dark mt-3 mb-1">Tem desequilíbrio?</p>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoDesiquilobrio" id="chakraLaringeoDesiquilobrioSim" value="sim" required>
-                                <label class="btn btn-outline-primary form-check-label" for="chakraLaringeoDesiquilobrioSim">Sim</label>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoDesiquilobrio" id="chakraLaringeoDesiquilobrioNao" value="não">
-                                <label class="btn btn-outline-danger form-check-label" for="chakraLaringeoDesiquilobrioNao">Não</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoDesiquilibrio" id="chakraLaringeoDesiquilibrioSim" value="sim" required>
+                                <label class="btn btn-outline-primary form-check-label" for="chakraLaringeoDesiquilibrioSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraLaringeoDesiquilibrio" id="chakraLaringeoDesiquilibrioNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="chakraLaringeoDesiquilibrioNao">Não</label>
                                 <p class="invalid-feedback">Escolha obrigatória</p>
                             </div>
                             <div class="mb-2 range-container hidden">
@@ -130,9 +130,9 @@
                         <div class="question-container">
                             <div class="mb-2">
                                 <p class="fw-bold text-dark mt-3 mb-1">Tem desequilíbrio?</p>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoDesiquilobrio" id="chakraCardiacoDesiquilibrioSim" value="sim" required>
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoDesiquilibrio" id="chakraCardiacoDesiquilibrioSim" value="sim" required>
                                 <label class="btn btn-outline-primary form-check-label" for="chakraCardiacoDesiquilibrioSim">Sim</label>
-                                <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoDesiquilobrio" id="chakraCardiacoDesiquilibrioNao" value="não">
+                                <input class="btn-check form-check-input required-field" type="radio" name="chakraCardiacoDesiquilibrio" id="chakraCardiacoDesiquilibrioNao" value="não">
                                 <label class="btn btn-outline-danger form-check-label" for="chakraCardiacoDesiquilibrioNao">Não</label>
                                 <p class="invalid-feedback">Escolha obrigatória</p>
                             </div>
