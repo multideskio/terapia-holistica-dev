@@ -56,7 +56,6 @@
 
                 <div class="col-md-6 mb-3">
                     <div class="p-3 border border-1">
-                        
                         <h5>Chakra Sacro</h5>
                         <div class="question-container">
                             <div class="mb-2">
@@ -157,3 +156,4 @@
             </div>
         </div>
     </div>
+</div>

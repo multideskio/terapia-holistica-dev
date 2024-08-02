@@ -13,7 +13,7 @@
                     <div class="question-container mb-3">
                         <p class="w-900">Campo/Corpo Mental</p>
                         <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group">
+                        <div class="mb-3 btn-group btn-group-sm">
                             <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalSim" value="sim">
                             <label class="btn btn-outline-primary form-check-label" for="mentalSim">Sim</label>
                             <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalNao" value="não">
@@ -31,7 +31,7 @@
                     <div class="question-container">
                         <p class="w-900">Campo/Corpo Emocional</p>
                         <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group">
+                        <div class="mb-3 btn-group btn-group-sm">
                             <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalSim" value="sim">
                             <label class="btn btn-outline-primary form-check-label" for="emocionalSim">Sim</label>
                             <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalNao" value="não">
@@ -52,7 +52,7 @@
                     <div class="question-container mb-3">
                         <p class="w-900">Campo/Corpo Espiritual</p>
                         <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group">
+                        <div class="mb-3 btn-group btn-group-sm">
                             <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualSim" value="sim">
                             <label class="btn btn-outline-primary form-check-label" for="espiritualSim">Sim</label>
                             <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualNao" value="não">
@@ -71,7 +71,7 @@
                     <div class="question-container">
                         <p class="w-900">Campo/Corpo Físico</p>
                         <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group">
+                        <div class="mb-3 btn-group btn-group-sm">
                             <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoSim" value="sim">
                             <label class="btn btn-outline-primary form-check-label" for="fisicoSim">Sim</label>
                             <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoNao" value="não">
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="text-end mt-3">
-                <div class="btn-group">
+                <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseOne">Anterior</button>
                     <button type="button" class="btn btn-primary next-btn" data-next="#collapseThree">Próximo</button>
                 </div>

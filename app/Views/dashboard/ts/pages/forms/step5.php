@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <div class="p-3 border border-1">
-                        <h5 class="mt-3">Campo Áurico</h5>
+                        <h5>Campo Áurico</h5>
                         <div class="question-container mb-5">
                             <div class="d-flex justify-content-between mt-3">
                                 <span style="font-size: 10px;">Encolhida</span>
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="text-end mt-3">
-                <div class="btn-group">
+                <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseFour">Anterior</button>
                     <button type="button" class="btn btn-primary next-btn" data-next="#collapseSix">Próximo</button>
                 </div>

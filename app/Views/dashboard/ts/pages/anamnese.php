@@ -75,16 +75,6 @@
         });
     });
 
-
-    /*function verifyPatient() {
-        if (!_idPatient) {
-            Swal.fire({
-                title: 'Você precisa definir um paciente antes de começar a anamnese',
-                type: 'error'
-            });
-        }
-    }*/
-
     $(document).ready(function() {
         searchPatient(_idPatient)
         //verifyPatient();
@@ -105,7 +95,6 @@
                 icon: 'error'
             });
         });
-
     }
 </script>
 
