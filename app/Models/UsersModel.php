@@ -177,7 +177,7 @@ class UsersModel extends Model
                 'phone'  => $rowLogin['phone'],
             ];
             $idCustumers = $modelCustumers->insert($dataCustumers);
-            session()->set(['data' => ['Custumers' => $idCustumers]]);
+            session()->set(['data' => ['custumer' => $idCustumers]]);
 
             $modelTime = new TimeLinesModel();
             $modelTime->insert(
