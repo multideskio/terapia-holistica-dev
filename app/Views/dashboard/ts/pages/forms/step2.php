@@ -47,8 +47,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="col-md-6 p-2">
                     <div class="question-container mb-3">
