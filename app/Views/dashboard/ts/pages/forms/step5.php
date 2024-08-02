@@ -19,8 +19,9 @@
                                 <span style="font-size: 10px;">Expandida</span>
                             </div>
                             <div class="text-center range-container mt-2 mb-1">
-                                <input type="range" id="tamanhoAura" name="tamanhoAura" min="0" max="100" step="10" value="50">
+                                <input type="range" id="tamanhoAura" name="tamanhoAura" min="0" max="100" step="10" value="50" required>
                                 <div class="range-label" id="value-tamanhoAura">50%</div>
+                                <p class="invalid-feedback">Obrigatório</p>
                             </div>
                             <p class="fw-bold text-dark mt-3 mb-1">Comentário:</p>
                             <textarea name="tamanhoAuraComments" id="tamanhoAuraComments" class="form-control" rows="2"></textarea>
@@ -33,8 +34,9 @@
                                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Protegida" style="font-size: 10px;">Fechada</span>
                             </div>
                             <div class="text-center range-container mt-2 mb-1">
-                                <input type="range" id="tamanhoAbertura" name="tamanhoAbertura" min="0" max="100" step="10" value="50">
+                                <input type="range" id="tamanhoAbertura" name="tamanhoAbertura" min="0" max="100" step="10" value="50" required>
                                 <div class="range-label" id="value-tamanhoAbertura">50%</div>
+                                <p class="invalid-feedback">Obrigatório</p>
                             </div>
                             <p class="fw-bold text-dark mt-3 mb-1">Comentário:</p>
                             <textarea name="tamanhoAberturaComments" id="tamanhoAberturaComments" class="form-control" rows="2"></textarea>
@@ -47,7 +49,7 @@
                         <h5 class="fw-bold text-dark mt-3 mb-1">Campo Áurico</h5>
                         <div class="mb-3">
                             <p class="fw-bold text-dark mt-3 mb-1">Cor em falta</p>
-                            <select id="corFalta" name="corFalta[]" class="form-select js-example-basic-multiple" multiple>
+                            <select id="corFalta" name="corFalta[]" class="form-select" multiple required>
                                 <option value="preto">Preto</option>
                                 <option value="branco">Branco</option>
                                 <option value="cinza">Cinza</option>
@@ -73,10 +75,11 @@
                                 <option value="salmao">Salmão</option>
                                 <option value="bordo">Bordô</option>
                             </select>
+                            <p class="invalid-feedback">Obrigatório</p>
                         </div>
                         <div class="mb-3">
                             <p class="fw-bold text-dark mt-3 mb-1">Cor em excesso</p>
-                            <select id="corExcesso" name="corExcesso[]" class="form-select js-example-basic-multiple" multiple>
+                            <select id="corExcesso" name="corExcesso[]" class="form-select" multiple required>
                                 <option value="preto">Preto</option>
                                 <option value="branco">Branco</option>
                                 <option value="cinza">Cinza</option>
@@ -102,6 +105,7 @@
                                 <option value="salmao">Salmão</option>
                                 <option value="bordo">Bordô</option>
                             </select>
+                            <p class="invalid-feedback">Obrigatório</p>
                         </div>
                         <p class="fw-bold text-dark mt-3 mb-1">Energia da saúde <br><small>Aferição energética do campo da saúde</small></p>
                         <div class="question-container">
@@ -111,8 +115,9 @@
                                 <span style="font-size: 10px;">Saudavél</span>
                             </div>
                             <div class="text-center range-container mt-2 mb-1">
-                                <input type="range" id="energia" name="energia" min="4500" max="8500" step="500" value="6500">
+                                <input type="range" id="energia" name="energia" min="4500" max="8500" step="500" value="6500" required>
                                 <div class="range-label" id="value-energia">6500 A</div>
+                                <p class="invalid-feedback">Obrigatório</p>
                             </div>
                             <p class="fw-bold text-dark mt-3 mb-1">Comentário:</p>
                             <textarea name="energiaComments" id="energiaComments" class="form-control" rows="2"></textarea>

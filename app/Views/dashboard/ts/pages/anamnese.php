@@ -35,7 +35,7 @@
 <?php $this->section('js'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="/assets/js/pages/select2.init.js"></script>
+
 <script>
     $(document).ready(function() {
 
@@ -102,19 +102,28 @@
 
 <script>
     $(document).ready(function() {
+        // Inicializar Select2
+        $('#corExcesso').select2();
+        $('#corFalta').select2();
+
+        // Função para validar passo
         function validateStep(currentSection) {
             let isValid = true;
             currentSection.find('.required-field').each(function() {
-                if (!this.checkValidity()) {
+                const $this = $(this);
+                if (!this.checkValidity() || !$this.val().length) {
                     isValid = false;
-                    $(this).addClass('is-invalid');
+                    $this.addClass('is-invalid');
+                    $this.siblings('.invalid-feedback').show();
                 } else {
-                    $(this).removeClass('is-invalid');
+                    $this.removeClass('is-invalid');
+                    $this.siblings('.invalid-feedback').hide();
                 }
             });
             return isValid;
         }
 
+        // Configurar navegação de passos
         $('.next-btn').on('click', function() {
             const currentSection = $(this).closest('.accordion-section');
             const nextSectionId = $(this).data('next');
@@ -136,6 +145,7 @@
             currentSection.find('.accordion-collapse').removeClass('show');
         });
 
+        // Impedir navegação se o botão estiver desabilitado
         $('.accordion-button').on('click', function() {
             const isDisabled = $(this).attr('disabled');
             if (isDisabled) {
@@ -143,6 +153,7 @@
             }
         });
 
+        // Validação e envio do formulário
         $('#wizard-form').on('submit', function(event) {
             if (this.checkValidity()) {
                 // Se o formulário for válido, o envio será permitido
@@ -155,7 +166,6 @@
                 this.classList.add('was-validated');
             }
         });
-
     });
 </script>
 <?php $this->endSection(); ?>
