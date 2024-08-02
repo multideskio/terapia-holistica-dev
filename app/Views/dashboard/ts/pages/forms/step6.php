@@ -1,7 +1,7 @@
 <div class="accordion-item accordion-section">
     <h2 class="accordion-header" id="headingSix">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" disabled>
-            <span class="number">6</span> ÁREAS DA VIDA
+            <span class="number">6</span> Áreas da vida
         </button>
     </h2>
     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#wizardAccordion">
@@ -14,7 +14,7 @@
                         <p class="text-center">Aferição enérgetica das principais áreas da vida, afim de correlacionar com as desarmonias mensuradas.</p>
                         <div class="mb-3">
                             <p class="fw-bold text-dark">Familiar</p>
-                            <div class="btn-group ">
+                            <div class="btn-group">
                                 <input class="btn-check form-check-input required-field" type="radio" name="areasFamiliar" id="areasFamiliarPessimo" value="pessimo">
                                 <label class="btn btn-outline-primary form-check-label" for="areasFamiliarPessimo">Pessimo</label>
                                 <input class="btn-check form-check-input required-field" type="radio" name="areasFamiliar" id="areasFamiliarMuitoMal" value="muito mal">
