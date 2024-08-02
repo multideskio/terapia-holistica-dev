@@ -62,7 +62,62 @@ class Anamnese extends ResourceController
         //
         $input = $this->request->getPost();
 
-        return $this->respond($input);
+
+        $data = [
+            'id_user' => $input['idPatient'],
+            'mental_imbalance' => $input['mentalDesequilibrio'],
+            'mental_percentage' => $input['mentalPercentual'],
+            'emotional_imbalance' => $input['emocionalDesequilibrio'],
+            'emotional_percentage' => $input['emocionalPercentual'],
+            'spiritual_imbalance' => $input['espiritualDesequilibrio'],
+            'spiritual_percentage' => $input['espiritualPercentual'],
+            'physical_imbalance' => $input['fisicoDesequilibrio'],
+            'physical_percentage' => $input['fisicoPercentual'],
+            'coronary_chakra_imbalance' => $input['chakraCoronarioDesiquilibrio'],
+            'coronary_chakra_percentage' => $input['chakraCoronarioPercentual'],
+            'coronary_chakra_activity' => $input['chakraCoronarioAtividade'],
+            'coronary_chakra_affects_organ' => $input['chakraCoronarioOrgao'],
+            'frontal_chakra_imbalance' => $input['chakraFrontalDesiquilobrio'],
+            'frontal_chakra_percentage' => $input['chakraFrontalPercentual'],
+            'frontal_chakra_activity' => $input['chakraFrontalAtividade'],
+            'frontal_chakra_affects_organ' => $input['chakraFrontalOrgao'],
+            'laryngeal_chakra_imbalance' => $input['chakraLaringeoDesiquilobrio'],
+            'laryngeal_chakra_percentage' => $input['chakraLaringeoPercentual'],
+            'laryngeal_chakra_activity' => $input['chakraLaringeoAtividade'],
+            'laryngeal_chakra_affects_organ' => $input['chakraLaringeoOrgao'],
+            'cardiac_chakra_imbalance' => $input['chakraCardiacoDesiquilobrio'],
+            'cardiac_chakra_percentage' => $input['chakraCardiacoPercentual'],
+            'cardiac_chakra_activity' => $input['chakraCardiacoAtividade'],
+            'cardiac_chakra_affects_organ' => $input['chakraCardiacoOrgao'],
+            'solar_plexus_chakra_imbalance' => $input['chakraPlexoSolarDesiquilobrio'],
+            'solar_plexus_chakra_percentage' => $input['chakraPlexoSolarPercentual'],
+            'solar_plexus_chakra_activity' => $input['chakraPlexoSolarAtividade'],
+            'solar_plexus_chakra_affects_organ' => $input['chakraPlexoSolarOrgao'],
+            'sacral_chakra_imbalance' => $input['chakraSacroDesiquilobrio'],
+            'sacral_chakra_percentage' => $input['chakraSacroPercentual'],
+            'sacral_chakra_activity' => $input['chakraSacroAtividade'],
+            'sacral_chakra_affects_organ' => $input['chakraSacroOrgao'],
+            'base_chakra_imbalance' => $input['chakraBasicoDesiquilobrio'],
+            'base_chakra_percentage' => $input['chakraBasicoPercentual'],
+            'base_chakra_activity' => $input['chakraBasicoAtividade'],
+            'base_chakra_affects_organ' => $input['chakraBasicoOrgao'],
+            'aura_size' => $input['tamanhoAura'],
+            'aura_size_comments' => $input['tamanhoAuraComments'],
+            'opening_size' => $input['tamanhoAbertura'],
+            'opening_size_comments' => $input['tamanhoAberturaComments'],
+            'color_lack' => implode(',', $input['corFalta']),
+            'color_excess' => implode(',', $input['corExcesso']),
+            'health_energy' => $input['energia'],
+            'energy_comments' => $input['energiaComments'],
+            'family_area' => $input['areasFamiliar'],
+            'affective_area' => $input['areasAfetivo'],
+            'professional_area' => $input['areasProfissional'],
+            'financial_area' => $input['areasFinanceiro'],
+            'mission_area' => $input['areasMissao']
+        ];
+        
+
+        return $this->respond($data);
     }
 
     /**
