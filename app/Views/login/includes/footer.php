@@ -1,4 +1,4 @@
-<footer class="footer">
+<!-- <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-1">
@@ -14,4 +14,4 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
