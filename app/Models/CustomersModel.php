@@ -5,9 +5,9 @@ namespace App\Models;
 use CodeIgniter\Model;
 use Exception;
 
-class CustumersModel extends Model
+class CustomersModel extends Model
 {
-    protected $table            = 'custumers';
+    protected $table            = 'customers';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -46,7 +46,7 @@ class CustumersModel extends Model
     protected $afterDelete    = [];
 
 
-    public function searchCustumer(int $id): array {
+    public function searchCustomer(int $id): array {
         $data = $this->where('idUser', session('data')['id'])->find($id);
         if(!isset($data)){
             throw new Exception('Paciente não encontrado');

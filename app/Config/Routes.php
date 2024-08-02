@@ -67,8 +67,8 @@ $routes->group('api/v1', ['namespace' => '\App\Controllers\Apis\V1'], static fun
     });
     //$routes->resource('webhook', ['filter' => 'cors']);
 
-    $routes->group('custumer', ['filter' => 'auth'], static function ($routes){
-        $routes->get('search/(:num)',  'Custumer::searchCustumer/$1', ['filter' => 'cors']);
+    $routes->group('customer', ['filter' => 'auth'], static function ($routes){
+        $routes->get('search/(:num)',  'Customer::searchCustomer/$1', ['filter' => 'cors']);
     });
     //$routes->resource('custumer', ['filter' => 'cors']);
 

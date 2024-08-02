@@ -13,7 +13,7 @@ class TimeLinesModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['idUser', 'idCustumer', 'type', 'description', 'url', 'ico', 'observation'];
+    protected $allowedFields    = ['idUser', 'idCustomer', 'type', 'description', 'url', 'ico', 'observation'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -48,7 +48,7 @@ class TimeLinesModel extends Model
     protected function updateCache()
     {
         $cache     = service('cache');
-        $nameCache = session('data')['custumer'] . '_story';
+        $nameCache = session('data')['customer'] . '_story';
         if (!$cache->get($nameCache)) {
             $cache->delete($nameCache);
         }
@@ -56,7 +56,7 @@ class TimeLinesModel extends Model
 
     protected function create(array $data)
     {
-        if ($data["data"]["type"] == 'create_custumer') {
+        if ($data["data"]["type"] == 'create_customer') {
             $data["data"]["description"] = "Cliente criado";
             $data["data"]["url"]         = site_url();
             $data["data"]["ico"]         = "ri-user-smile-line";
@@ -71,19 +71,19 @@ class TimeLinesModel extends Model
     {
         helper('auxiliar');
         $data = array();
-        $nameCache = session('data')['custumer'] . '_story';
+        $nameCache = session('data')['customer'] . '_story';
         $cache = service('cache');
 
         if (!$cache->get($nameCache)) {
             $rows = $this
-                ->select('timelines.*, custumers.name as name, custumers.email as email')
-                ->join('custumers', 'custumers.id = timelines.idCustumer')
+                ->select('timelines.*, customers.name as name, customers.email as email')
+                ->join('customers', 'customers.id = timelines.idCustomer')
                 ->orderBy('timelines.created_at', 'DESC')
-                ->where('timelines.idCustumer', session('data')['custumer'])
+                ->where('timelines.idCustomer', session('data')['customer'])
                 ->findAll();
             foreach ($rows as $row) {
                 $time = Time::parse($row['created_at']);
-                if ($row['type'] == 'create_custumer') {
+                if ($row['type'] == 'create_customer') {
                     $data[] = [
                         'id'      => $row['id'],
                         'type'    => $row['type'],

@@ -2,12 +2,12 @@
 
 namespace App\Controllers\Apis\V1;
 
-use App\Models\CustumersModel;
+use App\Models\CustomersModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class Custumer extends ResourceController
+class Customer extends ResourceController
 {
     use ResponseTrait;
     /**
@@ -16,10 +16,10 @@ class Custumer extends ResourceController
      * @return ResponseInterface
      */
 
-    protected $modelCustumer;
+    protected $modelCustomer;
     public function __construct()
     {
-        $this->modelCustumer = new CustumersModel();
+        $this->modelCustomer = new CustomersModel();
     }
     public function index()
     {
@@ -38,9 +38,9 @@ class Custumer extends ResourceController
         //
     }
 
-    public function searchCustumer($id = null){
+    public function searchCustomer($id = null){
         try{
-            $data = $this->modelCustumer->searchCustumer($id);
+            $data = $this->modelCustomer->searchCustomer($id);
             return $this->respond($data);
         }catch(\Exception $e){
             return $this->fail($e->getMessage());

@@ -65,13 +65,13 @@ class Custumers extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('idUser', 'users', 'id', 'NO ACTION', 'NO ACTION');
 
-        $this->forge->createTable('custumers', true);
+        $this->forge->createTable('customers', true);
         $db->enableForeignKeyChecks();
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('custumers', true);
+        $this->forge->dropTable('customers', true);
     }
 }

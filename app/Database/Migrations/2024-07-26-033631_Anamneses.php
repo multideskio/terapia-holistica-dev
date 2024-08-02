@@ -22,288 +22,281 @@ class Anamneses extends Migration
                 'type'       => 'BIGINT',
                 'unsigned'   => true
             ],
-            'id_custumer' => [
+            'id_customer' => [
                 'type'       => 'BIGINT',
                 'unsigned'   => true
             ],
-
+        
             'slug' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
                 'null' => true,
             ],
-
-            'campo_mental_desequilibrio' => [
+        
+            'mental_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => 'não',
             ],
-            'campo_mental_percentual' => [
+            'mental_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-
-
-            'campo_emocional_desequilibrio' => [
+        
+            'emotional_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => 'não',
             ],
-            'campo_emocional_percentual' => [
+            'emotional_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-
-            'campo_espiritual_desequilibrio' => [
+        
+            'spiritual_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => 'não',
             ],
-            'campo_espiritual_percentual' => [
+            'spiritual_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-
-            'campo_fisico_desequilibrio' => [
+        
+            'physical_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => 'não',
             ],
-            'campo_fisico_percentual' => [
+            'physical_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-
-            'chakra_coronario_desequilibrio' => [
+        
+            'coronary_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL
             ],
-            'chakra_coronario_percentual' => [
+            'coronary_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_coronario_atividade' => [
+            'coronary_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_coronario_afeta_orgao' => [
+            'coronary_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-
-            'chakra_frontal_desequilibrio' => [
+        
+            'frontal_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-            'chakra_frontal_percentual' => [
+            'frontal_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_frontal_atividade' => [
+            'frontal_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_frontal_afeta_orgao' => [
+            'frontal_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-
-            'chakra_laringeo_desequilibrio' => [
+        
+            'laryngeal_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-            'chakra_laringeo_percentual' => [
+            'laryngeal_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_laringeo_atividade' => [
+            'laryngeal_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_laringeo_afeta_orgao' => [
+            'laryngeal_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-
-            'chakra_cadiaco_desequilibrio' => [
+        
+            'cardiac_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-            'chakra_cadiaco_percentual' => [
+            'cardiac_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_cadiaco_atividade' => [
+            'cardiac_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_cadiaco_afeta_orgao' => [
+            'cardiac_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-
-            'chakra_plexo_solar_desequilibrio' => [
+        
+            'solar_plexus_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-            'chakra_plexo_solar_percentual' => [
+            'solar_plexus_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_plexo_solar_atividade' => [
+            'solar_plexus_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_plexo_solar_afeta_orgao' => [
+            'solar_plexus_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-
-            'chakra_sacro_desequilibrio' => [
+        
+            'sacral_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-            'chakra_sacro_percentual' => [
+            'sacral_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_sacro_atividade' => [
+            'sacral_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_sacro_afeta_orgao' => [
+            'sacral_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-
-            'chakra_basico_desequilibrio' => [
+        
+            'base_chakra_imbalance' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-            'chakra_basico_percentual' => [
+            'base_chakra_percentage' => [
                 'type' => 'INT',
                 'constraint' => 3,
                 'default' => 0,
             ],
-            'chakra_basico_atividade' => [
+            'base_chakra_activity' => [
                 'type' => 'ENUM',
                 'constraint' => ['HIPO', 'HIPER'],
                 'default' => NULL,
             ],
-            'chakra_basico_afeta_orgao' => [
+            'base_chakra_affects_organ' => [
                 'type' => 'ENUM',
                 'constraint' => ['sim', 'não'],
                 'default' => NULL,
             ],
-
-            'tamanho_aura' => [
+        
+            'aura_size' => [
                 'type' => 'INT',
-                'contraint' => 3
+                'constraint' => 3
             ],
-
-            'tamanho_aura_comments' => [
+        
+            'aura_size_comments' => [
                 'type' => 'TEXT',
                 'null' => true
             ],
-
-            'tamanho_abertura' => [
+        
+            'opening_size' => [
                 'type' => 'INT',
-                'contraint' => 3
+                'constraint' => 3
             ],
-
-            'tamanho_abertura_comments' => [
+        
+            'opening_size_comments' => [
                 'type' => 'TEXT',
                 'null' => true
             ],
-
-            'cor_falta' => [
+        
+            'color_lack' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
                 'null' => true,
             ],
-
-            'cor_excesso' => [
+        
+            'color_excess' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
                 'null' => true,
             ],
-
-            'energia_saude' => [
+        
+            'health_energy' => [
                 'type' => 'INT',
                 'constraint' => '5',
                 'null' => true,
             ],
-
-            'energia_comments' => [
+        
+            'energy_comments' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
-
-            "area_familiar" => [
+        
+            "family_area" => [
                 'type' => 'ENUM',
                 'constraint' => ['pessimo', 'muito mal', 'mal', 'regular', 'bom', 'muito bom', 'excelente'],
                 'default' => 'regular',
             ],
-
-            "area_afetivo" => [
+        
+            "affective_area" => [
                 'type' => 'ENUM',
                 'constraint' => ['pessimo', 'muito mal', 'mal', 'regular', 'bom', 'muito bom', 'excelente'],
                 'default' => 'regular',
             ],
-
-            "area_profissional" => [
+        
+            "professional_area" => [
                 'type' => 'ENUM',
                 'constraint' => ['pessimo', 'muito mal', 'mal', 'regular', 'bom', 'muito bom', 'excelente'],
                 'default' => 'regular',
             ],
-
-            "area_financeiro" => [
+        
+            "financial_area" => [
                 'type' => 'ENUM',
                 'constraint' => ['pessimo', 'muito mal', 'mal', 'regular', 'bom', 'muito bom', 'excelente'],
                 'default' => 'regular',
             ],
-
-            "area_missao" => [
+        
+            "mission_area" => [
                 'type' => 'ENUM',
                 'constraint' => ['pessimo', 'muito mal', 'mal', 'regular', 'bom', 'muito bom', 'excelente'],
                 'default' => 'regular',
             ],
-
+        
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
@@ -317,10 +310,11 @@ class Anamneses extends Migration
                 'null' => true,
             ],
         ]);
+        
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('id_user',    'users',    'id', 'NO ACTION', 'NO ACTION');
-        $this->forge->addForeignKey('id_custumer', 'custumer', 'id', 'NO ACTION', 'NO ACTION');
+        $this->forge->addForeignKey('id_customer', 'custumer', 'id', 'NO ACTION', 'NO ACTION');
 
         $this->forge->createTable('anamneses', true);
         $db->enableForeignKeyChecks();

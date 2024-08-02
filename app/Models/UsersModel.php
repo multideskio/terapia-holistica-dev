@@ -85,10 +85,10 @@ class UsersModel extends Model
             $rowPlan = $this->verifyPlan($rowLogin['id']);
 
             // Gerencia os dados do paciente (criação ou verificação)
-            $idCustumer = $this->manageCustumer($rowLogin);
+            $idCustomer = $this->manageCustomer($rowLogin);
 
             // Configura os dados da sessão do usuário
-            $this->setSessionData($rowLogin, $rowPlan, $idCustumer);
+            $this->setSessionData($rowLogin, $rowPlan, $idCustomer);
 
             // Cria um log de login
             $this->createLoginLog();
@@ -162,32 +162,32 @@ class UsersModel extends Model
      * @param array $rowLogin Dados do login do usuário.
      * @return int ID do paciente.
      */
-    private function manageCustumer($rowLogin)
+    private function manageCustomer($rowLogin)
     {
-        $modelCustumers = new CustumersModel();
-        $rowCustumers = $modelCustumers->where(['idUser' => $rowLogin['id'], 'email' => $rowLogin['email']])->first();
-        if ($rowCustumers) {
-            return $rowCustumers['id'];
+        $modelCustomers = new CustomersModel();
+        $rowCustomers = $modelCustomers->where(['idUser' => $rowLogin['id'], 'email' => $rowLogin['email']])->first();
+        if ($rowCustomers) {
+            return $rowCustomers['id'];
         } else {
-            $dataCustumers = [
+            $dataCustomers = [
                 'idUser' => $rowLogin['id'],
                 'name'   => $rowLogin['name'],
                 'email'  => $rowLogin['email'],
                 'photo'  => $rowLogin['photo'],
                 'phone'  => $rowLogin['phone'],
             ];
-            $idCustumers = $modelCustumers->insert($dataCustumers);
-            session()->set(['data' => ['custumer' => $idCustumers]]);
+            $idCustomers = $modelCustomers->insert($dataCustomers);
+            session()->set(['data' => ['customer' => $idCustomers]]);
 
             $modelTime = new TimeLinesModel();
             $modelTime->insert(
                 [
                     'idUser' => $rowLogin['id'],
-                    'idCustumer' => $idCustumers,
-                    'type' => 'create_custumer'
+                    'idCustomer' => $idCustomers,
+                    'type' => 'create_customer'
                 ]
             );
-            return $idCustumers;
+            return $idCustomers;
         }
     }
 
@@ -196,14 +196,14 @@ class UsersModel extends Model
      *
      * @param array $rowLogin Dados do login do usuário.
      * @param array $rowPlan Dados do plano do usuário.
-     * @param int $idCustumers ID do paciente.
+     * @param int $idCustomers ID do paciente.
      */
-    private function setSessionData($rowLogin, $rowPlan, $idCustumers)
+    private function setSessionData($rowLogin, $rowPlan, $idCustomers)
     {
         $data = [
             'id'           => $rowLogin['id'],
             'platform'     => $rowLogin['platformId'],
-            'custumer'     => $idCustumers,
+            'customer'     => $idCustomers,
             'name'         => $rowLogin['name'],
             'email'        => $rowLogin['email'],
             'plan'         => $rowPlan['namePlan'],
