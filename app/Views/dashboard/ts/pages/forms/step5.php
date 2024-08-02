@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="text-end mt-3">
-                <div class="btn-group btn-group-sm">
+                <div class="btn-group">
                     <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseFour">Anterior</button>
                     <button type="button" class="btn btn-primary next-btn" data-next="#collapseSix">Próximo</button>
                 </div>

@@ -19,7 +19,7 @@
                 <input type="hidden" name="idPatient" id="idPatient">
             </div>
             <div class="text-end mt-3">
-                <button type="button" class="btn btn-primary next-btn btn-sm" data-next="#collapseTwo">Próximo</button>
+                <button type="button" class="btn btn-primary next-btn" data-next="#collapseTwo">Próximo</button>
             </div>
         </div>
     </div>
