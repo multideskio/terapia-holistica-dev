@@ -9,8 +9,8 @@
             <!-- Conteúdo específico desta etapa -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="border border-1 p-3">
-                        <h3 class="text-center">ÁREAS DA VIDA</h3>
+                    <div class="border border-1 p-3 text-center">
+                        <h3 class="text-center">Áreas da vida</h3>
                         <p class="text-center">Aferição enérgetica das principais áreas da vida, afim de correlacionar com as desarmonias mensuradas.</p>
                         <div class="mb-3">
                             <p class="fw-bold text-dark">Familiar</p>
