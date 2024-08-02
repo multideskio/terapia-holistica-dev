@@ -1,7 +1,7 @@
 <?= $this->include('partials/main') ?>
 
 <head>
-    <?php echo view('partials/title-meta', array('title' => 'Title')); ?>
+    <?php echo view('partials/title-meta', array('title' => $titlePage.' | Mari Terapeuta')); ?>
     <?= $this->include('partials/head-css') ?>
     <!-- Sweet Alert css-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />

@@ -7,7 +7,7 @@
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#wizardAccordion">
         <div class="accordion-body">
             <p>Trata-se do acesso aos campos eletromagnéticos, possibilitando a medição energética dos campos mental, emocional, espiritual e físico.</p>
-            <p class="text-primary fw-bold">* Todos os campos devem ser respondidos</p>
+            <p class="text-primary fw-bold mb-2">* Todos os campos devem ser respondidos</p>
             <div class="row">
                 <div class="col-md-6 p-2">
                     <div class="p-3 border border-1">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="range-container hidden">
                                 <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="mentalPercentual" min="0" max="100" value="50" name="mentalPercentual">
+                                <input type="range" id="mentalPercentual" min="0" max="100" value="50" step="10" name="mentalPercentual">
                                 <div class="range-label" id="value-mentalPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -39,7 +39,7 @@
 
                             <div class="range-container hidden">
                                 <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="emocionalPercentual" min="0" max="100" value="50" name="emocionalPercentual">
+                                <input type="range" id="emocionalPercentual" min="0" max="100" value="50" step="10" name="emocionalPercentual">
                                 <div class="range-label" id="value-emocionalPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="range-container hidden">
                                 <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="espiritualPercentual" min="0" max="100" value="50" name="espiritualPercentual">
+                                <input type="range" id="espiritualPercentual" min="0" max="100" value="50" step="10" name="espiritualPercentual">
                                 <div class="range-label" id="value-espiritualPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="range-container hidden">
                                 <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="fisicoPercentual" min="0" max="100" value="50" name="fisicoPercentual">
+                                <input type="range" id="fisicoPercentual" min="0" max="100" value="50" step="10" name="fisicoPercentual">
                                 <div class="range-label" id="value-fisicoPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
