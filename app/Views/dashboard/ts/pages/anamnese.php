@@ -10,7 +10,7 @@
     <div class="col-lg-8 col-md-8">
         <div class="card">
             <div class="card-body">
-                <h2 class="mb-5 mt-3">Crie uma anamnese</h2>
+                <h3 class="mb-5 mt-3">Crie uma anamnese</h3>
                 <?= form_open('api/v1/anamnese', 'id="wizard-form" class="needs-validation" novalidate') ?>
                     <div class="accordion" id="wizardAccordion">
                         <!-- Step 1 -->

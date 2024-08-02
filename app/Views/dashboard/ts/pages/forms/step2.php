@@ -10,37 +10,35 @@
             <p class="text-primary fw-bold">* Todos os campos devem ser respondidos</p>
             <div class="row">
                 <div class="col-md-6 p-2">
-                    <div class="question-container mb-3">
-                        <p class="w-900">Campo/Corpo Mental</p>
-                        <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group btn-group-sm">
-                            <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalSim" value="sim">
-                            <label class="btn btn-outline-primary form-check-label" for="mentalSim">Sim</label>
-                            <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalNao" value="não">
-                            <label class="btn btn-outline-danger form-check-label" for="mentalNao">Não</label>
-                        </div>
-                        <div class="range-container hidden">
-                            <label for="mentalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                            <div>
+                    <div class="p-3 border border-1">
+                        <div class="question-container mb-3">
+                            <p class="fw-bold text-dark mt-3 mb-1">Campo/Corpo Mental</p>
+                            <p class="fw-500 text-muted mt-2 mb-1">Tem desequilíbrio?</p>
+                            <div class="mb-3 btn-group btn-group-sm">
+                                <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalSim" value="sim">
+                                <label class="btn btn-outline-primary form-check-label" for="mentalSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="mentalDesequilibrio" id="mentalNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="mentalNao">Não</label>
+                            </div>
+                            <div class="range-container hidden">
+                                <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
                                 <input type="range" id="mentalPercentual" min="0" max="100" value="50" name="mentalPercentual">
                                 <div class="range-label" id="value-mentalPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="question-container">
-                        <p class="w-900">Campo/Corpo Emocional</p>
-                        <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group btn-group-sm">
-                            <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalSim" value="sim">
-                            <label class="btn btn-outline-primary form-check-label" for="emocionalSim">Sim</label>
-                            <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalNao" value="não">
-                            <label class="btn btn-outline-danger form-check-label" for="emocionalNao">Não</label>
-                        </div>
+                        <div class="question-container">
+                            <p class="fw-bold text-dark mt-3 mb-1">Campo/Corpo Emocional</p>
+                            <p class="fw-500 text-muted mt-2 mb-1">Tem desequilíbrio?</p>
+                            <div class="mb-3 btn-group btn-group-sm">
+                                <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalSim" value="sim">
+                                <label class="btn btn-outline-primary form-check-label" for="emocionalSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="emocionalDesequilibrio" id="emocionalNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="emocionalNao">Não</label>
+                            </div>
 
-                        <div class="range-container hidden">
-                            <label for="emocionalPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                            <div>
+                            <div class="range-container hidden">
+                                <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
                                 <input type="range" id="emocionalPercentual" min="0" max="100" value="50" name="emocionalPercentual">
                                 <div class="range-label" id="value-emocionalPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
@@ -49,37 +47,35 @@
                     </div>
                 </div>
                 <div class="col-md-6 p-2">
-                    <div class="question-container mb-3">
-                        <p class="w-900">Campo/Corpo Espiritual</p>
-                        <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group btn-group-sm">
-                            <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualSim" value="sim">
-                            <label class="btn btn-outline-primary form-check-label" for="espiritualSim">Sim</label>
-                            <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualNao" value="não">
-                            <label class="btn btn-outline-danger form-check-label" for="espiritualNao">Não</label>
-                        </div>
-                        <div class="range-container hidden">
-                            <label for="espiritualPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                            <div>
+                    <div class="p-3 border border-1">
+                        <div class="question-container mb-3">
+                            <p class="fw-bold text-dark mt-3 mb-1">Campo/Corpo Espiritual</p>
+                            <p class="fw-500 text-muted mt-2 mb-1">Tem desequilíbrio?</p>
+                            <div class="mb-3 btn-group btn-group-sm">
+                                <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualSim" value="sim">
+                                <label class="btn btn-outline-primary form-check-label" for="espiritualSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="espiritualDesequilibrio" id="espiritualNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="espiritualNao">Não</label>
+                            </div>
+                            <div class="range-container hidden">
+                                <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
                                 <input type="range" id="espiritualPercentual" min="0" max="100" value="50" name="espiritualPercentual">
                                 <div class="range-label" id="value-espiritualPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="question-container">
-                        <p class="w-900">Campo/Corpo Físico</p>
-                        <p>Tem desequilíbrio?</p>
-                        <div class="mb-3 btn-group btn-group-sm">
-                            <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoSim" value="sim">
-                            <label class="btn btn-outline-primary form-check-label" for="fisicoSim">Sim</label>
-                            <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoNao" value="não">
-                            <label class="btn btn-outline-danger form-check-label" for="fisicoNao">Não</label>
-                        </div>
-                        <div class="range-container hidden">
-                            <label for="fisicoPercentual" class="form-label mt-2">Qual a % do desequilíbrio?</label>
-                            <div>
+                        <div class="question-container">
+                            <p class="fw-bold text-dark mt-3 mb-1">Campo/Corpo Físico</p>
+                            <p class="fw-500 text-muted mt-2 mb-1">Tem desequilíbrio?</p>
+                            <div class="mb-3 btn-group btn-group-sm">
+                                <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoSim" value="sim">
+                                <label class="btn btn-outline-primary form-check-label" for="fisicoSim">Sim</label>
+                                <input class="btn-check form-check-input required-field" type="radio" name="fisicoDesequilibrio" id="fisicoNao" value="não">
+                                <label class="btn btn-outline-danger form-check-label" for="fisicoNao">Não</label>
+                            </div>
+                            <div class="range-container hidden">
+                                <p class="fw-500 text-muted mb-1">Qual a % do desequilíbrio?</p>
                                 <input type="range" id="fisicoPercentual" min="0" max="100" value="50" name="fisicoPercentual">
                                 <div class="range-label" id="value-fisicoPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
