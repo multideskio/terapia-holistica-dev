@@ -46,6 +46,7 @@ class Login extends BaseController
             $modelUser = new UsersModel();
             return $modelUser->auth($this->request->getPost());
         } catch (\Exception $e) {
+            session()->setFlashdata("error", $e->getMessage());
             echo "<pre>";
             print_r($e);
         }
