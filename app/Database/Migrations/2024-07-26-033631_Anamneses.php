@@ -29,7 +29,7 @@ class Anamneses extends Migration
         
             'slug' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '20',
                 'null' => true,
             ],
         

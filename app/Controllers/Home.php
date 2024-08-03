@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\EmailsLibraries;
+use App\Models\AnamnesesModel;
 
 class Home extends BaseController
 {
@@ -14,14 +15,18 @@ class Home extends BaseController
         $totalSegments     = $uri->getTotalSegments(); // Obtém o número total de segmentos
         $this->lastSegment = ucfirst($uri->getSegment($totalSegments)); // Obtém o último segmento
     }
-
-
     public function index(): string
     {
-        
         $data['titlePage'] = $this->lastSegment;;
         return view('dashboard/pages/home', $data);
     }
+
+    public function anamnese($slug=null){
+        $modelAnamnese = new AnamnesesModel();
+
+        return view('anamnese/ficha');
+    }
+    
     public function teste(){
         $email = new EmailsLibraries;
 

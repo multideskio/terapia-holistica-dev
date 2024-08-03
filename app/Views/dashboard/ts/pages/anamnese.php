@@ -38,6 +38,7 @@
 
 <script>
     $(document).ready(function() {
+        searchPatient(_idPatient)
 
         // Mostrar ou esconder o range-container baseado na seleção dos botões de rádio
         $('input[type="radio"]').on('click', function() {
@@ -74,11 +75,6 @@
         });
     });
 
-    $(document).ready(function() {
-        searchPatient(_idPatient)
-        //verifyPatient();
-    });
-
     function searchPatient(_idPatient) {
         $("#loadTimeLine").show();
         $.getJSON(`${_baseUrl}api/v1/customer/search/${_idPatient}`,
@@ -96,10 +92,6 @@
         });
     }
 </script>
-
-
-
-
 <script>
     $(document).ready(function() {
         // Inicializar Select2
@@ -137,6 +129,7 @@
             }
         });
 
+        // 
         $('.prev-btn').on('click', function() {
             const prevSectionId = $(this).data('prev');
             $(prevSectionId).collapse('show');

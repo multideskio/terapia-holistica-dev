@@ -24,6 +24,7 @@ class Customer extends ResourceController
     public function index()
     {
         //
+        return $this->respond([]);
     }
 
     /**

@@ -38,7 +38,7 @@ class TimeLinesModel extends Model
     protected $allowCallbacks = true;
     protected $beforeInsert   = ['create'];
     protected $afterInsert    = ['updateCache'];
-    protected $beforeUpdate   = [];
+    protected $beforeUpdate   = ['updateCache'];
     protected $afterUpdate    = ['updateCache'];
     protected $beforeFind     = [];
     protected $afterFind      = [];
@@ -49,7 +49,7 @@ class TimeLinesModel extends Model
     {
         $cache     = service('cache');
         $nameCache = session('data')['customer'] . '_story';
-        if (!$cache->get($nameCache)) {
+        if ($cache->get($nameCache)) {
             $cache->delete($nameCache);
         }
     }
@@ -60,7 +60,13 @@ class TimeLinesModel extends Model
             $data["data"]["description"] = "Cliente criado";
             $data["data"]["url"]         = site_url();
             $data["data"]["ico"]         = "ri-user-smile-line";
-            $data["data"]["observation"] = "Novo cliente criado:";
+            $data["data"]["observation"] = "Novo cliente criado";
+        }
+
+        if($data["data"]["type"] == 'create_anamnese'){
+            $data["data"]["description"] = "Anamnese gerada";
+            $data["data"]["ico"]         = "ri-fire-line";
+            $data["data"]["observation"] = "Nova anamnese criada";
         }
 
         return $data;

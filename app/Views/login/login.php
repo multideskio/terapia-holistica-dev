@@ -45,6 +45,11 @@
                                     <p class="text-muted"></p>
                                 </div>
                                 <div class="p-2 mt-4">
+                                    <?php if (session()->getFlashdata('error')) : ?>
+                                        <div class="alert alert-danger text-center">
+                                            <b><?= session()->getFlashdata('error'); ?></b>
+                                        </div>
+                                    <?php endif; ?>
                                     <?= form_open('auth') ?>
                                     <div class="mb-3">
                                         <label for="username" class="form-label">E-mail</label>

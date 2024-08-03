@@ -3,6 +3,7 @@
 namespace App\Controllers\Apis\V1;
 
 use App\Models\AnamnesesModel;
+use App\Models\TimeLinesModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
@@ -134,10 +135,14 @@ class Anamnese extends ResourceController
             return $this->failValidationErrors([$errors, $input]);
         }
 
+        helper('auxiliar');
+        $slug = generateSlug();
+
         // Prepara os dados para inserção
         $data = [
-            'id_user' => $input['idPatient'],
+            'id_user' => session('data')['id'],
             'id_customer' => $input['idPatient'],
+            'slug' => $slug,
             'mental_imbalance' => $input['mentalDesequilibrio'],
             'mental_percentage' => $input['mentalPercentual'],
             'emotional_imbalance' => $input['emocionalDesequilibrio'],
@@ -190,9 +195,19 @@ class Anamnese extends ResourceController
         ];
 
 
+        // Aqui você pode inserir os dados no banco de dados
         $this->modelAnamnese->insert($data);
 
-        // Aqui você pode inserir os dados no banco de dados
+        $modelTime = new TimeLinesModel();
+        
+        $modelTime->insert(
+            [
+                'idUser'     => session('data')['id'],
+                'idCustomer' => $input['idPatient'],
+                'url'        => base_url("anamnese/{$slug}"),
+                'type'       => 'create_anamnese'
+            ]
+        );
 
         // Retorna uma resposta de sucesso
         return $this->respond($data);

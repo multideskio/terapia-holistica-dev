@@ -5,6 +5,8 @@ namespace App\Models;
 use CodeIgniter\Model;
 use Exception;
 
+use function PHPUnit\Framework\throwException;
+
 class UsersModel extends Model
 {
     protected $table            = 'users';
@@ -98,7 +100,8 @@ class UsersModel extends Model
         } catch (\Exception $e) {
             // Loga a mensagem de erro e retorna a mensagem
             log_message('info', "Erro ao tentar fazer o login: {$e->getMessage()}");
-            return $e->getMessage();
+            throw new Exception($e->getMessage());
+            //return $e->getMessage();
         }
     }
 

@@ -10,7 +10,6 @@ class Login extends BaseController
 {
     public function index(): string
     {
-        //
         $data['redirect'] = $this->request->getGet('redirect');
         return view('login/login', $data);
     }
@@ -20,7 +19,6 @@ class Login extends BaseController
         $data['titlePage'] = "";
         return view('login/recover', $data);
     }
-
 
     public function password($token = null)
     {
@@ -38,8 +36,6 @@ class Login extends BaseController
         return view('login/erro', $data);
     }
 
-
-
     public function auth()
     {
         try {
@@ -47,10 +43,10 @@ class Login extends BaseController
             return $modelUser->auth($this->request->getPost());
         } catch (\Exception $e) {
             session()->setFlashdata("error", $e->getMessage());
-            echo "<pre>";
-            print_r($e);
+            return redirect()->to(base_url());
         }
     }
+
     public function logout()
     {
         session_destroy();
