@@ -71,13 +71,12 @@ class TimeLinesModel extends Model
 
         return $data;
     }
-
-
+    
     public function getTimelineDataTs(): array
     {
         helper('auxiliar');
         $data = array();
-        
+
         $rows = $this
             ->select('timelines.*, customers.name as name, customers.email as email')
             ->join('customers', 'customers.id = timelines.idCustomer')
