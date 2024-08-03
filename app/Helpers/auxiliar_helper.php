@@ -39,7 +39,7 @@ if (!function_exists('saudacao')) {
 
 
 if (!function_exists('generateSlug')) {
-    function generateSlug($length = 4)
+    function generateSlug($length = 20)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         return substr(str_shuffle($characters), 0, $length);
