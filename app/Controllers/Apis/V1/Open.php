@@ -3,6 +3,7 @@
 namespace App\Controllers\Apis\V1;
 
 use App\Libraries\EmailsLibraries;
+use App\Models\AnamnesesModel;
 use App\Models\LogsModel;
 use App\Models\UsersModel;
 use CodeIgniter\API\ResponseTrait;
@@ -19,14 +20,27 @@ class Open extends ResourceController
      */
 
     protected $modelUser;
+    protected $modelAnamnese;
 
     public function __construct()
     {
+
         $this->modelUser = new UsersModel();
+        $this->modelAnamnese = new AnamnesesModel();
     }
     public function index()
     {
         //
+    }
+
+    public function searchAnamnese($slug)
+    {
+        try {
+            $data = $this->modelAnamnese->searchOpen($slug);
+            return $this->respond($data);
+        } catch (\Exception $e) {
+            return $this->fail($e->getMessage());
+        }
     }
 
     public function recoverPass()
@@ -63,13 +77,14 @@ class Open extends ResourceController
         return $this->failNotFound();
     }
 
-    public function newpass(){
+    public function newpass()
+    {
         /*if (!$this->request->isAJAX()) {
             return $this->failUnauthorized();
         }*/
 
         $input   = $this->request->getPost();
-        
+
         //VERIFICA SE EXISTE CADASTRO DO USUÁRIO
         $build   = $this->modelUser->where('token', $input['token'])->first();
 

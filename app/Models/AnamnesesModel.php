@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Exception;
 
 class AnamnesesModel extends Model
 {
@@ -45,4 +46,12 @@ class AnamnesesModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function searchOpen($slug){
+        $data = $this->where('slug', $slug)->join('customers', 'customers.id = anamneses.id_customer')->first();
+        if(!$data){
+            throw new Exception('Anamnese não encontrada');
+        }
+        return $data;
+    }
 }

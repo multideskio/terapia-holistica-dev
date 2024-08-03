@@ -63,7 +63,7 @@ class TimeLinesModel extends Model
             $data["data"]["observation"] = "Novo cliente criado";
         }
 
-        if($data["data"]["type"] == 'create_anamnese'){
+        if ($data["data"]["type"] == 'create_anamnese') {
             $data["data"]["description"] = "Anamnese gerada";
             $data["data"]["ico"]         = "ri-fire-line";
             $data["data"]["observation"] = "Nova anamnese criada";
@@ -96,7 +96,21 @@ class TimeLinesModel extends Model
                         'desc'    => $row['description'],
                         'url'     => $row['url'],
                         'ico'     => $row['ico'],
-                        'obs'     => $row['observation']." ".$row['name'],
+                        'obs'     => $row['observation'] . " " . $row['name'],
+                        'date'    => $time->toLocalizedString('dd MMM yyyy'),
+                        'timeAgo' => $time->humanize(),
+                        'name'    => $row['name'],
+                        'email'   => $row['email']
+                    ];
+                } elseif ($row['type'] == 'create_anamnese') {
+                    $data[] = [
+                        'id'      => $row['id'],
+                        'type'    => $row['type'],
+                        'desc'    => $row['description'],
+                        'url'     => $row['url'],
+                        'slug'    => explode('/', $row['url'])[3],
+                        'ico'     => $row['ico'],
+                        'obs'     => $row['observation'] . " " . $row['name'],
                         'date'    => $time->toLocalizedString('dd MMM yyyy'),
                         'timeAgo' => $time->humanize(),
                         'name'    => $row['name'],

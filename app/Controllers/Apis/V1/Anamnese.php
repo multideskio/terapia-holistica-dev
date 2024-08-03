@@ -210,7 +210,7 @@ class Anamnese extends ResourceController
         );
 
         // Retorna uma resposta de sucesso
-        return $this->respond($data);
+        return $this->respond(['url' => site_url("anamnese/{$slug}")]);
     }
 
     /**

@@ -214,7 +214,7 @@
                 },
                 error: function(xhr, status, error) {
                     Swal.fire({
-                        text: 'Erro ao atualizar, peça uma nova recuperação de senha.',
+                        text: 'Erro ao enviar o formulário.',
                         icon: 'error'
                     }).then(function(result) {
                         //window.location.href = '/';

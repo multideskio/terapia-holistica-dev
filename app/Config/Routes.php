@@ -13,7 +13,7 @@ $routes->get('logout', 'Login::logout');
 $routes->get('login/recover', 'Login::recover');
 $routes->get('auth/createpass/(:any)', 'Login::password/$1');
 
-$routes->get('anamnese/(:any)', 'Home::anamnese/$1');
+$routes->get('anamnese/(:any)', '\App\Controllers\Apis\V1\Open::searchAnamnese/$1');
 
 
 //URL ABERTA PARA CRIAR A CONTA ATRAVÉS DO GATEWAY DE PAGAMENTO

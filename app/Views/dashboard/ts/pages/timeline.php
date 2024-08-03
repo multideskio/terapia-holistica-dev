@@ -2,7 +2,6 @@
 <?php $this->section('css') ?>
 
 <?php $this->endSection(); ?>
-
 <?php $this->section('page') ?>
 <div class="row">
     <div class="col-lg-12">
@@ -12,7 +11,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 <?php $this->endSection(); ?>
 <?php $this->section('js'); ?>

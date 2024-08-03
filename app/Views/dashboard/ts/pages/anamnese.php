@@ -66,7 +66,6 @@
             });
         });
 
-
         const rangeInput = document.getElementById('energia');
         const rangeValue = document.getElementById('value-energia');
 
@@ -91,8 +90,7 @@
             });
         });
     }
-</script>
-<script>
+
     $(document).ready(function() {
         // Inicializar Select2
         $('#corExcesso').select2();
@@ -146,19 +144,54 @@
             }
         });
 
-        // Validação e envio do formulário
-        $('#wizard-form').on('submit', function(event) {
-            if (this.checkValidity()) {
-                // Se o formulário for válido, o envio será permitido
-                this.classList.add('was-validated');
-                // Não impede o envio do formulário
-            } else {
-                // Se o formulário não for válido, impede o envio e mostra a validação
-                event.preventDefault();
-                event.stopPropagation();
-                this.classList.add('was-validated');
+
+
+        $('#wizard-form').ajaxForm({
+            beforeSubmit: function(formData, jqForm, options) {
+                // Verificação de validade do formulário
+                if (!jqForm[0].checkValidity()) {
+                    jqForm[0].classList.add('was-validated');
+                    return false; // Impede o envio do formulário se for inválido
+                }
+
+                Swal.fire({
+                    text: 'Enviando informações...',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    allowOutsideClick: false
+                });
+            },
+            success: function(responseText, statusText, xhr, $form) {
+                console.log(responseText.url);
+                console.log(statusText);
+                Swal.fire({
+                    text: 'Anamnese gerada com sucesso',
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonText: 'Acessar link',
+                    cancelButtonText: 'Fechar',
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#3085d6'
+                }).then(function(result) {
+                    // Recarrega a página após qualquer ação
+                    if (result.isConfirmed) {
+                        window.open(responseText.url, '_blank'); // Abre o link em uma nova aba
+                    }
+                    location.reload(); // Recarrega a página
+                });
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    text: 'Erro ao enviar o formulário.',
+                    icon: 'error'
+                });
+
+                console.log(error);
+                console.log(status);
+                console.log(xhr);
             }
         });
+
     });
 </script>
 <?php $this->endSection(); ?>
