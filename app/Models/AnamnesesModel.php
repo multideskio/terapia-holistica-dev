@@ -58,26 +58,18 @@ class AnamnesesModel extends Model
 
     public function searchOpen($slug)
     {
-
         helper('auxiliar');
-
         $cache = service('cache');
         $nameCache = "anamnese_{$slug}";
-
         if (!$cache->get($nameCache)) {
-
             $data = $this->where('slug', $slug)->join('customers', 'customers.id = anamneses.id_customer')->first();
-
             if (!$data) {
                 throw new Exception('Anamnese não encontrada');
             }
-
             $cache->save($nameCache, $data, getCacheExpirationTimeInSeconds(30));
         } else {
-
             $data = $cache->get($nameCache);
         }
-
         return $data;
     }
 }

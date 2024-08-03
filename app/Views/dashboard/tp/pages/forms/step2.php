@@ -1,11 +1,11 @@
 <div class="accordion-item accordion-section">
-    <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <span class="number">1</span> Informações Básicas
+    <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" disabled>
+            <span class="number">2</span> Campos Energéticos
         </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#wizardAccordion">
-    <div class="accordion-body">
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#wizardAccordion">
+        <div class="accordion-body">
             <p>Trata-se do acesso aos campos eletromagnéticos, possibilitando a medição energética dos campos mental, emocional, espiritual e físico.</p>
             <p class="text-primary fw-bold mb-2">* Todos os campos devem ser respondidos</p>
             <div class="row">
@@ -91,7 +91,8 @@
             </div>
             <div class="text-end mt-3">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary next-btn" data-next="#collapseTwo">Próximo</button>
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseOne">Anterior</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="#collapseThree">Próximo</button>
                 </div>
             </div>
         </div>

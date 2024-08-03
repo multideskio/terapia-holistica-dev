@@ -77,65 +77,58 @@ class TimeLinesModel extends Model
     {
         helper('auxiliar');
         $data = array();
-        $nameCache = session('data')['customer'] . '_story';
-        $cache = service('cache');
+        
+        $rows = $this
+            ->select('timelines.*, customers.name as name, customers.email as email')
+            ->join('customers', 'customers.id = timelines.idCustomer')
+            ->orderBy('timelines.created_at', 'DESC')
+            ->where('timelines.idCustomer', session('data')['customer'])
+            ->findAll();
 
-        if (!$cache->get($nameCache)) {
-            $rows = $this
-                ->select('timelines.*, customers.name as name, customers.email as email')
-                ->join('customers', 'customers.id = timelines.idCustomer')
-                ->orderBy('timelines.created_at', 'DESC')
-                ->where('timelines.idCustomer', session('data')['customer'])
-                ->findAll();
-            foreach ($rows as $row) {
-                $time = Time::parse($row['created_at']);
-                if ($row['type'] == 'create_customer') {
-                    $data[] = [
-                        'id'      => $row['id'],
-                        'type'    => $row['type'],
-                        'desc'    => $row['description'],
-                        'url'     => $row['url'],
-                        'ico'     => $row['ico'],
-                        'obs'     => $row['observation'] . " " . $row['name'],
-                        'date'    => $time->toLocalizedString('dd MMM yyyy'),
-                        'timeAgo' => $time->humanize(),
-                        'name'    => $row['name'],
-                        'email'   => $row['email']
-                    ];
-                } elseif ($row['type'] == 'create_anamnese') {
-                    $data[] = [
-                        'id'      => $row['id'],
-                        'type'    => $row['type'],
-                        'desc'    => $row['description'],
-                        'url'     => $row['url'],
-                        'slug'    => explode('/', $row['url'])[3],
-                        'ico'     => $row['ico'],
-                        'obs'     => $row['observation'] . " " . $row['name'],
-                        'date'    => $time->toLocalizedString('dd MMM yyyy'),
-                        'timeAgo' => $time->humanize(),
-                        'name'    => $row['name'],
-                        'email'   => $row['email']
-                    ];
-                } else {
-                    $data[] = [
-                        'id'      => $row['id'],
-                        'type'    => $row['type'],
-                        'desc'    => $row['description'],
-                        'url'     => $row['url'],
-                        'ico'     => $row['ico'],
-                        'obs'     => $row['observation'],
-                        'date'    => $time->toLocalizedString('dd MMM yyyy'),
-                        'timeAgo' => $time->humanize(),
-                        'name'    => $row['name'],
-                        'email'   => $row['email']
-                    ];
-                }
+        foreach ($rows as $row) {
+            $time = Time::parse($row['created_at']);
+            if ($row['type'] == 'create_customer') {
+                $data[] = [
+                    'id'      => $row['id'],
+                    'type'    => $row['type'],
+                    'desc'    => $row['description'],
+                    'url'     => $row['url'],
+                    'ico'     => $row['ico'],
+                    'obs'     => $row['observation'] . " " . $row['name'],
+                    'date'    => $time->toLocalizedString('dd MMM yyyy'),
+                    'timeAgo' => $time->humanize(),
+                    'name'    => $row['name'],
+                    'email'   => $row['email']
+                ];
+            } elseif ($row['type'] == 'create_anamnese') {
+                $data[] = [
+                    'id'      => $row['id'],
+                    'type'    => $row['type'],
+                    'desc'    => $row['description'],
+                    'url'     => $row['url'],
+                    'slug'    => explode('/', $row['url'])[3],
+                    'ico'     => $row['ico'],
+                    'obs'     => $row['observation'] . " " . $row['name'],
+                    'date'    => $time->toLocalizedString('dd MMM yyyy'),
+                    'timeAgo' => $time->humanize(),
+                    'name'    => $row['name'],
+                    'email'   => $row['email']
+                ];
+            } else {
+                $data[] = [
+                    'id'      => $row['id'],
+                    'type'    => $row['type'],
+                    'desc'    => $row['description'],
+                    'url'     => $row['url'],
+                    'ico'     => $row['ico'],
+                    'obs'     => $row['observation'],
+                    'date'    => $time->toLocalizedString('dd MMM yyyy'),
+                    'timeAgo' => $time->humanize(),
+                    'name'    => $row['name'],
+                    'email'   => $row['email']
+                ];
             }
-            $cache->save($nameCache, $data, getCacheExpirationTimeInSeconds(30));
-        } else {
-            $data = $cache->get($nameCache);
         }
-
         return $data;
     }
 }

@@ -1,11 +1,11 @@
 <div class="accordion-item accordion-section">
-    <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" disabled>
-            <span class="number">2</span> Campos Energéticos
+    <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" disabled>
+            <span class="number">3</span> Chakras Superiores
         </button>
     </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#wizardAccordion">
-    <div class="accordion-body">
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#wizardAccordion">
+        <div class="accordion-body">
             <!-- Conteúdo específico desta etapa -->
             <p>Trata-se da medição energética de cada um dos 7 principais chakras e glândulas correspondentes.</p>
             <div class="row mb-3">
@@ -166,8 +166,8 @@
 
             <div class="text-end mt-3">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseOne">Anterior</button>
-                    <button type="button" class="btn btn-primary next-btn" data-next="#collapseThree">Próximo</button>
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="#collapseTwo">Anterior</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="#collapseFour">Próximo</button>
                 </div>
             </div>
         </div>

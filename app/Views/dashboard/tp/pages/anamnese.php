@@ -13,18 +13,18 @@
                 <h3 class="mb-5 mt-3">Crie uma anamnese</h3>
                 <?= form_open('api/v1/anamnese', 'id="wizard-form" class="needs-validation" novalidate') ?>
                 <div class="accordion" id="wizardAccordion">
-                    <input type="hidden" name="idPatient" id="idPatient">
                     <!-- Step 1 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step1.php'); ?>
                     <!-- Step 2 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step2.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step2.php'); ?>
                     <!-- Step 3 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step3.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step3.php'); ?>
                     <!-- Step 4 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step4.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step4.php'); ?>
                     <!-- Step 5 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step5.php'); ?>
-
+                    <?= $this->include('dashboard/tp/pages/forms/step5.php'); ?>
+                    <!-- Step 6 -->
+                    <?= $this->include('dashboard/tp/pages/forms/step6.php'); ?>
                 </div>
                 </form>
             </div>
