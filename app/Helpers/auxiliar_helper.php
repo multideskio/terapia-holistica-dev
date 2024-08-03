@@ -39,21 +39,9 @@ if (!function_exists('saudacao')) {
 
 
 if (!function_exists('generateSlug')) {
-    function generateSlug($segments = 4, $segmentLength = 4)
+    function generateSlug($length = 4)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $slug = '';
-
-        for ($i = 0; $i < $segments; $i++) {
-            if ($i > 0) {
-                $slug .= '-';
-            }
-
-            for ($j = 0; $j < $segmentLength; $j++) {
-                $slug .= $characters[rand(0, strlen($characters) - 1)];
-            }
-        }
-
-        return $slug;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        return substr(str_shuffle($characters), 0, $length);
     }
 }
