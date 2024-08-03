@@ -44,14 +44,40 @@ class AnamnesesModel extends Model
     protected $afterUpdate    = [];
     protected $beforeFind     = [];
     protected $afterFind      = [];
-    protected $beforeDelete   = [];
+    protected $beforeDelete   = ["updateCache"];
     protected $afterDelete    = [];
 
-    public function searchOpen($slug){
-        $data = $this->where('slug', $slug)->join('customers', 'customers.id = anamneses.id_customer')->first();
-        if(!$data){
-            throw new Exception('Anamnese não encontrada');
+
+    protected function updateCache()
+    {
+        $cache     = service('cache');
+        $nameCache = "anamnese_*";
+        $cache->delete($nameCache);
+    }
+
+
+    public function searchOpen($slug)
+    {
+
+        helper('auxiliar');
+
+        $cache = service('cache');
+        $nameCache = "anamnese_{$slug}";
+
+        if (!$cache->get($nameCache)) {
+
+            $data = $this->where('slug', $slug)->join('customers', 'customers.id = anamneses.id_customer')->first();
+
+            if (!$data) {
+                throw new Exception('Anamnese não encontrada');
+            }
+
+            $cache->save($nameCache, $data, getCacheExpirationTimeInSeconds(30));
+        } else {
+
+            $data = $cache->get($nameCache);
         }
+
         return $data;
     }
 }
