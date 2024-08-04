@@ -63,7 +63,7 @@ class AnamnesesModel extends Model
         $nameCache = "anamnese_{$slug}";
         if (!$cache->get($nameCache)) {
             $data = $this->where('slug', $slug)
-            ->select('customers.id AS id_c')
+            ->select('customers.id AS id_c, anamneses.*')
             ->join('customers', 'customers.id = anamneses.id_customer')
             ->first();
             if (!$data) {
