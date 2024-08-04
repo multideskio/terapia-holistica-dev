@@ -6,22 +6,17 @@
     <title>Relatório de Anamnese</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .section-header {
-            background-color: #6c63ff;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
+       
+
         .card {
             margin-top: 20px;
         }
         .card-header {
-            background-color: #f8f9fa;
             font-weight: bold;
+            background-color: #6c63ff;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
         }
         .card-body .row {
             margin-bottom: 10px;
