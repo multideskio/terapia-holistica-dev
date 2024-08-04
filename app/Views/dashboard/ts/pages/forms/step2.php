@@ -23,7 +23,7 @@
                             </div>
                             <div class="mb-3 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraCoronarioPercentual" min="0" max="100" value="50" name="chakraCoronarioPercentual">
+                                <input type="range" step="10" id="chakraCoronarioPercentual" min="0" max="100" value="50" name="chakraCoronarioPercentual">
                                 <div class="range-label" id="value-chakraCoronarioPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="mb-2 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraFrontalPercentual" min="0" max="100" value="50" name="chakraFrontalPercentual">
+                                <input type="range" step="10" id="chakraFrontalPercentual" min="0" max="100" value="50" name="chakraFrontalPercentual">
                                 <div class="range-label" id="value-chakraFrontalPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="mb-2 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraLaringeoPercentual" min="0" max="100" value="50" name="chakraLaringeoPercentual">
+                                <input type="range" step="10" id="chakraLaringeoPercentual" min="0" max="100" value="50" name="chakraLaringeoPercentual">
                                 <div class="range-label" id="value-chakraLaringeoPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -138,7 +138,7 @@
                             </div>
                             <div class="mb-2 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraCardiacoPercentual" min="0" max="100" value="50" name="chakraCardiacoPercentual">
+                                <input type="range" step="10" id="chakraCardiacoPercentual" min="0" max="100" value="50" name="chakraCardiacoPercentual">
                                 <div class="range-label" id="value-chakraCardiacoPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>

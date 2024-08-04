@@ -23,7 +23,7 @@
                             </div>
                             <div class="mb-2 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraPlexoSolarPercentual" min="0" max="100" value="50" name="chakraPlexoSolarPercentual">
+                                <input type="range" step="10" id="chakraPlexoSolarPercentual" min="0" max="100" value="50" name="chakraPlexoSolarPercentual">
                                 <div class="range-label" id="value-chakraPlexoSolarPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="mb-2 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraSacroPercentual" min="0" max="100" value="50" name="chakraSacroPercentual">
+                                <input type="range" step="10" id="chakraSacroPercentual" min="0" max="100" value="50" name="chakraSacroPercentual">
                                 <div class="range-label" id="value-chakraSacroPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="mb-2 range-container hidden">
                                 <p class="fw-bold text-dark mt-3 mb-1">Qual a % do desequilíbrio?</p>
-                                <input type="range" id="chakraBasicoPercentual" min="0" max="100" value="50" name="chakraBasicoPercentual">
+                                <input type="range" step="10" id="chakraBasicoPercentual" min="0" max="100" value="50" name="chakraBasicoPercentual">
                                 <div class="range-label" id="value-chakraBasicoPercentual">50%</div>
                                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                             </div>
