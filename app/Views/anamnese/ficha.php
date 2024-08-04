@@ -49,7 +49,7 @@
 <body>
 <div class="container">
     <h1 class="text-center">Relatório de Anamnese</h1>
-    <img id="photo" src="" alt="Foto do Usuário" class="img-thumbnail mb-3 d-block mx-auto">
+    <img id="photo" src="" alt="Foto do Usuário" class="img-thumbnail mb-3 d-block mx-auto" width="250px">
 
     <div class="section-header">Campos Energéticos</div>
 
