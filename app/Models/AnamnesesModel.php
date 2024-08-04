@@ -62,7 +62,10 @@ class AnamnesesModel extends Model
         $cache = service('cache');
         $nameCache = "anamnese_{$slug}";
         if (!$cache->get($nameCache)) {
-            $data = $this->where('slug', $slug)->join('customers', 'customers.id = anamneses.id_customer')->first();
+            $data = $this->where('slug', $slug)
+            ->select('customers.id AS id_c')
+            ->join('customers', 'customers.id = anamneses.id_customer')
+            ->first();
             if (!$data) {
                 throw new Exception('Anamnese não encontrada');
             }
