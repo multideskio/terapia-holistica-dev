@@ -6,17 +6,22 @@
     <title>Relatório de Anamnese</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-       
-
-        .card {
-            margin-top: 20px;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .card-header {
-            font-weight: bold;
+        .section-header {
             background-color: #6c63ff;
             color: white;
             padding: 10px;
             margin-top: 20px;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
         }
         .card-body .row {
             margin-bottom: 10px;
@@ -44,10 +49,11 @@
 <body>
 <div class="container">
     <h1 class="text-center">Relatório de Anamnese</h1>
-    <img id="photo" src="" alt="Foto do Usuário" class="img-thumbnail mb-3 d-block mx-auto" width="250px">
+    <img id="photo" src="" alt="Foto do Usuário" class="img-thumbnail mb-3 d-block mx-auto">
 
     <div class="section-header">Campos Energéticos</div>
 
+    <!-- Chakra Coronário -->
     <div class="card">
         <div class="card-header">Chakra Coronário</div>
         <div class="card-body">
@@ -73,6 +79,7 @@
         </div>
     </div>
 
+    <!-- Chakra Frontal -->
     <div class="card">
         <div class="card-header">Chakra Frontal</div>
         <div class="card-body">
@@ -98,7 +105,7 @@
         </div>
     </div>
 
-    <!-- Adicione mais seções de chakras conforme necessário -->
+    <!-- Chakra Laríngeo -->
     <div class="card">
         <div class="card-header">Chakra Laríngeo</div>
         <div class="card-body">
@@ -124,6 +131,7 @@
         </div>
     </div>
 
+    <!-- Chakra Cardíaco -->
     <div class="card">
         <div class="card-header">Chakra Cardíaco</div>
         <div class="card-body">
@@ -149,6 +157,7 @@
         </div>
     </div>
 
+    <!-- Chakra Plexo Solar -->
     <div class="card">
         <div class="card-header">Chakra Plexo Solar</div>
         <div class="card-body">
@@ -174,6 +183,7 @@
         </div>
     </div>
 
+    <!-- Chakra Sacral -->
     <div class="card">
         <div class="card-header">Chakra Sacral</div>
         <div class="card-body">
@@ -199,6 +209,7 @@
         </div>
     </div>
 
+    <!-- Chakra Base -->
     <div class="card">
         <div class="card-header">Chakra Base</div>
         <div class="card-body">
@@ -223,6 +234,96 @@
             </div>
         </div>
     </div>
+
+    <div class="section-header">Outras Informações</div>
+    
+    <!-- Aura -->
+    <div class="card">
+        <div class="card-header">Tamanho da Aura</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">Tamanho:</div>
+                <div class="col-6" id="aura_size"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Comentários:</div>
+                <div class="col-6" id="aura_size_comments"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Abertura -->
+    <div class="card">
+        <div class="card-header">Tamanho da Abertura</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">Tamanho:</div>
+                <div class="col-6" id="opening_size"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Comentários:</div>
+                <div class="col-6" id="opening_size_comments"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cores -->
+    <div class="card">
+        <div class="card-header">Cores</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">Falta de cor:</div>
+                <div class="col-6" id="color_lack"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Excesso de cor:</div>
+                <div class="col-6" id="color_excess"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Energia de Saúde -->
+    <div class="card">
+        <div class="card-header">Energia de Saúde</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">Energia:</div>
+                <div class="col-6" id="health_energy"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Comentários:</div>
+                <div class="col-6" id="energy_comments"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Áreas da Vida -->
+    <div class="card">
+        <div class="card-header">Áreas da Vida</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">Familiar:</div>
+                <div class="col-6" id="family_area"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Afetiva:</div>
+                <div class="col-6" id="affective_area"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Profissional:</div>
+                <div class="col-6" id="professional_area"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Financeira:</div>
+                <div class="col-6" id="financial_area"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">Missão:</div>
+                <div class="col-6" id="mission_area"></div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -277,7 +378,20 @@
             $("#base_chakra_activity").text(data.base_chakra_activity);
             $("#base_chakra_affects_organ").text(data.base_chakra_affects_organ);
 
-            // Continue preenchendo os campos conforme necessário
+            // Outras informações
+            $("#aura_size").text(data.aura_size);
+            $("#aura_size_comments").text(data.aura_size_comments);
+            $("#opening_size").text(data.opening_size);
+            $("#opening_size_comments").text(data.opening_size_comments);
+            $("#color_lack").text(data.color_lack);
+            $("#color_excess").text(data.color_excess);
+            $("#health_energy").text(data.health_energy);
+            $("#energy_comments").text(data.energy_comments);
+            $("#family_area").text(data.family_area);
+            $("#affective_area").text(data.affective_area);
+            $("#professional_area").text(data.professional_area);
+            $("#financial_area").text(data.financial_area);
+            $("#mission_area").text(data.mission_area);
         });
     });
 </script>
