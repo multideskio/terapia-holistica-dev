@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anamnese</title>
+    <title>Dados Anamnese</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container p-4">
-        <pre class="data"></pre>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Dados do Usuário</h1>
+    <img id="photo" src="" alt="Foto do Usuário" class="img-thumbnail">
+    <p><strong>Nome:</strong> <span id="name"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+    <p><strong>Desequilíbrio Mental:</strong> <span id="mental_imbalance"></span> (<span id="mental_percentage"></span>%)</p>
+    <p><strong>Desequilíbrio Emocional:</strong> <span id="emotional_imbalance"></span> (<span id="emotional_percentage"></span>%)</p>
+    <!-- Adicione mais campos conforme necessário -->
+    <div class="data" style="white-space: pre-wrap;"></div>
+</div>
 
-    <script>
-        // Obtém a URL atual
-        var url = window.location.href;
+<script>
+    // Obtém a URL atual
+    var url = window.location.href;
 
-        // Separa a URL em partes dividindo pelo "/"
-        var urlParts = url.split('/');
+    // Separa a URL em partes dividindo pelo "/"
+    var urlParts = url.split('/');
 
-        // O ID é o último elemento do array resultante
-        var id = urlParts[urlParts.length - 1];
+    // O ID é o último elemento do array resultante
+    var id = urlParts[urlParts.length - 1];
 
-        // Exibe o ID no console
-        console.log(id);
+    // Exibe o ID no console
+    console.log(id);
 
-        $(document).ready(function() {
-            $.getJSON(`/api/v1/anamnese/${id}`, function(data) {
-                $(".data").text(JSON.stringify(data, null, 2));
-            });
+    $(document).ready(function() {
+        $.getJSON(`/api/v1/anamnese/${id}`, function(data) {
+            // Inserir dados nos elementos HTML
+            $("#photo").attr("src", data.photo);
+            $("#name").text(data.name);
+            $("#email").text(data.email);
+            $("#mental_imbalance").text(data.mental_imbalance);
+            $("#mental_percentage").text(data.mental_percentage);
+            $("#emotional_imbalance").text(data.emotional_imbalance);
+            $("#emotional_percentage").text(data.emotional_percentage);
+            // Adicione mais campos conforme necessário
+
+            // Exibir todos os dados em um formato legível
+            $(".data").text(JSON.stringify(data, null, 2));
         });
-    </script>
+    });
+</script>
 </body>
-
 </html>
