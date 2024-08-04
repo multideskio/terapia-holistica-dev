@@ -39,7 +39,8 @@ class Open extends ResourceController
             $data = $this->modelAnamnese->searchOpen($slug);
             return $this->respond($data);
         } catch (\Exception $e) {
-            return $this->fail($e->getMessage());
+            //return $this->fail($e->getMessage());
+            return $this->failNotFound();
         }
     }
 
