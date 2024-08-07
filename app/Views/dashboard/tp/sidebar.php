@@ -43,7 +43,19 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/anamnese') ?>">
+                        <i class="bi bi-people"></i> <span>Clientes</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/anamnese') ?>">
                         <i class="bi bi-pencil-square"></i> <span>Anamnese</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/anamnese') ?>">
+                        <i class="bi bi-calendar-range"></i> <span>Agenda</span>
                     </a>
                 </li>
 
