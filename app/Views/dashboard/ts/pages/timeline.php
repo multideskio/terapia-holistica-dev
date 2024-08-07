@@ -14,6 +14,7 @@
     <!--end col-->
 </div>
 <!--end row-->
+
 <div class="row">
     <div class="col-lg-12">
         <div>
@@ -23,6 +24,8 @@
         </div>
     </div>
 </div>
+
+
 <?php $this->endSection(); ?>
 <?php $this->section('js'); ?>
 <script src="/assets/js/custom/timelineTs.js"></script>
