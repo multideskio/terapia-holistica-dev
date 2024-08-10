@@ -168,14 +168,25 @@
 
 
 <div class="row">
-    <div class="col-lg-8">
-        <dic class="card">
-            <div class="card-body">
-                <div class="chart">
-
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <div class="fs-5">
+                    Relatorio de atendimentos
                 </div>
             </div>
-        </dic>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div id="chartLine">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h3 class="fs-4">Comparação por tipo</h3>
+                    <div id="chartPie">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -183,16 +194,16 @@
 <?php $this->endSection(); ?>
 <?php $this->section('js'); ?>
 <!-- linecharts init -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
 
 <script>
     var options = {
         series: [{
-                name: "High - 2013",
+                name: "Anamneses - 2024",
                 data: [28, 29, 33, 36, 32, 32, 33]
             },
             {
-                name: "Low - 2013",
+                name: "Agendamentos - 2024",
                 data: [12, 11, 14, 18, 17, 13, 13]
             }
         ],
@@ -222,7 +233,7 @@
             curve: 'smooth'
         },
         title: {
-            text: 'Average High & Low Temperature',
+            text: 'Consultas vs. Anamneses',
             align: 'left'
         },
         grid: {
@@ -257,7 +268,30 @@
         }
     };
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    var chart = new ApexCharts(document.querySelector("#chartLine"), options);
+    chart.render();
+
+
+
+    var options = {
+        series: [44, 55, 41, 17, 15],
+        chart: {
+            type: 'donut',
+        },
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chartPie"), options);
     chart.render();
 </script>
 <?php $this->endSection(); ?>
