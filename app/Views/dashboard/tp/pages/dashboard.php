@@ -24,6 +24,15 @@
     <h1 class="fw-bolder p-0">DASHBOARD</h1>
 </div>
 
+<div class="col-lg-12 mb-3">
+    <!-- Danger Alert -->
+    <div class="alert alert-danger alert-dismissible bg-danger text-white alert-label-icon fade show" role="alert">
+        <i class="ri-error-warning-line label-icon"></i><strong>Danger</strong> - O frontend ainda não está soncrononizado com o backend
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+</div>
+
 <div class="row">
     <div class="col-md-3">
         <div class="card bg-light mb-3 card-animate">
@@ -168,21 +177,22 @@
 
 
 <div class="row">
-    <div class="card">
-        <div class="card-body">
-            <div class="card-title">
-                <div class="fs-5">
-                    Relatorio de atendimentos
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div id="chartLine">
+    <div class="col-12">
+        <div class="card mb-3 card-animate">
+            <div class="card-body">
+                <div class="card-title">
+                    <div class="fs-5">
+                        Relatorio de atendimentos
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <h3 class="fs-4">Comparação por tipo</h3>
-                    <div id="chartPie">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div id="chartLine">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div id="chartPie">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,101 +207,115 @@
 <script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
 
 <script>
-    var options = {
-        series: [{
-                name: "Anamneses - 2024",
-                data: [28, 29, 33, 36, 32, 32, 33]
-            },
-            {
-                name: "Agendamentos - 2024",
-                data: [12, 11, 14, 18, 17, 13, 13]
-            }
-        ],
-        chart: {
-            height: 350,
-            type: 'line',
-            dropShadow: {
-                enabled: true,
-                color: '#000',
-                top: 18,
-                left: 7,
-                blur: 10,
-                opacity: 0.2
-            },
-            zoom: {
-                enabled: false
-            },
-            toolbar: {
-                show: false
-            }
-        },
-        colors: ['#77B6EA', '#545454'],
-        dataLabels: {
-            enabled: true,
-        },
-        stroke: {
-            curve: 'smooth'
-        },
-        title: {
-            text: 'Consultas vs. Anamneses',
-            align: 'left'
-        },
-        grid: {
-            borderColor: '#e7e7e7',
-            row: {
-                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                opacity: 0.5
-            },
-        },
-        markers: {
-            size: 1
-        },
-        xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-            title: {
-                text: 'Month'
-            }
-        },
-        yaxis: {
-            title: {
-                text: 'Temperature'
-            },
-            min: 5,
-            max: 40
-        },
-        legend: {
-            position: 'top',
-            horizontalAlign: 'right',
-            floating: true,
-            offsetY: -25,
-            offsetX: -5
-        }
-    };
+    $(document).ready(function() {
+        chartLine()
+        chartPie()
+    });
 
-    var chart = new ApexCharts(document.querySelector("#chartLine"), options);
-    chart.render();
-
-
-
-    var options = {
-        series: [44, 55, 41, 17, 15],
-        chart: {
-            type: 'donut',
-        },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    width: 200
+    function chartLine() {
+        var options = {
+            series: [{
+                    name: "Anamneses - 2024",
+                    data: [28, 29, 33, 36, 32, 32, 33]
                 },
-                legend: {
-                    position: 'bottom'
+                {
+                    name: "Agendamentos - 2024",
+                    data: [12, 11, 14, 18, 17, 13, 13]
                 }
+            ],
+            chart: {
+                height: 350,
+                type: 'line',
+                dropShadow: {
+                    enabled: true,
+                    color: '#000',
+                    top: 18,
+                    left: 7,
+                    blur: 10,
+                    opacity: 0.2
+                },
+                zoom: {
+                    enabled: false
+                },
+                toolbar: {
+                    show: false
+                }
+            },
+            colors: ['#77B6EA', '#545454'],
+            dataLabels: {
+                enabled: true,
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            title: {
+                text: 'Consultas vs. Anamneses',
+                align: 'left'
+            },
+            grid: {
+                borderColor: '#e7e7e7',
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            markers: {
+                size: 1
+            },
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                title: {
+                    text: 'Month'
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Temperature'
+                },
+                min: 5,
+                max: 40
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
             }
-        }]
-    };
+        };
 
-    var chart = new ApexCharts(document.querySelector("#chartPie"), options);
-    chart.render();
+        var chart = new ApexCharts(document.querySelector("#chartLine"), options);
+        chart.render();
+    }
+
+
+    function chartPie() {
+        var options = {
+            series: [100, 200],
+            chart: {
+                type: 'pie',
+            },
+            labels: ['CRÉDITO', 'PIX'],
+            title: {
+                text: 'Consultas vs. Anamneses',
+                align: 'left'
+            },
+            dataLabels: {
+                dropShadow: {
+                    enabled: false,
+                }
+            },
+            legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chartPie"), options);
+        chart.render();
+    }
 </script>
 <?php $this->endSection(); ?>
