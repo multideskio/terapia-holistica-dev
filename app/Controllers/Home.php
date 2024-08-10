@@ -21,7 +21,7 @@ class Home extends BaseController
         return view('dashboard/tp/pages/dashboard', $data);
     }
 
-    public function clientes()
+    public function clientes($id=null)
     {
         $modelAnamnese = new AnamnesesModel();
 

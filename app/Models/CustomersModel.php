@@ -80,7 +80,7 @@ class CustomersModel extends Model
         }
 
         // Paginação dos resultados
-        $customers    = $this->paginate($limit);
+        $customers    = $this->paginate($limit, 'group3');
         $totalResults = $this->where('customers.idUser', session('data')['id'])->countAllResults();
         $currentPage  = $this->pager->getCurrentPage();
         $start        = ($currentPage - 1) * $limit + 1;
@@ -100,7 +100,7 @@ class CustomersModel extends Model
 
         $data = [
             'rows'  => $customers, // Resultados paginados com contagem de anamneses
-            'pager' => $this->pager->links(), // Links de paginação
+            'pager' => $this->pager->links('group3', 'paginate'), // Links de paginação
             'num'   => $numMessage
         ];
 

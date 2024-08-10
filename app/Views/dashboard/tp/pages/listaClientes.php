@@ -12,9 +12,19 @@
         <div class="card-title">
             <span>Últimos cadastros</span>
         </div>
-        <div class="page-link" id="numResults"></div>
-        <div id="tableUsers" style="">
 
+        <div class="mb-3 col-md-6 col-lg-4 mt-2">
+            <div class="input-group">
+                <input type="search" class="form-control" name="inSearch" id="inSearch" placeholder="Pesquisar...">
+                <button class="btn btn-primary" type="button" id="inSearchBtn">
+                    <i class="ri-search-line"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="page-link mt-1 mb-1" id="numResults"></div>
+
+        <div id="resultShow" style="display: none;">
             <div class="table-responsive">
                 <table class="table table-nowrap table-striped" style="width: 100%;">
                     <thead class="table-light">
@@ -40,7 +50,7 @@
                 <h5 class="mt-2">Desculpe! Nenhum resultado encontrado</h5>
             </div>
         </div>
-        <div id="loadResultUsers">
+        <div id="loadResult">
             <div class="text-center">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -114,8 +124,9 @@
         $('.noresult').hide();
         $('#listaUsuarios').empty();
 
-        $('#cardResult').hide();
-        $('.loadResult').show();
+        
+        $('#resultShow').hide();
+        $('#loadResult').show();
 
         // Monta a URL da requisição AJAX com os parâmetros search e page, se estiverem definidos
         var url = _baseUrl + "api/v1/customer?";
@@ -134,11 +145,13 @@
                 $("#numResults").html(data.num);
 
                 if (data.rows.length === 0) {
-                    $('#cardResult').hide();
+                    $('#resultShow').hide();
                     $('.noresult').show();
-                } else {
+                    $('#loadResult').hide();
 
-                    $('#cardResult').show();
+                } else {
+                    $('#loadResult').hide();
+                    $('#resultShow').show();
                     $('.noresult').hide();
 
                     $.each(data.rows, function(index, row) {
@@ -149,11 +162,10 @@
                         <td>${row.name}<br><span class="text-muted">${row.email}</span></td>
                         <td>${row.birthDate}</td>
                         <td>${row.anamneses_count}</td>
-                        <td>
+                        <td class="text-end">
                             <div class="btn-group btn-group-sm">
                                 <button type="button" class="btn btn-info waves-effect waves-light">AGENDAR</button>
-                                <button type="button" class="btn btn-dark waves-effect waves-light">PERFIL</button>
-                                <button type="button" class="btn btn-primary waves-effect waves-light">HISTÓRICO</button>
+                                <a href="${_baseUrl}dashboard/tp/clientes/${row.id}" type="button" class="btn btn-dark waves-effect waves-light">PERFIL</a>
                             </div>
                         </td> 
                     </tr>

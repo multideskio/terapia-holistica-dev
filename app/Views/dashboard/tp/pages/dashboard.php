@@ -40,9 +40,9 @@
                         </div>
                         <!--end col-->
                         <div class="col-auto">
-                            <button type="button" class="btn btn-soft-success" data-bs-toggle="modal" data-bs-target="#agendamentoModal">
+                            <a href="<?= site_url('dashboard/tp/clientes') ?>" class="btn btn-soft-success">
                                 <i class="ri-add-circle-line align-middle me-1"></i> Novo agendamento
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <!--end row-->

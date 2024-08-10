@@ -43,6 +43,7 @@ $routes->group('dashboard/tp', ['filter' => ['tp', 'auth']], static function ($r
     $routes->get('/', 'Home::index');
     $routes->get('home', 'Home::index');
     $routes->get('clientes', 'Home::clientes');
+    $routes->get('clientes/(:any)', 'Home::clientes/$1');
     $routes->get('anamnese', 'Home::index');
     $routes->get('analytics', 'Home::index');
     $routes->get('finance', 'Home::index');
