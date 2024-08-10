@@ -308,7 +308,7 @@
             xaxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
                 title: {
-                    text: 'Month'
+                    text: 'Mês'
                 }
             },
             yaxis: {
