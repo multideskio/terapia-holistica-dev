@@ -20,9 +20,39 @@
 </style>
 <?php $this->endSection(); ?>
 <?php $this->section('page') ?>
-<div class="col-xxl-12">
-    <h1 class="fw-bolder p-0">DASHBOARD</h1>
+
+<div class="row mb-3 pb-1">
+    <div class="col-12">
+        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+            <div class="flex-grow-1">
+                <h1 class="fw-bolder p-0">DASHBOARD</h1>
+            </div>
+            <div class="mt-3 mt-lg-0">
+                <form action="javascript:void(0);">
+                    <div class="row g-3 mb-0 align-items-center">
+                        <div class="col-sm-auto">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-0 dash-filter-picker shadow" id="dateSearch">
+                                <div class="input-group-text bg-primary border-primary text-white">
+                                    <i class="ri-calendar-2-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-soft-success">
+                                <i class="ri-add-circle-line align-middle me-1"></i> Novo agendamento
+                            </button>
+                        </div>
+                    </div>
+                    <!--end row-->
+                </form>
+            </div>
+        </div><!-- end card header -->
+    </div>
+    <!--end col-->
 </div>
+<!--end row-->
 
 <div class="col-lg-12 mb-3">
     <!-- Danger Alert -->
@@ -205,9 +235,22 @@
 <?php $this->section('js'); ?>
 <!-- linecharts init -->
 <script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#dateSearch", {
+            locale: "pt",
+            mode: "range", // Ativa o modo de seleção de intervalo
+            dateFormat: "d/m/Y", // Define o formato da data
+            maxDate: "today", // Permite apenas datas até hoje
+            minDate: new Date().fp_incr(-365),
+            defaultDate: [new Date().fp_incr(-30), "today"]
+        });
+    });
     $(document).ready(function() {
+
+
         chartLine()
         chartPie()
     });
