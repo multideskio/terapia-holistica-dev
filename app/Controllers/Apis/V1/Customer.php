@@ -24,7 +24,8 @@ class Customer extends ResourceController
     public function index()
     {
         //
-        return $this->respond([]);
+        $data = $this->modelCustomer->custumerList($this->request->getGet());
+        return $this->respond($data);
     }
 
     /**

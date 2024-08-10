@@ -42,7 +42,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/anamnese') ?>">
+                    <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/clientes') ?>">
                         <i class="bi bi-people"></i> <span>Clientes</span>
                     </a>
                 </li>

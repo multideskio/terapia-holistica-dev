@@ -7,7 +7,7 @@ use App\Models\AnamnesesModel;
 
 class Home extends BaseController
 {
-    protected $lastSegment ;
+    protected $lastSegment;
     public function __construct()
     {
         $request           = service('request');
@@ -21,13 +21,26 @@ class Home extends BaseController
         return view('dashboard/tp/pages/dashboard', $data);
     }
 
-    public function anamnese($slug=null){
+    public function clientes()
+    {
+        $modelAnamnese = new AnamnesesModel();
+
+        $data['titlePage'] = $this->lastSegment;;
+
+        return view('dashboard/tp/pages/listaClientes', $data);
+    }
+
+    public function anamnese($slug = null)
+    {
         $modelAnamnese = new AnamnesesModel();
 
         return view('anamnese/ficha');
     }
-    
-    public function teste(){
+
+
+
+    public function teste()
+    {
         $email = new EmailsLibraries;
 
         return $email->testarEnvioEmail('igrsysten@gmail.com', 'Assunto teste', 'Isso é um teste');

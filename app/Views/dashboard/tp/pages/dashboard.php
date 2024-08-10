@@ -40,7 +40,7 @@
                         </div>
                         <!--end col-->
                         <div class="col-auto">
-                            <button type="button" class="btn btn-soft-success">
+                            <button type="button" class="btn btn-soft-success" data-bs-toggle="modal" data-bs-target="#agendamentoModal">
                                 <i class="ri-add-circle-line align-middle me-1"></i> Novo agendamento
                             </button>
                         </div>
@@ -229,6 +229,16 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+
+
+
+
+
+
+
+
 
 
 <?php $this->endSection(); ?>

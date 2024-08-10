@@ -46,11 +46,64 @@ class CustomersModel extends Model
     protected $afterDelete    = [];
 
 
-    public function searchCustomer(int $id): array {
+    public function searchCustomer(int $id): array
+    {
         $data = $this->where('idUser', session('data')['id'])->find($id);
-        if(!isset($data)){
+        if (!isset($data)) {
             throw new Exception('Paciente não encontrado');
         }
+        return $data;
+    }
+
+    public function custumerList($input = false, $limit = 10, $order = 'DESC'): array
+    {
+        $data = [];
+
+        // Define o termo de busca, se houver
+        $search = $input['search'] ?? false;
+        $page   = $input['page'] ?? false;
+
+        // Busca dados com join e contagem de anamneses
+        $this->select('customers.*, COUNT(anamneses.id) as anamneses_count')
+            ->join('anamneses', 'anamneses.id_customer = customers.id', 'left')
+            ->where('customers.idUser', session('data')['id'])
+            ->groupBy('customers.id')
+            ->orderBy('customers.id', $order);
+
+        if ($search) {
+            $this->groupStart()
+                ->like('customers.name', $search)
+                ->orLike('customers.id', $search)
+                ->orLike('customers.email', $search)
+                ->orLike('customers.birthDate', $search)
+                ->groupEnd();
+        }
+
+        // Paginação dos resultados
+        $customers    = $this->paginate($limit);
+        $totalResults = $this->where('customers.idUser', session('data')['id'])->countAllResults();
+        $currentPage  = $this->pager->getCurrentPage();
+        $start        = ($currentPage - 1) * $limit + 1;
+        $end          = min($currentPage * $limit, $totalResults);
+
+        // Lógica para definir a mensagem de resultados
+        $resultCount = count($customers);
+        if ($search) {
+            if ($resultCount === 1) {
+                $numMessage = "1 resultado encontrado.";
+            } else {
+                $numMessage = "{$resultCount} resultados encontrados.";
+            }
+        } else {
+            $numMessage = "Exibindo resultados {$start} a {$end} de {$totalResults}.";
+        }
+
+        $data = [
+            'rows'  => $customers, // Resultados paginados com contagem de anamneses
+            'pager' => $this->pager->links(), // Links de paginação
+            'num'   => $numMessage
+        ];
+
         return $data;
     }
 }
