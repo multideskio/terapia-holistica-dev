@@ -35,7 +35,7 @@
 
 <div class="row">
     <div class="col-md-3">
-        <div class="card bg-light mb-3 card-animate">
+        <div class="card mb-3 card-animate">
             <div class="card-body text-center">
 
                 <div class="float-end">
@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card bg-light mb-3 card-animate">
+        <div class="card mb-3 card-animate">
             <div class="card-body text-center">
 
                 <div class="float-end">
@@ -105,7 +105,7 @@
 
 
     <div class="col-md-3">
-        <div class="card bg-light mb-3 card-animate">
+        <div class="card mb-3 card-animate">
             <div class="card-body text-center">
 
                 <div class="float-end">
@@ -141,7 +141,7 @@
 
 
     <div class="col-md-3">
-        <div class="card bg-light mb-3 card-animate">
+        <div class="card mb-3 card-animate">
             <div class="card-body text-center">
                 <div class="float-end">
                     <div class="dropdown card-header-dropdown">
@@ -182,7 +182,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <div class="fs-5">
-                        Relatorio de atendimentos
+                        Relatório de atendimentos
                     </div>
                 </div>
                 <div class="row">
@@ -291,11 +291,11 @@
 
     function chartPie() {
         var options = {
-            series: [100, 200],
+            series: [15, 30, 25],
             chart: {
                 type: 'pie',
             },
-            labels: ['CRÉDITO', 'PIX'],
+            labels: ['Consultas', 'Agendamentos', 'Anamneses'],
             title: {
                 text: 'Consultas vs. Anamneses',
                 align: 'left'
@@ -306,11 +306,7 @@
                 }
             },
             legend: {
-                position: 'top',
-                horizontalAlign: 'right',
-                floating: true,
-                offsetY: -25,
-                offsetX: -5
+                position: 'bottom'
             }
         };
 
