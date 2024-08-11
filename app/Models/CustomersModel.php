@@ -13,7 +13,7 @@ class CustomersModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['idUser', 'name', 'photo', 'email', 'phone', 'birthDate'];
+    protected $allowedFields    = ['idUser', 'name', 'photo', 'phone', 'email', 'phone', 'birthDate', 'doc', 'generous'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -29,14 +29,20 @@ class CustomersModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'email' => 'required|max_length[254]|valid_email',
+        'name'  => 'required',
+        'birthDate' => 'required|date'
+    ];
+    protected $validationMessages   = [
+
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
     // Callbacks
     protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
+    protected $beforeInsert   = ['init'];
     protected $afterInsert    = [];
     protected $beforeUpdate   = [];
     protected $afterUpdate    = [];
@@ -45,6 +51,15 @@ class CustomersModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
+    protected function init(array $data): array{
+
+        if (!array_key_exists('photo', $data['data'])) {
+            $data['data']['photo'] = '/assets/images/users/user-dummy-img.jpg';
+        }
+
+        return $data;
+    }
 
     public function searchCustomer(int $id): array
     {

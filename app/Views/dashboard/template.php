@@ -1,7 +1,7 @@
 <?= $this->include('partials/main') ?>
 
 <head>
-    <?php echo view('partials/title-meta', array('title' => $titlePage.' | Mari Terapeuta')); ?>
+    <?php echo view('partials/title-meta', array('title' => $titlePage . ' | Mari Terapeuta')); ?>
     <?= $this->include('partials/head-css') ?>
     <!-- Sweet Alert css-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
@@ -74,9 +74,21 @@
         function recursoIndisponivel() {
             Swal.fire({
                 title: 'Recurso indisponivél no momento',
-                type: 'error'
+                icon: 'error'
             });
         }
+
+        ! function() {
+            "use strict";
+            window.addEventListener("load", function() {
+                var t = document.getElementsByClassName("needs-validation");
+                t && Array.prototype.filter.call(t, function(e) {
+                    e.addEventListener("submit", function(t) {
+                        !1 === e.checkValidity() && (t.preventDefault(), t.stopPropagation()), e.classList.add("was-validated")
+                    }, !1)
+                })
+            }, !1)
+        }();
     </script>
 </body>
 

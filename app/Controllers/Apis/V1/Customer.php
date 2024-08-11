@@ -6,6 +6,7 @@ use App\Models\CustomersModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
+use Exception;
 
 class Customer extends ResourceController
 {
@@ -67,6 +68,42 @@ class Customer extends ResourceController
     public function create()
     {
         //
+        $input = $this->request->getPost();
+
+        try{
+
+        //Verifica se endereço de e-mail está no banco de dados relacionado ao usuário atual
+        $row = $this->modelCustomer->where(['email' => $input['email']])->countAllResults();
+        
+        if($row > 0){
+            throw new Exception('Esse e-mail já está cadastrado</br>Verifique na sua tabela de clientes.');
+        }
+
+        //dados para cadastro
+        $data = [
+            'idUser' => session('data')['id'],
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'phone' => $input['phone'],
+            'birthDate' => $input['date'],
+            'doc' => $input['doc'],
+            'generous' => $input['genero']
+        ];
+
+        $id = $this->modelCustomer->insert($data);
+
+        if ($id === false) {
+            return $this->fail($this->modelCustomer->errors());
+        }
+
+        return $this->respond($data);
+
+    }catch(\Exception $e){
+        return $this->fail($e->getMessage());
+    }
+
+
+        return $this->respond($input);
     }
 
     /**
