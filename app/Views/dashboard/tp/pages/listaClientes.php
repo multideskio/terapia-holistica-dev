@@ -186,6 +186,8 @@
 <?php $this->endSection(); ?>
 
 <?php $this->section('js'); ?>
+<!-- cleave.js -->
+<script src="/assets/libs/cleave.js/cleave.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 <script>
@@ -205,16 +207,18 @@
 
         var cleaveTelFixo = new Cleave('#phone', {
             numericOnly: true,
-            delimiters: ['(', ') ', '-'],
-            blocks: [0, 2, 4, 4]
+            delimiters: ['(', ') ', ' ', '-'],
+            blocks: [0, 2, 1, 4, 4]
         });
 
+
+
         var cleaveCpf = new Cleave('#doc', {
-        numericOnly: true,
-        delimiters: ['.', '.', '-'],
-        blocks: [3, 3, 3, 2],
-        uppercase: true
-    });
+            numericOnly: true,
+            delimiters: ['.', '.', '-'],
+            blocks: [3, 3, 3, 2],
+            uppercase: true
+        });
     });
 
     function agendamento(id, name) {
