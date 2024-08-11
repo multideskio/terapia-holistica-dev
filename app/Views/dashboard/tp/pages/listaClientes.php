@@ -74,7 +74,12 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="cliente">Cliente</label>
+                    <label for="nameCustumer">Cliente</label>
+                    <input type="text" class="form-control" id="nameCustumer" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="idCustumer">Cliente</label>
+                    <input type="text" class="form-control" id="idCustumer" disabled>
                 </div>
             </div>
             <div class="modal-footer">
@@ -94,6 +99,14 @@
         atualizarTabela()
 
     });
+
+    function agendamento(id, name) {
+        $("#nameCustumer").val(name)
+        $("#idCustumer").val(id)
+        $("#agendamentoModal").modal('show')
+
+        console.log(id + ' ' + name);
+    }
 
     function searchClient() {
         $("#inSearchBtn").click(function() {
@@ -124,7 +137,7 @@
         $('.noresult').hide();
         $('#listaUsuarios').empty();
 
-        
+
         $('#resultShow').hide();
         $('#loadResult').show();
 
@@ -155,26 +168,26 @@
                     $('.noresult').hide();
 
                     $.each(data.rows, function(index, row) {
-                        console.log(row);
+                        //console.log(row);
                         $('#listaUsuarios').append(`
-                    <tr>
-                        <td>${row.id}</td>
-                        <td>${row.name}<br><span class="text-muted">${row.email}</span></td>
-                        <td>${row.birthDate}</td>
-                        <td>${row.anamneses_count}</td>
-                        <td class="text-end">
-                            <div class="btn-group btn-group-sm">
-                                <button type="button" class="btn btn-info waves-effect waves-light">AGENDAR</button>
-                                <a href="${_baseUrl}dashboard/tp/clientes/${row.id}" type="button" class="btn btn-dark waves-effect waves-light">PERFIL</a>
-                            </div>
-                        </td> 
-                    </tr>
-                    `)
+                            <tr>
+                                <td>${row.id}</td>
+                                <td>${row.name}<br><span class="text-muted">${row.email}</span></td>
+                                <td>${row.birthDate}</td>
+                                <td>${row.anamneses_count}</td>
+                                <td class="text-end">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-info waves-effect waves-light" onclick="agendamento('${row.id}', '${row.name}')">AGENDAR</button>
+                                        <a href="${_baseUrl}dashboard/tp/clientes/${row.id}" type="button" class="btn btn-dark waves-effect waves-light">PERFIL</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        `);
                     })
                 }
             })
 
-        console.log(url);
+        //console.log(url);
     }
 </script>
 
