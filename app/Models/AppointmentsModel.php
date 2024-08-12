@@ -3,25 +3,28 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use Exception;
+use DateTime;
 
-class CustomersModel extends Model
+class AppointmentsModel extends Model
 {
-    protected $table            = 'customers';
+    protected $table            = 'appointments';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['idUser', 'name', 'photo', 'phone', 'email', 'phone', 'birthDate', 'doc', 'generous'];
+    protected $allowedFields    = ['id_user', 'id_customer', 'date', 'status'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
     protected array $casts = [
-        'id'     => 'int',
-        'idUser' => 'int'
+        'id'          => 'int',
+        'id_user'     => 'int',
+        'id_customer' => 'int'
+        //'date'        => '?datetime'
     ];
+
     protected array $castHandlers = [];
 
     // Dates
@@ -32,20 +35,16 @@ class CustomersModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [
-        'email' => 'required|max_length[254]|valid_email',
-        'name'  => 'required',
-        'birthDate' => 'required|date'
-    ];
-    protected $validationMessages   = [
+    protected $validationRules      = [];
 
-    ];
+    protected $validationMessages   = [];
+
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
     // Callbacks
     protected $allowCallbacks = true;
-    protected $beforeInsert   = ['init'];
+    protected $beforeInsert   = [];
     protected $afterInsert    = [];
     protected $beforeUpdate   = [];
     protected $afterUpdate    = [];
@@ -54,26 +53,7 @@ class CustomersModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-
-    protected function init(array $data): array{
-
-        if (!array_key_exists('photo', $data['data'])) {
-            $data['data']['photo'] = '/assets/images/users/user-dummy-img.jpg';
-        }
-
-        return $data;
-    }
-
-    public function searchCustomer(int $id): array
-    {
-        $data = $this->where('idUser', session('data')['id'])->find($id);
-        if (!isset($data)) {
-            throw new Exception('Paciente não encontrado');
-        }
-        return $data;
-    }
-
-    public function custumerList($input = false, $limit = 10, $order = 'DESC'): array
+    public function list($input = false, $limit = 12, $order = 'ASC'): array
     {
         $data = [];
 
@@ -81,12 +61,12 @@ class CustomersModel extends Model
         $search = $input['search'] ?? false;
         $page   = $input['page'] ?? false;
 
-        // Busca dados com join e contagem de anamneses
-        $this->select('customers.*, COUNT(anamneses.id) as anamneses_count')
+        $this->select('appointments.id, appointments.date, customers.id As id_customer, customers.name, customers.phone, customers.email, COUNT(anamneses.id) as anamneses_count')
+            ->join('customers', 'appointments.id_customer = customers.id')
             ->join('anamneses', 'anamneses.id_customer = customers.id', 'left')
-            ->where('customers.idUser', session('data')['id'])
-            ->groupBy('customers.id')
-            ->orderBy('customers.id', $order);
+            ->where('appointments.id_user', session('data')['id'])
+            ->orderBy('appointments.date', $order)
+            ->groupBy('appointments.id, customers.id');
 
         if ($search) {
             $this->groupStart()
@@ -94,12 +74,13 @@ class CustomersModel extends Model
                 ->orLike('customers.id', $search)
                 ->orLike('customers.email', $search)
                 ->orLike('customers.birthDate', $search)
+                ->orLike('appointments.date', $search)
                 ->groupEnd();
         }
 
         // Paginação dos resultados
-        $customers    = $this->paginate($limit, 'group3');
-        $totalResults = $this->where('customers.idUser', session('data')['id'])->countAllResults();
+        $customers    = $this->paginate($limit);
+        $totalResults = $this->where('appointments.id_user', session('data')['id'])->countAllResults();
         $currentPage  = $this->pager->getCurrentPage();
         $start        = ($currentPage - 1) * $limit + 1;
         $end          = min($currentPage * $limit, $totalResults);
@@ -118,9 +99,20 @@ class CustomersModel extends Model
 
         $data = [
             'rows'  => $customers, // Resultados paginados com contagem de anamneses
-            'pager' => $this->pager->links('group3', 'paginate'), // Links de paginação
+            'pager' => $this->pager->links('default', 'paginate'), // Links de paginação
             'num'   => $numMessage
         ];
+
+
+
+        /*$this->select('appointments.data AS data')
+            ->select('customers.*')
+            ->select('COUNT(anamneses.id) as anamneses_count')
+            ->join('appointments','appointments.id_customer = customers.id')
+            ->join('anamneses', 'anamneses.id_customer = customers.id', 'left')
+            ->where('appointments.idUser', session('data')['id']);
+*/
+
 
         return $data;
     }

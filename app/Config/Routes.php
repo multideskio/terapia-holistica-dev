@@ -44,7 +44,10 @@ $routes->group('dashboard/tp', ['filter' => ['tp', 'auth']], static function ($r
     $routes->get('home', 'Home::index');
     $routes->get('clientes', 'Home::clientes');
     $routes->get('clientes/(:any)', 'Home::clientes/$1');
-    $routes->get('anamnese', 'Home::index');
+    $routes->get('anamnese', 'Home::gerarAnamnese');
+    
+    $routes->get('anamnese/(:num)', 'Home::gerarAnamnese/$1');
+
     $routes->get('analytics', 'Home::index');
     $routes->get('finance', 'Home::index');
     $routes->get('contacts', 'Home::index');
@@ -55,9 +58,13 @@ $routes->group('dashboard/tp', ['filter' => ['tp', 'auth']], static function ($r
 
 $routes->group('api/v1', ['filter' => 'auth', 'namespace' => '\App\Controllers\Apis\V1'], static function ($routes) {
     
+    //
     $routes->resource('anamnese');
+
+    $routes->resource('appointments');
     
 
+    ///
     $routes->group('webhook', ['filter' => ''], static function ($routes){
         $routes->get('', 'Webhook::index', ['filter' => 'cors']);
         $routes->post('', 'Webhook::index', ['filter' => 'cors']);
@@ -67,9 +74,9 @@ $routes->group('api/v1', ['filter' => 'auth', 'namespace' => '\App\Controllers\A
     $routes->group('customer', ['filter' => 'auth'], static function ($routes){
         $routes->get('search/(:num)',  'Customer::searchCustomer/$1', ['filter' => 'cors']);
     });
-
     $routes->resource('customer');
-
+    
+    ///
     $routes->group('timeline', ['filter' => 'auth'], static function ($routes){
         $routes->get('ts', 'TimeLine::tsGet');
     });

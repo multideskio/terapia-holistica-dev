@@ -30,6 +30,18 @@ class Home extends BaseController
         return view('dashboard/tp/pages/listaClientes', $data);
     }
 
+    public function gerarAnamnese($slug = null)
+    {
+        $modelAnamnese = new AnamnesesModel();
+
+        $data['titlePage'] = $this->lastSegment;;
+
+        return view('dashboard/tp/pages/listAgendamentos', $data);;
+    }
+
+
+
+
     public function anamnese($slug = null)
     {
         $modelAnamnese = new AnamnesesModel();

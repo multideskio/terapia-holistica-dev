@@ -159,15 +159,17 @@
                 <h1 class="modal-title fs-5" id="agendamentoModalLabel">Agendamento</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <?= form_open('', 'class="g-3 needs-validation" novalidate') ?>
+            <?= form_open('api/v1/appointments', 'class="g-3 needs-validation sendForm" novalidate') ?>
             <div class="modal-body">
+
                 <div class="mb-3">
                     <label for="idCustumer">ID CLIENTE - {HIDDEN}</label>
-                    <input type="text" class="form-control" name="idCustumer" id="idCustumer" disabled>
+                    <input type="text" class="form-control" name="idCustumer" id="idCustumer" readonly>
                 </div>
+
                 <div class="mb-3">
                     <label for="nameCustumer">Cliente</label>
-                    <input type="text" class="form-control" name="nameCustumer" id="nameCustumer" disabled>
+                    <input type="text" class="form-control" name="nameCustumer" id="nameCustumer" readonly>
                 </div>
 
                 <div class="mb-3">
@@ -192,89 +194,96 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 <script>
     $(document).ready(function() {
-        searchClient()
-        atualizarTabela()
-        sendsForms()
+        initializeComponents();
+    });
+
+    function initializeComponents() {
+        setupSearchClient();
+        updateTable();
+        setupFormSubmissions();
+        formatPhoneNumbers();
 
         flatpickr("#dataAgendamento", {
-            locale: "pt",
-            dateFormat: "d/m/Y H:i", // Define o formato da data
-            minDate: "today", // Permite apenas datas até hoje
-            defaultDate: [new Date().fp_incr(-30), "today"],
+            locale: "pt", // Define o idioma para português (Brasil)
+            dateFormat: "d/m/Y H:i", // Define o formato de data e hora
+            minDate: "today", // Permite selecionar datas a partir de hoje
             enableTime: true, // Habilita a seleção de hora
             time_24hr: true, // Usa o formato de 24 horas
+            minuteIncrement: 30, // Define o incremento dos minutos para 30
+            defaultDate: getDefaultDate()
         });
+    }
 
-        var cleaveTelFixo = new Cleave('#phone', {
+    function getDefaultDate() {
+        const now = new Date();
+        const minutes = now.getMinutes();
+        now.setMinutes(minutes < 30 ? 30 : 60);
+        return now;
+    }
+
+    function formatPhoneNumbers() {
+        new Cleave('#phone', {
             numericOnly: true,
             delimiters: ['(', ') ', ' ', '-'],
             blocks: [0, 2, 1, 4, 4]
         });
 
-
-
-        var cleaveCpf = new Cleave('#doc', {
+        new Cleave('#doc', {
             numericOnly: true,
             delimiters: ['.', '.', '-'],
             blocks: [3, 3, 3, 2],
             uppercase: true
         });
-    });
-
-    function agendamento(id, name) {
-        $("#nameCustumer").val(name)
-        $("#idCustumer").val(id)
-        $("#agendamentoModal").modal('show')
-
-        console.log(id + ' ' + name);
     }
 
-    function searchClient() {
+    function agendamento(id, name) {
+        $("#nameCustumer").val(name);
+        $("#idCustumer").val(id);
+        $("#agendamentoModal").modal('show');
+
+        console.log(`Agendamento: ${id}, ${name}`);
+    }
+
+    function setupSearchClient() {
         $("#inSearchBtn").click(function() {
-            var search = $("#inSearch").val();
-            atualizarTabela(search);
+            const search = $("#inSearch").val();
+            updateTable(search);
         });
 
         $("#inSearch").keypress(function(e) {
             if (e.which === 13) {
-                var search = $("#inSearch").val();
-                atualizarTabela(search);
+                const search = $("#inSearch").val();
+                updateTable(search);
             }
         });
 
         $("#pager").on("click", "a", function(e) {
             e.preventDefault();
-            var href = $(this).attr("href");
-            var urlParams = new URLSearchParams(href);
-            var page = urlParams.get('page');
-            var search = urlParams.get('search');
-            if (!isNaN(page)) {
-                atualizarTabela(search, page);
+            const href = $(this).attr("href");
+            const queryString = href.split('?')[1];
+            const urlParams = new URLSearchParams(queryString);
+            const page = urlParams.get('page');
+            const search = urlParams.get('search');
+
+            if (page && !isNaN(page)) {
+                updateTable(search, page);
             }
         });
     }
 
-    function atualizarTabela(search = false, page = 1) {
+    function updateTable(search = '', page = 1) {
         $('.noresult').hide();
         $('#listaUsuarios').empty();
-
-
         $('#resultShow').hide();
         $('#loadResult').show();
 
-        // Monta a URL da requisição AJAX com os parâmetros search e page, se estiverem definidos
-        var url = _baseUrl + "api/v1/customer?";
-        if (search) {
-            url += "search=" + search + "&";
-        }
-        if (page) {
-            url += "page=" + page;
-        }
-
+        const url = buildUrl(_baseUrl + "api/v1/customer?", {
+            search,
+            page
+        });
 
         $.getJSON(url)
             .done(function(data) {
-
                 $("#pager").html(data.pager);
                 $("#numResults").html(data.num);
 
@@ -282,82 +291,73 @@
                     $('#resultShow').hide();
                     $('.noresult').show();
                     $('#loadResult').hide();
-
                 } else {
                     $('#loadResult').hide();
                     $('#resultShow').show();
                     $('.noresult').hide();
 
                     $.each(data.rows, function(index, row) {
-                        //console.log(row);
                         $('#listaUsuarios').append(`
-                            <tr>
-                                <td>${row.id}</td>
-                                <td>${row.name}<br><span class="text-muted">${row.email}</span></td>
-                                <td>${row.phone}</td>
-                                <td>${row.birthDate}</td>
-                                <td>${row.anamneses_count}</td>
-                                <td class="text-end">
-                                    <div class="btn-group btn-group-sm">
-                                        <button type="button" class="btn btn-info waves-effect waves-light" onclick="agendamento('${row.id}', '${row.name}')">AGENDAR</button>
-                                        <a href="${_baseUrl}dashboard/tp/clientes/${row.id}" onclick="recursoIndisponivel()" type="button" class="btn btn-dark waves-effect waves-light">PERFIL</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        `);
-                    })
+                        <tr>
+                            <td>${row.id}</td>
+                            <td>${row.name}<br><span class="text-muted">${row.email}</span></td>
+                            <td>${row.phone}</td>
+                            <td>${row.birthDate}</td>
+                            <td>${row.anamneses_count}</td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm">
+                                    <button type="button" class="btn btn-info waves-effect waves-light" onclick="agendamento('${row.id}', '${row.name}')">AGENDAR</button>
+                                    <a href="${_baseUrl}dashboard/tp/clientes/${row.id}" onclick="recursoIndisponivel()" class="btn btn-dark waves-effect waves-light">PERFIL</a>
+                                </div>
+                            </td>
+                        </tr>
+                    `);
+                    });
                 }
             })
-
-        //console.log(url);
+            .fail(function(jqxhr, textStatus, error) {
+                console.error("Request Failed: " + textStatus + ", " + error);
+                $('#loadResult').hide();
+                $('.noresult').show();
+            });
     }
 
-    function sendsForms() {
+    function buildUrl(base, params) {
+        const url = new URL(base);
+        Object.keys(params).forEach(key => {
+            if (params[key]) url.searchParams.append(key, params[key]);
+        });
+        return url.toString();
+    }
+
+    function setupFormSubmissions() {
         $('.sendForm').ajaxForm({
             beforeSubmit: function(formData, jqForm, options) {
                 // Ações antes de enviar o formulário, se necessário
             },
             success: function(responseText, statusText, xhr, $form) {
-                atualizarTabela();
-                //$('.sendForm')[0].reset();
+                updateTable();
                 Swal.fire({
                     title: 'Cadastrado!',
                     icon: 'success',
                 });
             },
             error: function(xhr, status, error) {
-                if (xhr.responseJSON && xhr.responseJSON.messages) {
-                    exibirMensagem('error', xhr.responseJSON);
-                } else {
-                    exibirMensagem('error', {
-                        messages: {
-                            error: 'Erro desconhecido'
-                        }
-                    });
-                }
+                const errorMessage = xhr.responseJSON && xhr.responseJSON.messages ?
+                    formatErrorMessages(xhr.responseJSON.messages) :
+                    'Erro desconhecido';
+
+                Swal.fire({
+                    title: "Erro ao incluir registro",
+                    html: errorMessage,
+                    icon: 'error',
+                });
             }
         });
     }
 
-
-    // Função para exibir mensagens
-    function exibirMensagem(type, error) {
-        // Extrai as mensagens de erro do objeto 'error'
-        let messages = error.messages;
-        // Inicializa uma string para armazenar as mensagens formatadas
-        let errorMessage = '';
-        // Itera sobre as mensagens de erro e as formata
-        for (let key in messages) {
-            if (messages.hasOwnProperty(key)) {
-                errorMessage += `${messages[key]}\n`;
-            }
-        }
-        // Exibe a mensagem de erro formatada
-        Swal.fire({
-            title: type === 'error' ? "Erro ao incluir registro" : "Mensagem",
-            html: errorMessage,
-            icon: type,
-        });
+    function formatErrorMessages(messages) {
+        return Object.values(messages).join('<br>');
     }
 </script>
 

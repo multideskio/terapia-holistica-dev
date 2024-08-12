@@ -53,7 +53,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/anamnese') ?>">
                         <i class="bi bi-calendar-range"></i> <span>Agenda</span>
                     </a>
@@ -69,7 +69,7 @@
                     <a class="nav-link menu-link" href="<?= site_url('dashboard/tp/finance') ?>">
                         <i class="bi bi-cash-coin"></i> <span>Financeiro</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="menu-title">
                     <span data-key="t-menu">Terapeuta profissional</span>
