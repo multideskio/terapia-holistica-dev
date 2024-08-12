@@ -110,14 +110,12 @@
                     $.each(data.rows, function(index, row) {
                         $('#agendamentos').append(`
                         <div class="col-lg-4 col-md-6">
-                            <div class="card">
+                            <div class="card ribbon-box border ribbon-fill right shadow-none card-animate">
                                 <div class="card-body">
-                                    <button type="button" class="btn btn-icon btn-soft-primary float-end" data-bs-toggle="button" aria-pressed="true">
-                                        <i class="bi bi-calendar-check fs-1"></i>
-                                    </button>
-                                    <a href="#!">
-                                        <h5><span class="fw-900">${row.id}</span> ${row.name}</h5>
-                                    </a>
+                                <div class="ribbon text-dark">${row.id}</div>
+                                    <h3 class="mt-3">
+                                        <h5>${row.name}</h5>
+                                    </h3>
                                     <p class="text-muted"></p>
                                     <div class="d-flex gap-4 mb-3">
                                         <div>
@@ -132,8 +130,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    `);
+                        </div>`);
                     });
                 }
             })
