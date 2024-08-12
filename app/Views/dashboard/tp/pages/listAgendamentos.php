@@ -112,7 +112,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="card ribbon-box border ribbon-fill right shadow-none card-animate">
                                 <div class="card-body">
-                                <div class="ribbon text-dark">${row.id}</div>
+                                <div class="ribbon text-dark" title="ID do agendamento">${row.id}</div>
                                     <h3 class="mt-3">
                                         <h5>${row.name}</h5>
                                     </h3>

@@ -15,36 +15,14 @@ class Home extends BaseController
         $totalSegments     = $uri->getTotalSegments(); // Obtém o número total de segmentos
         $this->lastSegment = ucfirst($uri->getSegment($totalSegments)); // Obtém o último segmento
     }
-    public function index(): string
-    {
-        $data['titlePage'] = $this->lastSegment;;
-        return view('dashboard/tp/pages/dashboard', $data);
-    }
-
-    public function clientes($id=null)
-    {
-        $modelAnamnese = new AnamnesesModel();
-
-        $data['titlePage'] = $this->lastSegment;;
-
-        return view('dashboard/tp/pages/listaClientes', $data);
-    }
-
-    public function gerarAnamnese($slug = null)
-    {
-        $modelAnamnese = new AnamnesesModel();
-
-        $data['titlePage'] = $this->lastSegment;;
-
-        return view('dashboard/tp/pages/listAgendamentos', $data);;
-    }
+    
 
 
 
 
     public function anamnese($slug = null)
     {
-        $modelAnamnese = new AnamnesesModel();
+        //$modelAnamnese = new AnamnesesModel();
 
         return view('anamnese/ficha');
     }

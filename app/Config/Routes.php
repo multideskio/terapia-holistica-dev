@@ -14,6 +14,7 @@ $routes->get('login/recover', 'Login::recover');
 $routes->get('auth/createpass/(:any)', 'Login::password/$1');
 
 $routes->get('anamnese/(:any)', 'Home::anamnese/$1');
+
 $routes->get('api/v1/anamnese/(:any)', '\App\Controllers\Apis\V1\Open::searchAnamnese/$1');
 
 //URL ABERTA PARA CRIAR A CONTA ATRAVÉS DO GATEWAY DE PAGAMENTO
@@ -40,20 +41,20 @@ $routes->group('dashboard/ts', ['filter' => ['ts', 'auth']], static function ($r
 });
 
 $routes->group('dashboard/tp', ['filter' => ['tp', 'auth']], static function ($routes) {
-    $routes->get('/', 'Home::index');
-    $routes->get('home', 'Home::index');
-    $routes->get('clientes', 'Home::clientes');
-    $routes->get('clientes/(:any)', 'Home::clientes/$1');
-    $routes->get('anamnese', 'Home::gerarAnamnese');
+    $routes->get('/', 'Tp::index');
+    $routes->get('home', 'Tp::index');
+    $routes->get('clientes', 'Tp::clientes');
+    $routes->get('clientes/(:any)', 'Tp::clientes/$1');
+    $routes->get('anamnese', 'Tp::agendados');
     
-    $routes->get('anamnese/(:num)', 'Home::gerarAnamnese/$1');
+    $routes->get('anamnese/(:num)', 'Tp::gerarAnamnese/$1');
 
-    $routes->get('analytics', 'Home::index');
-    $routes->get('finance', 'Home::index');
-    $routes->get('contacts', 'Home::index');
-    $routes->get('file-manager', 'Home::index');
-    $routes->get('tasks', 'Home::index');
-    $routes->get('history', 'Home::index');
+    $routes->get('analytics', 'Tp::index');
+    $routes->get('finance', 'Tp::index');
+    $routes->get('contacts', 'Tp::index');
+    $routes->get('file-manager', 'Tp::index');
+    $routes->get('tasks', 'Tp::index');
+    $routes->get('history', 'Tp::index');
 });
 
 $routes->group('api/v1', ['filter' => 'auth', 'namespace' => '\App\Controllers\Apis\V1'], static function ($routes) {

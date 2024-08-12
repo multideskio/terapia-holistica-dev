@@ -43,10 +43,17 @@ class Customer extends ResourceController
 
     public function searchCustomer($id = null){
         try{
-            $data = $this->modelCustomer->searchCustomer($id);
+            if(session('data')['permission'] == 2 ){
+                $data = $this->modelCustomer->searchCustomer(session('data')['customer']);
+            }else{
+                $data = $this->modelCustomer->searchCustomer($id);
+            }
             return $this->respond($data);
+
         }catch(\Exception $e){
+
             return $this->fail($e->getMessage());
+            
         }
     }
 
