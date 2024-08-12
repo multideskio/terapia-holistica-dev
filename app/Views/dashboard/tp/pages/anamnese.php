@@ -13,18 +13,18 @@
                 <h3 class="mb-5 mt-3">Crie uma anamnese</h3>
                 <?= form_open('api/v1/anamnese', 'id="wizard-form" class="needs-validation" novalidate') ?>
                 <div class="accordion" id="wizardAccordion">
-                    <input type="hidden" name="idPatient" id="idPatient">
                     <!-- Step 1 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step1.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step1.php'); ?>
                     <!-- Step 2 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step2.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step2.php'); ?>
                     <!-- Step 3 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step3.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step3.php'); ?>
                     <!-- Step 4 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step4.php'); ?>
+                    <?= $this->include('dashboard/tp/pages/forms/step4.php'); ?>
                     <!-- Step 5 -->
-                    <?= $this->include('dashboard/ts/pages/forms/step5.php'); ?>
-
+                    <?= $this->include('dashboard/tp/pages/forms/step5.php'); ?>
+                    <!-- Step 6 -->
+                    <?= $this->include('dashboard/tp/pages/forms/step6.php'); ?>
                 </div>
                 </form>
             </div>
@@ -40,9 +40,11 @@
     var url = window.location.href;
     var urlParts = url.split('/');
     var id = urlParts[urlParts.length - 1];
-    
+
     $(document).ready(function() {
         searchPatient(_idPatient)
+
+        $("#appointmentId").val(getCookie('appointmentId'));
 
         // Mostrar ou esconder o range-container baseado na seleção dos botões de rádio
         $('input[type="radio"]').on('click', function() {
@@ -189,13 +191,21 @@
                     text: 'Erro ao enviar o formulário.',
                     icon: 'error'
                 });
-
-                console.log(error);
-                console.log(status);
-                console.log(xhr);
             }
         });
 
     });
+
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
 </script>
 <?php $this->endSection(); ?>

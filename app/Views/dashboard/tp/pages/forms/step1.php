@@ -18,6 +18,10 @@
                 <div class="invalid-feedback">Este campo é obrigatório.</div>
                 <input type="hidden" name="idPatient" id="idPatient">
             </div>
+            <div class="mb-3">
+                <label for="appointmentId" class="form-label">Atendimento</label>
+                <input type="text" id="appointmentId" class="form-control" disabled>
+            </div>
             <div class="text-end mt-3">
                 <button type="button" class="btn btn-primary next-btn" data-next="#collapseTwo">Próximo</button>
             </div>

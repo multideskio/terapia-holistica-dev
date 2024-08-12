@@ -67,10 +67,10 @@
             var page = urlParams.get('page');
             var search = urlParams.get('search');
 
-            /*console.log("Search: ", search);
+            console.log("Search: ", search);
             console.log("Page: ", page);
             console.log("URL Params: ", urlParams);
-            console.log("Href: ", href);*/
+            console.log("Href: ", href);
 
             if (page && !isNaN(page)) {
                 listAgendamentos(search, page);
@@ -110,12 +110,14 @@
                     $.each(data.rows, function(index, row) {
                         $('#agendamentos').append(`
                         <div class="col-lg-4 col-md-6">
-                            <div class="card ribbon-box border ribbon-fill right shadow-none card-animate">
+                            <div class="card">
                                 <div class="card-body">
-                                <div class="ribbon text-dark" title="ID do agendamento">${row.id}</div>
-                                    <h3 class="mt-3">
-                                        <h5>${row.name}</h5>
-                                    </h3>
+                                    <button type="button" class="btn btn-icon btn-soft-primary float-end" data-bs-toggle="button" aria-pressed="true">
+                                        <i class="bi bi-calendar-check fs-1"></i>
+                                    </button>
+                                    <a href="#!">
+                                        <h5><span class="fw-900">${row.id}</span> ${row.name}</h5>
+                                    </a>
                                     <p class="text-muted"></p>
                                     <div class="d-flex gap-4 mb-3">
                                         <div>
@@ -126,11 +128,18 @@
 
                                     <div class="mt-4 hstack gap-2">
                                         <a href="#!" class="btn btn-soft-danger w-100 waves-effect waves-light">Cancelar</a>
-                                        <a href="${_baseUrl}dashboard/tp/anamnese/${row.id_customer}" class="btn btn-soft-success w-100 waves-effect waves-light">Iniciar atendimento</a>
+                                        <a href="${_baseUrl}dashboard/tp/anamnese/${row.id_customer}" class="btn btn-soft-success w-100 waves-effect waves-light start-attendance" data-id="${row.id}">Iniciar atendimento</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>`);
+                        </div>
+                    `);
+                    });
+
+                    // Adiciona o evento para salvar o ID no cookie
+                    $('.start-attendance').click(function(e) {
+                        var appointmentId = $(this).data('id');
+                        setCookie('appointmentId', appointmentId, 1); // Expira em 1 dia
                     });
                 }
             })
@@ -140,7 +149,28 @@
                 $('.noresult').show();
             });
 
-        //console.log("Request URL: ", url);
+        console.log("Request URL: ", url);
+    }
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
     }
 </script>
 <?php $this->endSection(); ?>

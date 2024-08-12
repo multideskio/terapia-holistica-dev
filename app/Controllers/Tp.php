@@ -31,16 +31,19 @@ class Tp extends BaseController
     public function agendados()
     {
         //$modelAnamnese = new AnamnesesModel();
-        $data['titlePage'] = $this->lastSegment;;
+        $data['titlePage'] = $this->lastSegment;
         return view('dashboard/tp/pages/listAgendamentos', $data);
-        
+
     }
 
     public function gerarAnamnese($id = null)
     {
         //$modelAnamnese = new AnamnesesModel();
         $data['idPatientControl'] = $id;
-        $data['titlePage'] = $this->lastSegment;;
+        $data['titlePage'] = $this->lastSegment;
+
+       
+        
         return view('dashboard/tp/pages/anamnese', $data);;
     }
 
